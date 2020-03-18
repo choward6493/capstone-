@@ -10,12 +10,12 @@ hash('md5', $_POST["psw"];);
 
 
 <?php
-$servername = "dblib:six-1.cxiblbeokqky.us-east-1.rds.amazonaws.com:1433";
+$servername = "dblib:host=six-1.cxiblbeokqky.us-east-1.rds.amazonaws.com:1433";
 $username = "admin";
 $password = "SixGuys1CapstoneProject";
 
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=myDB", $username, $password);
+    $conn = new PDO("$servername;dbname=Capstone", $username, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     echo "Connected successfully";
