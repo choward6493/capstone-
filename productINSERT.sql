@@ -1,11 +1,18 @@
 USE [Capstone]
 GO
 
-INSERT INTO [dbo].[Products]
-           ([ProductName]
-           ,[Cost]
-           ,[Availible])
+INSERT INTO [dbo].[Customers]
+           ([CustomerFirstName]
+           ,[CustomerLastName]
+           ,[CustomerPhoneNumber]
+           ,[CustomerEmail]
+           ,[CustomerAddress]
+           ,[CustomerAPTNumber]
+           ,[CustomerCity]
+           ,[CustomerState]
+           ,[CustomerZipCode]
+           ,[CustomerDOB])
      VALUES
-           ('Apple', '1.99',1)
+           ('Test','Dummy','16144670711','arenninger@student.cscc.edu','1234 Columbus State',null,'Columbus','OH','43123',TO_DATE('01/01/2001', 'DD/MM/YYYY'))
 GO
 
