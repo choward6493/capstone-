@@ -1,0 +1,347 @@
+
+	*{
+	box-sizing: border-box;
+	}
+	body{	
+		font-family: Arial, Helvetica, sans-serif;
+		
+	}
+	.container{
+		
+		margin:auto;	
+	overflow: hidden; }
+	#hero{
+		min-height: 500px;
+		background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("img/something.jpg");
+		background-repeat:no-repeat;
+		  background-size: cover;
+		color: #fff;
+		text-align: center;
+		border: 5px solid red ;
+	  padding: 50px;
+		
+		}
+			
+		
+		#hero h1{
+		margin-top: 100px;
+		font-size: 55px;
+		margin-bottom: 10px;
+		}
+		
+		#hero1{
+		min-height: 600px;
+		background-image: url("img/fun.jpg");
+		background-repeat:no-repeat;
+		background-size: cover;
+		color: #fff;
+		text-align: center;
+		padding: 25px;
+		
+		}
+		#hero2{
+		min-height: 600px;
+		background-image: url("img/order.jpg");
+		background-repeat:no-repeat;
+		background-size: cover;
+		color: #fff;
+		text-align: center;
+		padding: 100px;
+		
+		}	
+		
+		#hero3{
+		min-height: 600px;
+		background-image: url("img/fun1.jpg");
+		background-repeat:no-repeat;
+		background-size: cover;
+		color: #fff;
+		text-align: center;
+		padding: 25px;
+		}
+		
+		
+	h1{
+	background-color: green;
+	margin-top:0px;
+	padding: 20px;
+	margin-bottom:0px;
+	text-align: center;
+	font-size: 30px;
+	color: white;
+	line-height:80px;}
+
+
+	.imgHeader img{
+		width: 150px;
+		height: 100px;
+		position: absolute;
+		left:0;
+		top:0;
+		margin-top:18px;
+		margin-left:10px;
+	}
+
+	ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: orange;
+	}
+
+
+	li {
+	float: left;
+	padding: 20px;
+	border-right:1px solid #bbb;
+	 
+	}
+
+	li:last-child {
+	border-right: none;
+	}
+
+	li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 20px 18px;
+	text-decoration: none;
+	 
+	}
+
+	li a:hover:not(.active) {
+	background-color: #111;
+	}
+
+	.active {
+	background-color: #4CAF50;
+
+
+
+	}
+	.home1{font-weight:bold;
+	font-size:25px;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	color:black;
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);}
+
+	.f1{background-color:orange;}
+	.dwrapper{background-color:#ffafbd;}
+	.aboutP{
+	font-weight:bold;
+	font-size:25px;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	color:black;
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+
+	}
+	
+	.conP {
+	float:left;
+	font-size:20px;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	color:black;
+	position:absolute;
+	top:60%;
+	left:15%;
+	transform:translate(-50%,-50%);
+	}
+
+	.form1{
+	float:left;
+	font-size:20px;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	color:black;
+	position:absolute;
+	top:30%;
+	left:10%;
+	transform:translate(-50%,-50%);
+	padding
+
+	}
+	footer{  
+	background: blue;
+	height: 100px;
+	margin: auto;
+	width: 100%;
+	text-align:center;
+	padding:10px;
+	color:#ffffff;
+	}
+	footer a {
+		
+		color:orange;
+	}
+
+	.About{
+	padding:10px;
+	background-color:orange;
+	line-height:40px;
+	text-align:left;}
+
+	.form{text-align:left;
+	margin-top:20px;
+	padding:20px;}
+	
+	
+	
+	
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  height: 850px; /* Should be removed. Only for demonstration */
+  background-color:white;
+  border-right:2px solid;
+  border-bottom:2px solid;
+ margin-bottom:0;
+}
+.row h2{
+	text-align:center;
+	background-color:pink;
+}
+.responsive{
+	max-width:100%;
+	height:auto;
+	
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Tablet version*/
+	
+@media only screen and (max-width: 1024px)
+
+	{ 
+			body { 
+			margin:0;
+			background-image: none;			
+			max-width:100%;
+			height:auto;}
+			
+			
+			#wrapper{width:auto;
+			min-width:0;
+			margin:0;
+			padding:0;
+			box-shadow:none;}
+			
+			header {
+				
+				border-bottom: 5px solid #fef6c2;
+				
+			}
+			
+			.text-center p, h2{
+				
+				font-size:0.90em;
+				text-align:center;
+				padding-left:10px;
+				padding-right:10px;
+			}
+				
+			#hero4{
+		max-height:100%;
+		background-image: none;		
+		text-align: center;
+		padding: 25px;
+		
+		}	
+		
+		.product{text-align:center;}
+		.img1{	
+	height:auto;
+	max-width:100%;
+	background-color:orange;
+	}
+	
+	.form-inline{
+		text-align:center;
+	}
+	
+	#hero4 #hero #hero1 #hero2 #hero3{
+	height:auto;
+	max-width:100%;
+	background-color:orange;}	
+			
+			header img{display:none;}
+			
+			
+			h1, h3 {
+			font-size:1em;
+			text-align:center;
+			padding-left:0;
+			}
+			
+			
+			nav{
+				
+				float:none;
+				width:auto;
+				padding-top:0;
+				margin: 10px;
+				font-size:1.5em;
+				text-align:center;
+				
+			}
+			
+			nav a{
+				
+				
+				padding:1em;
+				width:30em;
+				font-weight:bold;
+				border-style:none;
+			}
+			body{background-color:gold;}
+			
+			#hero4{
+		max-width:10;
+		background-image: none);
+		margin-bottom:0;
+		
+		
+		}	
+			
+	@media only screen and (max-width: 768px)
+	{
+		
+	nav ul{
+	margin: 0;
+	
+  text-decoration: none;
+  font-size: 17px;
+  display:block;
+  width:auto;
+  padding-right:10px;
+
+  }
+  
+  body{background-color:teal;}
+  
+  
+	nav a{
+					
+				padding:1em;
+				width:30em;
+				font-weight:bold;
+				border-style:none;
+				
+			}
+			
+			
+	
+	}

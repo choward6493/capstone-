@@ -1,0 +1,336 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  padding: 10px;
+  background: #f1f1f1;
+  background-image:url(pictures/background3.jpg);
+  background-size:100% 100%;
+}
+
+/* Header/ Title */
+.header {
+  padding: 30px;
+  text-align: center;
+  background: white;
+  background-image:url(pictures/header3.jpg);
+  background-size:100%;
+  font-family: Arial;
+}
+
+.header h1 {
+  font-size: 50px;
+  font-family: Arial;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: Arial;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+  font-family: Arial;
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {   
+  float: left;
+  width: 75%;
+  font-family: Arial;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 25%;
+  background-color: #f1f1f1;
+  padding-left: 20px;
+  font-family: Arial;
+}
+
+/* image */
+.img {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+  font-family: Arial;
+}
+
+/* image */
+.pop_img {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+  font-family: Arial;
+}
+
+/* Add a card effect for articles */
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+  font-family: Arial;
+}
+.card1 {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+  font-family: Arial;
+}
+.social-icons {
+  text-align: center;
+  }  
+.social-icons li {
+  display:inline-block;
+  list-style-type:none;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  }
+.social-icons li a {
+  border-bottom: none;
+  }
+.social-icons li img {
+  width:70px;
+  height:70px;
+  margin-right: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
+  text-decoration: none;
+  font-family: Arial;
+}
+ul {
+	list-style-type: none;
+	text-decoration: none;
+	font-family: Arial;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}
+
+.form-inline {  
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  font-family: Arial;
+}
+
+.form-inline label {
+  font-family: Arial;
+  margin: 10px 10px 10px 0;
+}
+
+.form-inline input {
+  font-family: Arial;
+  vertical-align: middle;
+  margin: 10px 10px 10px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.form-inline button {
+  font-family: Arial;
+  padding: 10px 20px;
+  background-color: #444;
+  border: 1px solid #fff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.form-inline button:hover {
+  background-color: #005f5f;
+  font-family: Arial;
+}
+
+@media (max-width: 800px) {
+  .form-inline input {
+    margin: 10px 0;
+	font-family: Arial;
+  }
+  
+  .form-inline {
+    flex-direction: column;
+    align-items: stretch;
+	font-family: Arial;
+  }
+}
+.caption {
+    display: block;
+	font-family: Arial;
+	
+}
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  
+}
+
+/* Set a style for all buttons */
+.login {
+  background-color: #333;
+  color: #f2f2f2;
+  padding: 14px 16px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-family: 'Arial'; font-size:17px;
+}
+
+button:hover {
+  background-color: #ddd;
+  color: black;
+  font-family: 'Arial';
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+  border: none;
+  cursor: pointer;
+  font-family: 'Arial'; font-size:17px;
+}
+.btn:hover {
+  border:2px solid white;
+  cursor: pointer;
+  font-family: 'Arial'; font-size:17px;
+}
+
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
