@@ -34,7 +34,7 @@ echo $usernamePP;
 
 //$hashPass = hash("md5",$_POST["psw"])
 
-$sql = "SELECT CustomerID, Email FROM Customers WHERE Email=".$usernamePP;
+$sql = "SELECT CustomerID, Email FROM Customers WHERE Email="+=$usernamePP;
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
