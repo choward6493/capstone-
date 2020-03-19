@@ -31,7 +31,8 @@ $usernamePP = $_POST["uname"];
 //$_POST["psw"];
 //$_POST["remember"];
 
-$hashPass = hash("md5",$_POST["psw"])
+//$hashPass = hash("md5",$_POST["psw"])
+
 $sql = "SELECT CustomerID, Email FROM Customers WHERE Email=$usernamePP";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
