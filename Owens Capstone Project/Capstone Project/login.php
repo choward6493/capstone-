@@ -53,9 +53,10 @@ echo $sql2;
 $result2 = $conn->query($sql2);
 if ($result2->num_rows > 0) {
     // output userID from email
-    echo 'help '.$result2->fetch_assoc()["CustomerPasswordHash"].'<br>';
+    $hashedData=$result2->fetch_assoc()["CustomerPasswordHash"]
+    echo '<br>'.$hashedData'<br>';
     echo '<br>'.$hashPass;
-    if($hashPass==$result2->fetch_assoc()["CustomerPasswordHash"]){
+    if($hashPass==$hashedData){
         echo "You're in";
     }else {
         echo "Password not right";
