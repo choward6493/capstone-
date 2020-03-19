@@ -44,18 +44,18 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output userID from email
     $userID=$result->fetch_assoc()["CustomerID"];
-    echo $result->fetch_assoc()["CustomerID"].'<br>';
+    //echo $result->fetch_assoc()["CustomerID"].'<br>';
 } else {
     echo "0 results";
 }
 $sql2 = 'SELECT CustomerPasswordHash FROM CustomerLOG WHERE CustomerID='.$userID;
-echo $sql2;
+//echo $sql2;
 $result2 = $conn->query($sql2);
 if ($result2->num_rows > 0) {
     // output userID from email
     $hashedData=$result2->fetch_assoc()["CustomerPasswordHash"];
-    echo '<br>'.$hashedData.'<br>';
-    echo '<br>'.$hashPass;
+    //echo '<br>'.$hashedData.'<br>';
+    //echo '<br>'.$hashPass;
     if($hashPass==$hashedData){
         echo "You're in";
     }else {
