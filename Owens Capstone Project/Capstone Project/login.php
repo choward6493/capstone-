@@ -35,18 +35,30 @@ echo $usernamePP."<br/>";
 //$_POST["psw"];
 //$_POST["remember"];
 
-//$hashPass = hash("md5",$_POST["psw"])
-
+$hashPass = hash("md5",$_POST["psw"])
+$userID=0;
 $sql = 'SELECT CustomerID FROM Customers WHERE Email="'.$usernamePP.'"';
-echo $sql;
+//echo $sql;
 //$sql = 'SELECT CustomerID, Email FROM Customers WHERE Email="arenninger@student.cscc.edu"';
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
-    // output data of each row
+    // output userID from email
+    $userID=$result->fetch_assoc()["CustomerID"];
     echo $result->fetch_assoc()["CustomerID"].'<br>';
 } else {
     echo "0 results";
 }
+$sql = 'SELECT CustomerPasswordHash FROM CustomerLOG WHERE CustomerID="'.$userID.'"';
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    // output userID from email
+    if($hashPass==$result->fetch_assoc()["CustomerID"]){
+        echo "You're in"
+    }
+} else {
+    echo "Password not right";
+}
+
 $conn->close();
 ?>
 
