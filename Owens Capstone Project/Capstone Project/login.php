@@ -13,9 +13,10 @@ hash('md5', $_POST["psw"];);
 $servername = "capstone2.cxiblbeokqky.us-east-1.rds.amazonaws.com:1433";
 $username = "admin";
 $password = "SixGuys1CapstoneProject";
+$dbname="Capstone"
 
 // Create connection
-$conn = new mysqli($servername, $username, $password);
+$conn = new mysqli($servername, $username, $password,$dbname);
 
 /*
 
@@ -34,8 +35,8 @@ echo $usernamePP."<br/>";
 
 //$hashPass = hash("md5",$_POST["psw"])
 
-//$sql = 'SELECT CustomerID, Email FROM Customers WHERE Email='.$usernamePP;
-$sql = 'SELECT * FROM Customers';
+$sql = 'SELECT CustomerID, Email FROM Customers WHERE Email='.$usernamePP;
+//$sql = 'SELECT * FROM Customers';
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
