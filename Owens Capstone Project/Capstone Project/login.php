@@ -52,6 +52,8 @@ $sql2 = 'SELECT CustomerPasswordHash FROM CustomerLOG WHERE CustomerID="'.$userI
 $result2 = $conn->query($sql);
 if ($result2->num_rows > 0) {
     // output userID from email
+    echo $result2->fetch_assoc()["CustomerPasswordHash"];
+    echo '<br>'.$hashPass;
     if($hashPass==$result2->fetch_assoc()["CustomerPasswordHash"]){
         echo "You're in";
     }else {
