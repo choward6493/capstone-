@@ -10,7 +10,7 @@ hash('md5', $_POST["psw"];);
 
 
 <?php
-$servername = "capstone2.cxiblbeokqky.us-east-1.rds.amazonaws.com";
+$servername = "capstone2.cxiblbeokqky.us-east-1.rds.amazonaws.com:1433";
 $username = "admin";
 $password = "SixGuys1CapstoneProject";
 
