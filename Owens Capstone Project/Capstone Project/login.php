@@ -37,15 +37,13 @@ echo $usernamePP."<br/>";
 
 //$hashPass = hash("md5",$_POST["psw"])
 
-$sql = 'SELECT CustomerID, Email FROM Customers WHERE Email="'.$usernamePP.'"';
+$sql = 'SELECT CustomerID FROM Customers WHERE Email="'.$usernamePP.'"';
 echo $sql;
 //$sql = 'SELECT CustomerID, Email FROM Customers WHERE Email="arenninger@student.cscc.edu"';
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "CustomerID: " . $row["CustomerID"]. " - Name: " . $row["Email"]. "<br>";
-    }
+    echo $result->fetch_assoc()["CustomerID"].'<br>';
 } else {
     echo "0 results";
 }
