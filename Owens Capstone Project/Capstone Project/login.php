@@ -49,7 +49,8 @@ if ($result->num_rows > 0) {
     echo "0 results";
 }
 $sql2 = 'SELECT CustomerPasswordHash FROM CustomerLOG WHERE CustomerID='.$userID;
-$result2 = $conn->query($sql);
+echo $sql2;
+$result2 = $conn->query($sql2);
 if ($result2->num_rows > 0) {
     // output userID from email
     echo 'help '.$result2->fetch_assoc()["CustomerPasswordHash"].'<br>';
