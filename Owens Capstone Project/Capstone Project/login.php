@@ -48,7 +48,7 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
-$sql2 = 'SELECT CustomerPasswordHash FROM CustomerLOG WHERE CustomerID='.$userID.;
+$sql2 = 'SELECT CustomerPasswordHash FROM CustomerLOG WHERE CustomerID='.$userID;
 $result2 = $conn->query($sql);
 if ($result2->num_rows > 0) {
     // output userID from email
