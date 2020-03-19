@@ -35,7 +35,7 @@ echo $usernamePP."<br/>";
 //$_POST["psw"];
 //$_POST["remember"];
 
-$hashPass = hash("md5",$_POST["psw"])
+$hashPass = hash("md5",$_POST["psw"]);
 $userID=0;
 $sql = 'SELECT CustomerID FROM Customers WHERE Email="'.$usernamePP.'"';
 //echo $sql;
