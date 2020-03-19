@@ -28,6 +28,7 @@ echo "Connected successfully";
 */
 
 $usernamePP = $_POST["uname"];
+echo $usernamePP;
 //$_POST["psw"];
 //$_POST["remember"];
 
