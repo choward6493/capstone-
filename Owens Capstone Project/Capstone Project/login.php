@@ -54,6 +54,8 @@ if ($result2->num_rows > 0) {
     // output userID from email
     if($hashPass==$result2->fetch_assoc()["CustomerPasswordHash"]){
         echo "You're in";
+    }else {
+        echo "Password not right";
     }
 } else {
     echo "Password not right";
