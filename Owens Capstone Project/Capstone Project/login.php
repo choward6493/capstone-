@@ -48,12 +48,12 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
-$sql = 'SELECT CustomerPasswordHash FROM CustomerLOG WHERE CustomerID="'.$userID.'"';
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
+$sql2 = 'SELECT CustomerPasswordHash FROM CustomerLOG WHERE CustomerID="'.$userID.'"';
+$result2 = $conn->query($sql);
+if ($result2->num_rows > 0) {
     // output userID from email
-    if($hashPass==$result->fetch_assoc()["CustomerPasswordHash"]){
-        echo "You're in"
+    if($hashPass==$result2->fetch_assoc()["CustomerPasswordHash"]){
+        echo "You're in";
     }
 } else {
     echo "Password not right";
