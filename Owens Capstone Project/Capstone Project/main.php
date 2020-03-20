@@ -6,8 +6,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
-    <p>test</p>
     <?php
+    function console_log($output, $with_script_tags = true) {
+        $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) . 
+    ');';
+        if ($with_script_tags) {
+            $js_code = '<script>' . $js_code . '</script>';
+        }
+        echo $js_code;
+    }
     $servername = "capstone2.cxiblbeokqky.us-east-1.rds.amazonaws.com:1433";
     $username = "admin";
     $password = "SixGuys1CapstoneProject";
@@ -24,6 +31,7 @@
     //if login data is stored, check that it is actual
     if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
         $usernamePP=$_COOKIE['user'];
+        console_log($usernamePP);
         $hashPass=$_COOKIE['token'];
         $userID=0;
         $sql = 'SELECT CustomerID FROM Customers WHERE Email="'.$usernamePP.'"';
