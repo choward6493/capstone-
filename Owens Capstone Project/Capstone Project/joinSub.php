@@ -44,10 +44,19 @@ $zipCode = $_POST["zipCode"];
 $date=$_POST["date"];
 $userID=0;
 
-
-$sql = 'INSERT INTO Customers(FirstName,LastName,PhoneNumber,Email,Address,APTNumber,City,State,ZipCode,DOB)values('.$firstName.','.$lastName.','.$phoneNumber.','.$usernamePP.','.$address.','.$aptNumber.','.$city.','.$state.','.$zipCode.','.$date.')';
+$sql = 'SELECT CustomerID FROM Customers WHERE Email="'.$usernamePP.'"';
+//echo $sql;
+//$sql = 'SELECT CustomerID, Email FROM Customers WHERE Email="arenninger@student.cscc.edu"';
 $result = $conn->query($sql);
-console_log($result);
+if ($result->num_rows > 0) {
+    echo '<script>alert("That email has been used before. Please use a different one");window.location.replace("join.php");</script>'
+} else {
+    $sql = 'INSERT INTO Customers(FirstName,LastName,PhoneNumber,Email,Address,APTNumber,City,State,ZipCode,DOB)values("'.$firstName.'","'.$lastName.'","'.$phoneNumber.'","'.$usernamePP.'","'.$address.'","'.$aptNumber.'","'.$city.'","'.$state.'","'.$zipCode.'","'.$date.'")';
+    $result = $conn->query($sql);
+    console_log($result);
+}
+
+
 
 $conn->close();
 //window.location.replace("main.php");
