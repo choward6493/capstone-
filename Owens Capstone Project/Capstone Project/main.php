@@ -6,12 +6,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
+    <p>test</p>
     <?php
     $servername = "capstone2.cxiblbeokqky.us-east-1.rds.amazonaws.com:1433";
     $username = "admin";
     $password = "SixGuys1CapstoneProject";
     $dbname="Capstone";
-    
+    $userID=0;
     // Create connection
     $conn = new mysqli($servername, $username, $password,$dbname);
     /*
