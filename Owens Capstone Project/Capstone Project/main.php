@@ -4,6 +4,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+<script>
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+if((getCookie("token")=="")){
+    document.getElementById('logB').style.visibility='inline'
+}
+</script>
 <body>
 
 <div class="header">
@@ -15,7 +35,7 @@
   <a href="index.html">Home</a>
   <a href="menu.html">Menu</a>
   <a href="rewards.html">Rewards</a>
-  <button class="login" onclick="document.getElementById('id01').style.display='block'" style="width:auto;float:right;font-family: Arial;">Login</button>
+  <button id="logB" display="none" class="login" onclick="document.getElementById('id01').style.display='block'" style="display:none;width:auto;float:right;font-family: Arial;">Login</button>
 
 <div id="id01" class="modal">
   

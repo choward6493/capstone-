@@ -52,9 +52,8 @@ if ($result2->num_rows > 0) {
         $passCookie="token";
         $passCookieVal=$hashedData;
         if(!($_POST["remember"]=="on")){
-            session_start();
-            $_SESSION[$userCookie]=$userCookieVal;
-            $_SESSION[$passCookie]=$passCookieVal;
+            setcookie($userCookie,$userCookieVal, time() + (86400/24), "/");
+            setcookie($passCookie,$passCookieVal,time()+(86400/24),"/");
         }else{
             setcookie($userCookie, $userCookieVal, time() + (86400*30), "/");
             setcookie($passCookie,$passCookieVal,time()+(86400*30),"/");
