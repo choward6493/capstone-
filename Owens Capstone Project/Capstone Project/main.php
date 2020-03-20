@@ -4,7 +4,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<script>
+
+<body>
+
+<div class="header">
+  <h1>Montgomery Cup Coffee​</h1>
+  <h4><b>Our mission is to make the lives of guests better<br>through quality products, service, and innovation.</b></h4>
+</div>
+
+<div class="topnav">
+  <a href="index.html">Home</a>
+  <a href="menu.html">Menu</a>
+  <a href="rewards.html">Rewards</a>
+  <button id="logB" display="none" class="login" onclick="document.getElementById('id01').style.display='block'" style="display:none;width:auto;float:right;font-family: Arial;">Login</button>
+  <script>
 function getCookie(cname) {
   var name = cname + "=";
   var decodedCookie = decodeURIComponent(document.cookie);
@@ -24,19 +37,6 @@ if((getCookie("token")=="")){
     document.getElementById('logB').style.visibility='inline';
 }
 </script>
-<body>
-
-<div class="header">
-  <h1>Montgomery Cup Coffee​</h1>
-  <h4><b>Our mission is to make the lives of guests better<br>through quality products, service, and innovation.</b></h4>
-</div>
-
-<div class="topnav">
-  <a href="index.html">Home</a>
-  <a href="menu.html">Menu</a>
-  <a href="rewards.html">Rewards</a>
-  <button id="logB" display="none" class="login" onclick="document.getElementById('id01').style.display='block'" style="display:none;width:auto;float:right;font-family: Arial;">Login</button>
-
 <div id="id01" class="modal">
   
   <form class="modal-content animate" action="/login.php" method="post">
