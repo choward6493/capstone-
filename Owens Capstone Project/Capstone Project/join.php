@@ -6,17 +6,7 @@
 </head>
 
 <body class="coffee">
-  <header>
-    <div class="nav">
-      <ul>
-        <li class="home"><a href="index.html">Home</a></li>
-        <li class="menu"><a href="menu.html">Menu</a></li>
-        <li class="rewards"><a href="rewards.html">Rewards</a></li>
-        <li class="signin"><a href="signin.html">Sign in</a></li>
-        <li class="joinnow"><a href="join.html">Join now</a></li>
-      </ul>
-    </div>
-  </header>
+
   <div id="id01" class="modal"style="display:block;">
   <form class="modal-content animate" action="/joinSub.php" method="post">
                     
@@ -47,7 +37,6 @@
                         <input type="text" placeholder="Enter city" name="city" required>
 
                         <label for="state"><b>State</b></label>
-                        <input type="text" placeholder="Enter state" name="state" required>
                         <select id='states'>
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
@@ -100,7 +89,7 @@
                             <option value="WV">West Virginia</option>
                             <option value="WI">Wisconsin</option>
                             <option value="WY">Wyoming</option>
-                        </select>				
+                        </select>				<br/>
 
                         <label for="zipCode"><b>Zip Code</b></label>
                         <input type="text" placeholder="Enter ZIP Code" name="zipCode" required>
@@ -115,15 +104,6 @@
                     
                 </form>
                 </div>
-<div class="footer">
-		<form class="form-inline" action="#">
-		<ul>
-        <li class="about"><a href="about.html">About Us</a></li>
-		</ul>
-  <label for="email">Join our mailing list:</label>
-  <input type="email" id="email" placeholder="Enter email" name="email">
-  <button type="submit">Submit</button>
-</form>
-		</div>
+
 </body>
 </html>
