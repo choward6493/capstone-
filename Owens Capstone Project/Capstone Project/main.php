@@ -21,7 +21,7 @@ function getCookie(cname) {
   return "";
 }
 if((getCookie("token")=="")){
-    document.getElementById('logB').style.visibility='inline'
+    document.getElementById('logB').style.visibility='inline';
 }
 </script>
 <body>
