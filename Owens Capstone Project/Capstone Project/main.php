@@ -34,7 +34,7 @@ function getCookie(cname) {
   return "";
 }
 if((getCookie("token")=="")){
-    document.getElementById('logB').style.visibility='inline';
+    document.getElementById('logB').style.display='inline';
 }
 </script>
 <div id="id01" class="modal">
