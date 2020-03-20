@@ -64,7 +64,7 @@ if ($result2->num_rows > 0) {
         $passCookieVal=$hashedData;
 
         setcookie($userCookie, $userCookieVal, time() + (86400), "/");
-        setcookie($passCookie,$passCookieVal,time()+(86400),"/")
+        setcookie($passCookie,$passCookieVal,time()+(86400),"/");
     }else {
         echo "Password not right";
     }
