@@ -89,14 +89,14 @@
                             <option value="WV">West Virginia</option>
                             <option value="WI">Wisconsin</option>
                             <option value="WY">Wyoming</option>
-                        </select>				<br/>
+                        </select>				<br/><br/>
 
                         <label for="zipCode"><b>Zip Code</b></label>
                         <input type="text" placeholder="Enter ZIP Code" name="zipCode" required>
 
                         <label for="date"><b>Date</b></label>
                         <input type="date" placeholder="Enter Date" name="date" required>
-
+<br/>
                         <button class="login" type="submit">Register</button>
                         
                     </div>
