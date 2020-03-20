@@ -40,6 +40,7 @@ $address = $_POST["address"];
 $aptNumber = $_POST["aptNumber"];
 $city = $_POST["city"];
 $state = $_POST["states"];
+console_log($state);
 $zipCode = $_POST["zipCode"];
 $date=$_POST["date"];
 $userID=0;
@@ -72,6 +73,15 @@ if ($result->num_rows > 0) {
     
     $result2 = $conn->query($sql2);
     console_log($result2);
+
+    $userCookie="user";
+    $userCookieVal=$usernamePP;
+    $passCookie="token";
+    $passCookieVal=$hashedData;
+    setcookie($userCookie,$userCookieVal, time() + (86400/24), "/");
+    setcookie($passCookie,$passCookieVal,time()+(86400/24),"/");
+        
+    //echo '<script>window.location.replace("main.php");</script>';
 }
 
 

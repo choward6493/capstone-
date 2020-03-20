@@ -36,8 +36,8 @@
                         <label for="city"><b>City</b></label>
                         <input type="text" placeholder="Enter city" name="city" required>
 
-                        <label for="state"><b>State</b></label>
-                        <select id='states'name="states">
+                        <label for="states"><b>State</b></label>
+                        <select id='states' name="states">
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
                             <option value="AZ">Arizona</option>
