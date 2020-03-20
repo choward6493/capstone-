@@ -50,7 +50,7 @@ $sql = 'SELECT CustomerID FROM Customers WHERE Email="'.$usernamePP.'"';
 $result = $conn->query($sql);
 //check duplicate email
 if ($result->num_rows > 0) {
-    echo '<script>alert("That email has been used before. Please use a different one");window.location.replace("join.php");</script>'
+    echo '<script>alert("That email has been used before. Please use a different one");window.location.replace("join.php");</script>';
 } else {
     //if not duplicate insert into customers
     $sql = 'INSERT INTO Customers(FirstName,LastName,PhoneNumber,Email,Address,APTNumber,City,State,ZipCode,DOB)values("'.$firstName.'","'.$lastName.'","'.$phoneNumber.'","'.$usernamePP.'","'.$address.'","'.$aptNumber.'","'.$city.'","'.$state.'","'.$zipCode.'","'.$date.'")';
