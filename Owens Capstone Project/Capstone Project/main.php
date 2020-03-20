@@ -93,6 +93,7 @@
             function logMeOut(){
                 document.cookie = "token= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
                 document.cookie = "user= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+                location.reload();
             }
             </script>
             <button id="logB" display="none" class="login" onclick="document.getElementById('id01').style.display='block'" style="display:none;width:auto;float:right;font-family: Arial;">Login</button>
