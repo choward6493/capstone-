@@ -101,10 +101,12 @@
                 //if user logged in token doesn't exist, show log in button
                 if((getCookie("token")=="")){
                     document.getElementById('logB').style.display='inline';
+                }else{
+                    document.getElementById('welcomeP').style.display='inline';
                 }
             </script>
             <button id="logB" display="none" class="login" onclick="document.getElementById('id01').style.display='block'" style="display:none;width:auto;float:right;font-family: Arial;">Login</button>
-            <p id="welcome" style="width:auto;float:right;font-family: Arial;">Welcome, <?php echo $customerName;?></p>
+            <p id="welcomeP" style="display:none;width:auto;float:right;font-family: Arial;">Welcome, <?php echo $customerName;?></p>
             
             <div id="id01" class="modal">
                 <form class="modal-content animate" action="/login.php" method="post">
