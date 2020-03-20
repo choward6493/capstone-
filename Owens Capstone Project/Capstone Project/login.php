@@ -33,7 +33,7 @@ echo "Connected successfully";
 $usernamePP = $_POST["uname"];
 echo $usernamePP."<br/>";
 //$_POST["psw"];
-//$_POST["remember"];
+ech $_POST["remember"]."<br/>";
 
 $hashPass = hash("md5",$_POST["psw"]);
 $userID=0;
@@ -58,12 +58,20 @@ if ($result2->num_rows > 0) {
     //echo '<br>'.$hashPass;
     if($hashPass==$hashedData){
         echo "You're in";
+        $userCookie="user";
+        $userCookieVal=$usernamePP;
+        $passCookie="token";
+        $passCookieVal=$hashedData;
+
+        setcookie($userCookie, $userCookieVal, time() + (86400), "/");
+        setcookie($passCookie,$passCookieVal,time()+(86400),"/")
     }else {
         echo "Password not right";
     }
 } else {
-    echo "Password not right";
+    echo "nothing found";
 }
+
 
 $conn->close();
 ?>
