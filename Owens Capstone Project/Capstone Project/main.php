@@ -89,7 +89,14 @@
             <a href="index.html">Home</a>
             <a href="menu.html">Menu</a>
             <a href="rewards.html">Rewards</a>
+            <script>
+            function logMeOut(){
+                document.cookie = "token= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+                document.cookie = "user= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+            }
+            </script>
             <button id="logB" display="none" class="login" onclick="document.getElementById('id01').style.display='block'" style="display:none;width:auto;float:right;font-family: Arial;">Login</button>
+            <button id="logOut" display="none" class="login" onclick="logMeOut" style="display:none;width:auto;float:right;font-family: Arial;">Log Out</button>
             <button id="welcomeP" display="none" class="login" onclick="#" style="display:none;width:auto;float:right;font-family: Arial;">Welcome, <?php echo $customerName;?></button>
             
             <script>
@@ -113,6 +120,7 @@
                 if((getCookie("token")=="")){
                     document.getElementById('logB').style.display='inline';
                 }else{
+                    document.getElementById('logOut').style.display='inline';
                     document.getElementById('welcomeP').style.display='inline';
                 }
             </script>
