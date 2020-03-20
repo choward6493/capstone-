@@ -1,14 +1,3 @@
-<html>
-<body>
-
-<!-- 
-search in customer table where CustomerEmail=uname  
-if hashed psw = hashed psw in table then give session cookie that expires
-$_POST["uname"];
-hash('md5', $_POST["psw"];);
--->
-
-
 <?php
 $servername = "capstone2.cxiblbeokqky.us-east-1.rds.amazonaws.com:1433";
 $username = "admin";
@@ -31,9 +20,9 @@ echo "Connected successfully";
 */
 
 $usernamePP = $_POST["uname"];
-echo $usernamePP."<br/>";
+//echo $usernamePP."<br/>";
 //$_POST["psw"];
-echo $_POST["remember"]."<br/>";
+//echo $_POST["remember"]."<br/>";
 
 $hashPass = hash("md5",$_POST["psw"]);
 $userID=0;
@@ -46,7 +35,7 @@ if ($result->num_rows > 0) {
     $userID=$result->fetch_assoc()["CustomerID"];
     //echo $result->fetch_assoc()["CustomerID"].'<br>';
 } else {
-    echo "0 results";
+    //echo "0 results";
 }
 $sql2 = 'SELECT CustomerPasswordHash FROM CustomerLOG WHERE CustomerID='.$userID;
 //echo $sql2;
@@ -57,24 +46,39 @@ if ($result2->num_rows > 0) {
     //echo '<br>'.$hashedData.'<br>';
     //echo '<br>'.$hashPass;
     if($hashPass==$hashedData){
-        echo "You're in";
+        //echo "You're in";
         $userCookie="user";
         $userCookieVal=$usernamePP;
         $passCookie="token";
         $passCookieVal=$hashedData;
-
-        setcookie($userCookie, $userCookieVal, time() + (86400), "/");
-        setcookie($passCookie,$passCookieVal,time()+(86400),"/");
+        if(!($_POST["remember"]=="on")){
+            session_start();
+            $_SESSION[$userCookie]=$userCookieVal;
+            $_SESSION[$passCookie]=$passCookieVal;
+        }else{
+            setcookie($userCookie, $userCookieVal, time() + (86400*30), "/");
+            setcookie($passCookie,$passCookieVal,time()+(86400*30),"/");
+        }
+        
     }else {
-        echo "Password not right";
+        //echo "Password not right";
     }
 } else {
-    echo "nothing found";
+    //echo "nothing found";
 }
 
 
 $conn->close();
 ?>
+<html>
+<body>
+
+<!-- 
+search in customer table where CustomerEmail=uname  
+if hashed psw = hashed psw in table then give session cookie that expires
+$_POST["uname"];
+hash('md5', $_POST["psw"];);
+-->
 
 
 
