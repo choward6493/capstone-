@@ -33,7 +33,7 @@ echo "Connected successfully";
 $usernamePP = $_POST["uname"];
 echo $usernamePP."<br/>";
 //$_POST["psw"];
-ech $_POST["remember"]."<br/>";
+echo $_POST["remember"]."<br/>";
 
 $hashPass = hash("md5",$_POST["psw"]);
 $userID=0;
