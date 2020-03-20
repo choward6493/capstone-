@@ -90,6 +90,7 @@
             <a href="menu.html">Menu</a>
             <a href="rewards.html">Rewards</a>
             <button id="logB" display="none" class="login" onclick="document.getElementById('id01').style.display='block'" style="display:none;width:auto;float:right;font-family: Arial;">Login</button>
+            <p id="welcomeP" style="display:none;width:auto;float:right;font-family: Arial;">Welcome, <?php echo $customerName;?></p>
             <script>
                 //get cookie values
                 function getCookie(cname) {
@@ -114,9 +115,6 @@
                     document.getElementById('welcomeP').style.display='inline';
                 }
             </script>
-            <button id="logB" display="none" class="login" onclick="document.getElementById('id01').style.display='block'" style="display:none;width:auto;float:right;font-family: Arial;">Login</button>
-            <p id="welcomeP" style="display:none;width:auto;float:right;font-family: Arial;">Welcome, <?php echo $customerName;?></p>
-            
             <div id="id01" class="modal">
                 <form class="modal-content animate" action="/login.php" method="post">
                     <div class="imgcontainer">
