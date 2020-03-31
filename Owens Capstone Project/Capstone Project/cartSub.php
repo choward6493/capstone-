@@ -72,7 +72,7 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
                     //create new Orders list, last BIT 1=needs fufilled
                     $sql = 'Insert into Orders(StoreName,OrderDate,1)Values("'.$location.'","'.$orderDate.'",1)';
                     $result = $conn->query($sql);
-                    console_log("orders".$result);
+                    console_log($result);
                     $orderID=$conn->insert_id;
                     //now add order details for each item in cart
                     $cart=json_decode($_COOKIE['cart']);
@@ -90,7 +90,7 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
                         $sql2 = 'INSERT INTO OrderDetails(ProductID,OrderID,ItemQuantity,AddOns,OrderSize)Values('.$result2->fetch_assoc()["ProductID"].','.$orderID.',1,"'.$itemName['milk'].'","'.$itemName['size'].'")';
                         
                         $result2 = $conn->query($sql2);
-                        console_log("orderdetails".$result)2;
+                        console_log("orderdetails".$result2);
                     }
                     $cardTypeNumber=substr($cardNumber, 0, 1);
                     if($cardTypeNumber==3){
