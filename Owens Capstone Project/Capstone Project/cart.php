@@ -359,14 +359,14 @@ window.onclick = function(event) {
       <?php 
         if(isset($_COOKIE['cart'])){
             $cart=json_decode($_COOKIE['cart']);
-        foreach($cart as $singleItem){
-            $sql = 'Select Cost from Products where ProductName='.$singleItem['item'];
-        //echo $sql;
-        //$sql = 'SELECT CustomerID, Email FROM Customers WHERE Email="arenninger@student.cscc.edu"';
-            $result = $conn->query($sql);
-            $itemCost=$result->fetch_assoc()["cost"];
+            foreach($cart as $singleItem){
+                $sql = 'Select Cost from Products where ProductName="'.$singleItem['item'].'"';
+                //echo $sql;
+                //$sql = 'SELECT CustomerID, Email FROM Customers WHERE Email="arenninger@student.cscc.edu"';
+                $result = $conn->query($sql);
+                $itemCost=$result->fetch_assoc()["cost"];
             //
-            echo '<p><a href="#">'.$singleItem['item'].'</a> <span class="price">$'.$itemCost.'</span></p>';
+                echo '<p><a href="#">'.$singleItem['item'].'</a> <span class="price">$'.$itemCost.'</span></p>';
         }
         }
     
