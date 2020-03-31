@@ -300,6 +300,7 @@ window.onclick = function(event) {
             <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
             <label for="city"><i class="fa fa-institution"></i> City</label>
             <input type="text" id="city" name="city" placeholder="Columbus">
+            <label for="location">Location</label>
             <select id='location' name="location" required>
                             <option value="GC">Grove City</option>
                             <option value="CO">Columbus</option>
