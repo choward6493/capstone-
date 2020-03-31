@@ -373,13 +373,15 @@ window.onclick = function(event) {
                 $cartCount+=1;
                 console_log($singleItem);
                 //console_log(array("item"=>))
-                //console_log($singleItem['item']);
+                console_log($singleItem['item']);
                 $itemName=$singleItem['item'];
                 //itemArray=json_decode($singleItem);
                 //$itemName=itemArray['item'];
                 
                 //$sql = 'Select Cost from Products where ProductName="'.$singleItem["item"].'"';
+                console_log("before");
                 console_log($itemName);
+                console+log("after");
                 //echo $sql;
                 //$sql = 'SELECT CustomerID, Email FROM Customers WHERE Email="arenninger@student.cscc.edu"';
                 //$result = $conn->query($sql);
