@@ -358,6 +358,7 @@ window.onclick = function(event) {
       <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
       <?php 
         if(isset($_COOKIE['cart'])){
+            console_log($_COOKIE['cart']);
             $cart=json_decode($_COOKIE['cart']);
             foreach($cart as $singleItem){
                 $sql = 'Select Cost from Products where ProductName="'.$singleItem['item'].'"';
