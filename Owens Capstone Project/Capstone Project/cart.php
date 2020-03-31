@@ -355,12 +355,14 @@ window.onclick = function(event) {
   </div>
   <div class="col-25">
     <div class="container">
-      <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
+      <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b><?php echo $cartCount?></b></span></h4>
       <?php 
         if(isset($_COOKIE['cart'])){
             console_log($_COOKIE['cart']);
             $cart=json_decode($_COOKIE['cart']);
+            $cartCount=0;
             foreach($cart as $singleItem){
+                $cartCount+=1;
                 console_log($singleItem);
                 $itemName=$singleItem['item'];
                 //$sql = 'Select Cost from Products where ProductName="'.$singleItem["item"].'"';
