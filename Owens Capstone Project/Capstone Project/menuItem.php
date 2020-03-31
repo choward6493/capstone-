@@ -23,7 +23,7 @@ $conn = new mysqli($servername, $username, $password,$dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-$item=$_GET["item"];
+$item=$_POST["item"];
 $VALIDITEMS=array("Cappuccino", "IcedLatte", "Espresso", "CaramelMacchiato");
 if(in_array($item,$VALIDITEMS)){
     //nothing

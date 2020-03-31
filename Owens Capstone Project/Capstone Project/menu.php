@@ -178,9 +178,11 @@ window.onclick = function(event) {
 
 <div class="responsive">
   <div class="gallery">
-    <a target="_blank" href="menuItem.php?item=Cappuccino">
+  <form class="modal-content animate" action="/menuItem.php" method="post">
+    <a type="submit">
       <img src="pictures/cappuccino.jpg" alt="Cappuccino" width="600" height="400">
     </a>
+</form>
     <div class="desc">Cappuccino</div>
   </div>
 </div>

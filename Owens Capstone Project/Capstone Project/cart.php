@@ -230,7 +230,7 @@ span.price {
                     return "";
                     }
                 //if user logged in token doesn't exist, show log in button
-                if((getCookie("token")=="")||<?php echo $loginStatus;?>=="Not Correct"){
+                if((getCookie("token")=="")||"<?php echo $loginStatus;?>"=="Not Correct"){
                     document.getElementById('logB').style.display='inline';
                 }else{
                     document.getElementById('logOut').style.display='inline';
