@@ -1,22 +1,18 @@
 <?php
 
-$item="Cap";
-$dsize="yes";
-$dmilk="yes";
-$age = array("item"=>$item, "size"=>$dsize, "milk"=>$dmilk);
-setcookie('cart',json_encode(array($age)), time() + (86400/24), "/");
-
-/*
+$item=$_POST["item"];
+$dsize=$_POST["size"];
+$milk=$_POST["milk"];
 if(isset($_COOKIE['cart']){
     $cart=json_decode($_COOKIE['cart']);
-    
-    array_push($item,$cart,$age);
-    //setcookie('cart',json_encode(array($age)), time() + (86400/24), "/");
+    $age = array("item"=>$item, "size"=>$dsize, "milk"=>$milk);
+    array_push($cart,$age);
+    setcookie('cart',json_encode($cart), time() + (86400/24), "/");
 }else{
-    
+    $age = array("item"=>$item, "size"=>$dsize, "milk"=>$milk);
     console_log("before array creation");
-    //setcookie('cart',json_encode(array($age)), time() + (86400/24), "/");
-}*/
+    setcookie('cart',json_encode(array($age)), time() + (86400/24), "/");
+}
 /*
 
 // Check connection
@@ -35,7 +31,6 @@ echo "Connected successfully";
 
 
 
-//$conn->close();
 echo '<script>window.location.replace("main.php");</script>';
 ?><html>
 <script></script>
