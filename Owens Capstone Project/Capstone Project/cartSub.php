@@ -86,6 +86,7 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
                         $result2 = $conn->query($sql2);
                         $itemCost=$result2->fetch_assoc()["Cost"];
                         $productID=$result2->fetch_assoc()["ProductID"];
+                        console_log($productID);
                         //echo '<p><a href="#">'.$itemName['item'].'</a> <span class="price">$'.$itemCost.'</span></p>';
                         $totalCost+=$itemCost;
                         
