@@ -66,6 +66,7 @@
                 $sql = 'SELECT * FROM Customers WHERE CustomerID='.$userID;
                 $result = $conn->query($sql);
                 $customerName=$result->fetch_assoc()["FirstName"];
+                console_log($result);
             }else {
                 //echo "Password not right";
                 $loginStatus="Correct";
