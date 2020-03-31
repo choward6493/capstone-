@@ -368,7 +368,7 @@ window.onclick = function(event) {
                 //$sql = 'SELECT CustomerID, Email FROM Customers WHERE Email="arenninger@student.cscc.edu"';
                 //$result = $conn->query($sql);
                 //$itemCost=$result->fetch_assoc()["cost"];
-                $itemCost=1
+                $itemCost=1;
                 echo '<p><a href="#">'.$singleItem['item'].'</a> <span class="price">$'.$itemCost.'</span></p>';
         }
         }
