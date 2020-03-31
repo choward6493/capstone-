@@ -300,7 +300,10 @@ window.onclick = function(event) {
             <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
             <label for="city"><i class="fa fa-institution"></i> City</label>
             <input type="text" id="city" name="city" placeholder="Columbus">
-
+            <select id='location' name="location" required>
+                            <option value="GC">Grove City</option>
+                            <option value="CO">Columbus</option>
+                            <option value="NA">New Albany</option></select>
             <div class="row">
               <div class="col-50">
                 <label for="state">State</label>
@@ -314,11 +317,8 @@ window.onclick = function(event) {
             <input type="text" id="city" name="city" placeholder="Columbus">
           </div>
 
-          <select id='location' name="location" required>
-                            <option value="GC">Grove City</option>
-                            <option value="CO">Columbus</option>
-                            <option value="NA">New Albany</option>
-        </select>
+          
+        
 
           <div class="col-50">
             <h3>Payment</h3>
@@ -357,9 +357,21 @@ window.onclick = function(event) {
     <div class="container">
       <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
       <?php 
-      
+      if(isset($_COOKIE['cart'])){
+        $cart=json_decode($_COOKIE['cart']);
+        foreach($cart as $singleItem){
+            $sql = 'Select Cost from Products where ProductName='.$singleItem['item'];
+        //echo $sql;
+        //$sql = 'SELECT CustomerID, Email FROM Customers WHERE Email="arenninger@student.cscc.edu"';
+            $result = $conn->query($sql);
+            $itemCost=$result->fetch_assoc()["cost"];
+            //
+            echo '<p><a href="#">'.$singleItem['item'].'</a> <span class="price">$'.$itemCost.'</span></p>';
+        }
+    }
+    }
       ?>
-      <p><a href="#">Product 1</a> <span class="price">$15</span></p>
+      
       <p><a href="#">Product 2</a> <span class="price">$5</span></p>
       <p><a href="#">Product 3</a> <span class="price">$8</span></p>
       <p><a href="#">Product 4</a> <span class="price">$2</span></p>
