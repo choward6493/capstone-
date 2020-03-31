@@ -345,7 +345,7 @@ window.onclick = function(event) {
             $cart=json_decode($_COOKIE['cart']);
             $cartCount=0;
             $totalCost=0;
-            for($i=0; $x<sizeof($cart); $x++){
+            for($i=0; $i<sizeof($cart); $i++){
                 //console_log('in loop');
                 $itemName=(array)$cart[$i];
                 //console_log($itemName['item']);

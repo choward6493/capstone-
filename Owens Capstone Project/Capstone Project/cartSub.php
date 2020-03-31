@@ -55,6 +55,8 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
             if(isset($_COOKIE['cart'])){
                 //cart cookie exists/has information
                 
+
+                //GOES HERE
             }
             
         }else {
