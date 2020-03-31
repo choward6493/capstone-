@@ -76,5 +76,92 @@ input[type=submit]:hover {
 }
 </style>
 </head>
+<body>
+ <div class="header">
+   <h1>Customize Your Drink​</h1>
+  
+</div>
 
+<div class="topnav">
+  <a href="home.html">Home</a>
+  <a href="menu.html">Menu</a>
+  <a href="rewards.html">Rewards</a>
+  <button class="login" onclick="document.getElementById('id01').style.display='block'" style="width:auto;float:right;font-family: Arial;">Login</button>
+
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/cartItem.php" method="post">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="pictures/avatar.png" alt="Avatar" class="avatar" width="100%" height="100%">
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+        
+      <button class="login" type="submit">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn"><b>Cancel</b></button>
+      <a class="btn"href="#" style="float:right;padding: 10px 18px;background-color: #333;color: #f2f2f2;">Forgot password?</a>
+	  <a class="btn"href="join.html" style="text-decoration:none;float:right;padding: 10px 18px;background-color: #333;color: #f2f2f2;">Join now</a>
+    </div>
+  </form>
+</div>
+
+<script>
+var modal = document.getElementById('id01');
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+</div>
+
+<div style="padding:20px;">
+
+<div class="container">
+  <form action="cartItem.php" method="POST">
+  <input type="hidden" id="custId" name="custId" value="<?php echo $item?>">
+  <div class="drink_size" style="width: 600px; float: left;">
+  <h2>Size</h2>
+    <input type="radio" id="small" name="size" value="small" checked>
+  <label for="small">Small</label><br>
+  <input type="radio" id="medium" name="size" value="medium">
+  <label for="medium">Medium</label><br>
+  <input type="radio" id="large" name="size" value="large">
+  <label for="large">Large</label>
+  </div>
+  <div class="drink_dairy" style="margin-left: 620px;">
+  <h2>Dairy/Non-dairy</h2>
+  <input type="radio" id="no" name="milk" value="no" checked>
+  <label for="no">No Milk</label><br>
+  <input type="radio" id="2%" name="milk" value="2%">
+  <label for="2%">2% Milk</label><br>
+  <input type="radio" id="whole" name="milk" value="whole">
+  <label for="whole">Whole Milk</label><br>
+  <input type="radio" id="soy" name="milk" value="soy">
+  <label for="soy">Soy Milk</label><br>
+  <input type="radio" id="almond" name="milk" value="almond">
+  <label for="almond">Almond Milk</label><br>
+  <input type="radio" id="non-fat" name="milk" value="non-fat">
+  <label for="non-fat">Non-Fat Milk</label><br>
+  <input type="radio" id="oat" name="milk" value="oat">
+  <label for="oat">Oat Milk</label>
+  </div>
+    <input type="submit" value="Add to Cart">
+  </form>
+</div>
+
+</body>
 </html>
