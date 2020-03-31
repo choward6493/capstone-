@@ -32,6 +32,8 @@ if(isset($_COOKIE['cart']){
     array_push($item,$cart,$age);
     setcookie('cart',json_encode(array($age)), time() + (86400/24), "/");
 }else{
+    
+    console_log("before array creation");
     setcookie('cart',json_encode(array($age)), time() + (86400/24), "/");
 }
 /*
