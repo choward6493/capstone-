@@ -1,9 +1,9 @@
 <?php
 
 $item="Cap";
-$size="yes";
-$milk="yes";
-$age = array("item"=>"Cap", "size"=>"help", "milk"=>"please");
+$dsize="yes";
+$dmilk="yes";
+$age = array("item"=>$item, "size"=>$dsize, "milk"=>$dmilk);
 setcookie('cart',json_encode(array($age)), time() + (86400/24), "/");
 
 /*
