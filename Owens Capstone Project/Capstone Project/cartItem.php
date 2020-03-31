@@ -21,7 +21,7 @@ $item=$_POST["item"];
 $VALIDITEMS=array("Cappuccino", "IcedLatte", "Espresso", "CaramelMacchiato");
 if(!in_array($item,$VALIDITEMS)){
     //because it is get request, super quick questioning
-    window.location.replace("menu.php");
+    echo '<script>window.location.replace("main.php");</script>';
 }
 
 $size=$_POST["size"];
@@ -29,7 +29,7 @@ $milk=$_POST["milk"];
 if(isset($_COOKIE['cart']){
     $cart=json_decode($_COOKIE['cart']);
     $age = array("item"=>$item, "size"=>$size, "milk"=>$milk);
-    array_push($cart,$age);
+    array_push($item,$cart,$age);
     setcookie('cart',json_encode(array($age)), time() + (86400/24), "/");
 }else{
     setcookie('cart',json_encode(array($age)), time() + (86400/24), "/");

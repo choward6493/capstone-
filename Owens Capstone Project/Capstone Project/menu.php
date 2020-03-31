@@ -102,7 +102,10 @@
                 document.cookie = "user= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
                 location.reload();
             }
-    </script>
+    </script><button id="logB" display="none" class="login" onclick="document.getElementById('id01').style.display='block'" style="display:none;width:auto;float:right;font-family: Arial;">Login</button>
+            <button id="logOut" display="none" class="login" onclick="logMeOut();" style="display:none;width:auto;float:right;font-family: Arial;">Log Out</button>
+            <button id="welcomeP" display="none" class="login" onclick="#" style="display:none;width:auto;float:right;font-family: Arial;">Welcome, <?php echo $customerName;?></button>
+            
   <!-- fix this part -->
   <button id="logB" display="none" class="login" onclick="document.getElementById('id01').style.display='block'" style="display:none;width:auto;float:right;font-family: Arial;">Login</button>
             <button id="logOut" display="none" class="login" onclick="logMeOut();" style="display:none;width:auto;float:right;font-family: Arial;">Log Out</button>
@@ -125,7 +128,7 @@
                     return "";
                     }
                 //if user logged in token doesn't exist, show log in button
-                if((getCookie("token")=="")||<?php echo $loginStatus;?>=="Not Correct"){
+                if((getCookie("token")=="")||"<?php echo $loginStatus;?>"=="Not Correct"){
                     document.getElementById('logB').style.display='inline';
                 }else{
                     document.getElementById('logOut').style.display='inline';
