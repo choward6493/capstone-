@@ -373,7 +373,7 @@ window.onclick = function(event) {
                 $cartCount+=1;
                 console_log($singleItem);
                 //console_log(array("item"=>))
-                console_log($singleItem['item']);
+                //console_log($singleItem['item']);
                 $itemName=$singleItem['item'];
                 //itemArray=json_decode($singleItem);
                 //$itemName=itemArray['item'];
