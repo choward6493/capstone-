@@ -55,17 +55,9 @@
             //echo '<br>'.$hashPass;
             if($hashPass==$hashedData){
                 //echo "You're in";
-                $userCookie="user";
-                $userCookieVal=$usernamePP;
-                $passCookie="token";
-                $passCookieVal=$hashedData;
-                if(!($_POST["remember"]=="on")){
-                    setcookie($userCookie,$userCookieVal, time() + (86400/24), "/");
-                    setcookie($passCookie,$passCookieVal,time()+(86400/24),"/");
-                }else{
-                    setcookie($userCookie, $userCookieVal, time() + (86400*30), "/");
-                    setcookie($passCookie,$passCookieVal,time()+(86400*30),"/");
-                }
+                $sql = 'SELECT * FROM Customers WHERE CustomerID='.$userID;
+                $result = $conn->query($sql);
+                $customerName=$result->fetch_assoc()["FirstName"];
                 
             }else {
                 //echo "Password not right";
@@ -74,9 +66,7 @@
             //echo "nothing found";
         }
     }
-    $sql = 'SELECT * FROM Customers WHERE CustomerID='.$userID;
-    $result = $conn->query($sql);
-    $customerName=$result->fetch_assoc()["FirstName"];
+    
     ?>
     <body>
 
