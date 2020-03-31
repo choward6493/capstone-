@@ -109,7 +109,7 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
                     $sql3='INSERT INTO Payments(PaymentType,CardType,CardNumber,FirstName,ExpirationDate)Values("Card","'.$cardType.'","'.$cardNumber.'","'.$customerName.'","'.$expdate.'-01")';
                     $result3 = $conn->query($sql3);
                     $paymentId=$conn->insert_id;
-                    console_log("payment".$result3);
+                    console_log($result3);
                     //now create CustomerTransactions
                     $sql4='INSERT INTO CustomerTransactions(TransactionDate,TransactionTotal,TransactionType,CustomerID,OrderID,PaymentID)Values("'.$orderDate.'","'.$totalCost.'","Card-online",'.$userID.','.$orderID.','.$paymentId.')';
                     $result4 = $conn->query($sql4);
