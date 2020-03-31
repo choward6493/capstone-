@@ -35,7 +35,7 @@ echo "Connected successfully";
 
 
 
-$conn->close();
+//$conn->close();
 echo '<script>window.location.replace("main.php");</script>';
 ?><html>
 <script></script>
