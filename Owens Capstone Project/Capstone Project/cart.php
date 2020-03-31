@@ -356,7 +356,7 @@ window.onclick = function(event) {
   <div class="col-25">
     <div class="container">
         <?php  if(isset($_COOKIE['cart'])){
-            console_log($_COOKIE['cart']);
+            //console_log($_COOKIE['cart']);
             $cart=json_decode($_COOKIE['cart']);
             $cartCount=0;
             foreach($cart as $singleItem){
@@ -369,9 +369,18 @@ window.onclick = function(event) {
             console_log($_COOKIE['cart']);
             $cart=json_decode($_COOKIE['cart']);
             $cartCount=0;
+            for($i=0; $x<=sizeof($cart); $x++){
+                $itemName=$cart[$i]['item'];
+                $sql = 'Select Cost from Products where ProductName="'.$itemName.'"';
+                $sql = 'SELECT CustomerID, Email FROM Customers WHERE Email="arenninger@student.cscc.edu"';
+                $result = $conn->query($sql);
+                $itemCost=$result->fetch_assoc()["cost"];
+                echo '<p><a href="#">'.$itemName.'</a> <span class="price">$'.$itemCost.'</span></p>';
+            }
             foreach($cart as $singleItem){
                 $cartCount+=1;
                 console_log($singleItem);
+                asort($singleItem)
                 //console_log(array("item"=>))
                 console_log($singleItem['item']);
                 $itemName=$singleItem['item'];
