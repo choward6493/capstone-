@@ -184,7 +184,7 @@ window.onclick = function(event) {
   <form class="" action="/menuItem.php" method="post">
     <a type="submit">
     <input type="hidden" id="custId" name="item" value="Cappuccino">
-      <input type="image" src="pictures/cappuccino.jpg" alt="Submit" width="600" height="400">
+      <input type="image" src="pictures/cappuccino.jpg" alt="Submit" width="600" height="400" class="responsive">
     </a>
 </form>
     <div class="desc">Cappuccino</div>
@@ -197,7 +197,7 @@ window.onclick = function(event) {
   <form class="" action="/menuItem.php" method="post">
     <a type="submit">
     <input type="hidden" id="custId" name="item" value="IcedLatte">
-      <input type="image" src="pictures/iced-latte.jpg" alt="Submit" width="600" height="400">
+      <input type="image" src="pictures/iced-latte.jpg" alt="Submit" width="600" height="400" class="responsive">
     </a>
 </form>
     
@@ -210,7 +210,7 @@ window.onclick = function(event) {
   <form class="" action="/menuItem.php" method="post">
     <a type="submit">
     <input type="hidden" id="custId" name="item" value="Espresso">
-      <input type="image" src="pictures/espresso.jpg" alt="Submit" width="600" height="400">
+      <input type="image" src="pictures/espresso.jpg" alt="Submit" width="600" height="400" class="responsive">
     </a>
 </form>
 
@@ -225,7 +225,7 @@ window.onclick = function(event) {
   <form class="" action="/menuItem.php" method="post">
     <a type="submit">
     <input type="hidden" id="custId" name="item" value="CaramelMacchiato">
-      <input type="image" src="pictures/caramel_macchiato.jpg" alt="Submit" width="600" height="400">
+      <input type="image" src="pictures/caramel_macchiato.jpg" alt="Submit" width="600" height="400" class="responsive">
     </a>
 </form>
    
