@@ -288,7 +288,7 @@ window.onclick = function(event) {
 <div class="row">
   <div class="col-75">
     <div class="container">
-      <form action="cartSub.php">
+      <form action="cartSub.php" method="post">
       
         <div class="row">
           
@@ -352,7 +352,7 @@ window.onclick = function(event) {
                 $sql = 'Select Cost from Products where ProductName="'.$itemName['item'].'"';
                 $result = $conn->query($sql);
                 $itemCost=$result->fetch_assoc()["Cost"];
-                echo '<p><a href="#">'.$itemName['item'].'</a> <span class="price">$'.$itemCost.'</span></p>';
+                echo '<p><a href="#">'.$itemName['item'].' -- '.$itemName['size'].'</a> <span class="price">$'.$itemCost.'</span></p>';
                 $totalCost+=$itemCost;
             }
             /*

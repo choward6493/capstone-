@@ -32,7 +32,7 @@ echo "Connected successfully";
 
 
 
-echo '<script>window.location.replace("main.php");</script>';
+echo '<script>window.location.replace("menu.php");</script>';
 ?><html>
 <script></script>
 <body>
