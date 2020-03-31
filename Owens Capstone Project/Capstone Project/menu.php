@@ -178,7 +178,7 @@ window.onclick = function(event) {
 
 <div class="responsive">
   <div class="gallery">
-  <form class="modal-content animate" action="/menuItem.php" method="post">
+  <form class="" action="/menuItem.php" method="post">
     <a type="submit">
     <input type="hidden" id="custId" name="item" value="Cappuccino">
       <input type="image" src="pictures/cappuccino.jpg" alt="Submit" width="600" height="400">
@@ -191,7 +191,7 @@ window.onclick = function(event) {
 
 <div class="responsive">
   <div class="gallery">
-  <form class="modal-content animate" action="/menuItem.php" method="post">
+  <form class="" action="/menuItem.php" method="post">
     <a type="submit">
     <input type="hidden" id="custId" name="item" value="IcedLatte">
       <input type="image" src="pictures/iced-latte.jpg" alt="Submit" width="600" height="400">
@@ -204,7 +204,7 @@ window.onclick = function(event) {
 
 <div class="responsive">
   <div class="gallery">
-  <form class="modal-content animate" action="/menuItem.php" method="post">
+  <form class="" action="/menuItem.php" method="post">
     <a type="submit">
     <input type="hidden" id="custId" name="item" value="Espresso">
       <input type="image" src="pictures/espresso.jpg" alt="Submit" width="600" height="400">
@@ -212,16 +212,14 @@ window.onclick = function(event) {
 </form>
 
   
-    <a target="_blank" href="menuItem.php?item=Espresso">
-      <img src="pictures/espresso.jpg" alt="Espresso" width="600" height="400">
-    </a>
+   
     <div class="desc">Espresso</div>
   </div>
 </div>
 
 <div class="responsive">
   <div class="gallery">
-  <form class="modal-content animate" action="/menuItem.php" method="post">
+  <form class="" action="/menuItem.php" method="post">
     <a type="submit">
     <input type="hidden" id="custId" name="item" value="CaramelMacchiato">
       <input type="image" src="pictures/caramel_macchiato.jpg" alt="Submit" width="600" height="400">

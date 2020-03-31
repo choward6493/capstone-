@@ -22,10 +22,12 @@ $conn = new mysqli($servername, $username, $password,$dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+
 $item=$_POST["item"];
 $VALIDITEMS=array("Cappuccino", "IcedLatte", "Espresso", "CaramelMacchiato");
 if(in_array($item,$VALIDITEMS)){
     //nothing
+    console_log($item);
 }else{
     //because it is get request, super quick questioning
     window.location.replace("menu.php");
