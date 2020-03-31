@@ -15,7 +15,7 @@ if(isset($_COOKIE['cart']){
     setcookie('cart',json_encode(array($age)), time() + (86400/24), "/");
 }*/
 $age = array("item"=>$item, "size"=>$dsize, "milk"=>$milk);
-//setcookie('cart',json_encode(array($age)), time() + (86400/24), "/");
+setcookie('cart',json_encode(array($age)), time() + (86400/24), "/");
 /*
 
 // Check connection
