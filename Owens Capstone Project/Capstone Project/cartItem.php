@@ -3,13 +3,13 @@
 $item="Cap";
 $size="yes";
 $milk="yes";
-
+$age = array("item"=>$item, "size"=>$size, "milk"=>$milk);
 setcookie('cart',json_encode(array($age)), time() + (86400/24), "/");
 
 /*
 if(isset($_COOKIE['cart']){
     $cart=json_decode($_COOKIE['cart']);
-    $age = array("item"=>$item, "size"=>$size, "milk"=>$milk);
+    
     array_push($item,$cart,$age);
     //setcookie('cart',json_encode(array($age)), time() + (86400/24), "/");
 }else{
