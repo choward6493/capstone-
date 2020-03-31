@@ -57,4 +57,19 @@ echo "Connected successfully";
 
 $conn->close();
 echo '<script>window.location.replace("main.php");</script>';
-?>
+?><html>
+<script></script>
+<body>
+
+<!-- 
+search in customer table where CustomerEmail=uname  
+if hashed psw = hashed psw in table then give session cookie that expires
+$_POST["uname"];
+hash('md5', $_POST["psw"];);
+-->
+
+
+
+
+</body>
+</html>
