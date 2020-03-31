@@ -369,15 +369,14 @@ window.onclick = function(event) {
             console_log($_COOKIE['cart']);
             $cart=json_decode($_COOKIE['cart']);
             $cartCount=0;
-            for($i=0; $x<=sizeof($cart); $x++){
+            for($i=0; $x<sizeof($cart); $x++){
                 console_log('in loop');
                 $itemName=(array)$cart[$i];
                 console_log($itemName['item']);
-                $sql = 'Select Cost from Products where ProductName="'.$itemName.'"';
-                $sql = 'SELECT CustomerID, Email FROM Customers WHERE Email="arenninger@student.cscc.edu"';
+                $sql = 'Select Cost from Products where ProductName="'.$itemName['item'].'"';
                 $result = $conn->query($sql);
                 $itemCost=$result->fetch_assoc()["cost"];
-                echo '<p><a href="#">'.$itemName.'</a> <span class="price">$'.$itemCost.'</span></p>';
+                echo '<p><a href="#">'.$itemName['item'].'</a> <span class="price">$'.$itemCost.'</span></p>';
             
             }
             /*
