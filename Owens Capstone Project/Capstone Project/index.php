@@ -20,6 +20,7 @@
     $password = "SixGuys1CapstoneProject";
     $dbname="Capstone";
     $userID=0;
+    $loginStatus ="Not Correct";
     // Create connection
     $conn = new mysqli($servername, $username, $password,$dbname);
     /*
@@ -34,6 +35,7 @@
         console_log($usernamePP);
         $hashPass=$_COOKIE['token'];
         $userID=0;
+        $customerName="Invalid Credentials";
         $sql = 'SELECT CustomerID FROM Customers WHERE Email="'.$usernamePP.'"';
         //echo $sql;
         //$sql = 'SELECT CustomerID, Email FROM Customers WHERE Email="arenninger@student.cscc.edu"';
@@ -55,6 +57,7 @@
             //echo '<br>'.$hashPass;
             if($hashPass==$hashedData){
                 //echo "You're in";
+                /*
                 $userCookie="user";
                 $userCookieVal=$usernamePP;
                 $passCookie="token";
@@ -66,17 +69,19 @@
                     setcookie($userCookie, $userCookieVal, time() + (86400*30), "/");
                     setcookie($passCookie,$passCookieVal,time()+(86400*30),"/");
                 }
-                
+                */
+                $sql = 'SELECT * FROM Customers WHERE CustomerID='.$userID;
+                $result = $conn->query($sql);
+                $customerName=$result->fetch_assoc()["FirstName"];
             }else {
                 //echo "Password not right";
+                $loginStatus="Correct";
             }
         } else {
             //echo "nothing found";
         }
     }
-    $sql = 'SELECT * FROM Customers WHERE CustomerID='.$userID;
-    $result = $conn->query($sql);
-    $customerName=$result->fetch_assoc()["FirstName"];
+    
     ?>
     <body>
 
@@ -96,6 +101,8 @@
                 location.reload();
             }
             </script>
+            <a href="cart.php"><img border="0" alt="Cart" src="pictures/cart.png" width="20" height="20" style="width:auto;float:right;font-family: Arial;"></a>
+
             <button id="logB" display="none" class="login" onclick="document.getElementById('id01').style.display='block'" style="display:none;width:auto;float:right;font-family: Arial;">Login</button>
             <button id="logOut" display="none" class="login" onclick="logMeOut();" style="display:none;width:auto;float:right;font-family: Arial;">Log Out</button>
             <button id="welcomeP" display="none" class="login" onclick="#" style="display:none;width:auto;float:right;font-family: Arial;">Welcome, <?php echo $customerName;?></button>
@@ -118,7 +125,7 @@
                     return "";
                     }
                 //if user logged in token doesn't exist, show log in button
-                if((getCookie("token")=="")){
+                if((getCookie("token")=="")||<?php echo $loginStatus;?>=="Not Correct"){
                     document.getElementById('logB').style.display='inline';
                 }else{
                     document.getElementById('logOut').style.display='inline';

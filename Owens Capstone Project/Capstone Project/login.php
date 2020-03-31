@@ -70,7 +70,7 @@ if ($result2->num_rows > 0) {
 $conn->close();
 ?>
 <html>
-<script>window.location.replace("main.php");</script>
+<script>window.location.replace("/");</script>
 <body>
 
 <!-- 
