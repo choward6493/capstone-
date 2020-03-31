@@ -173,7 +173,7 @@ window.onclick = function(event) {
 <div style="padding:20px;">
 
 <div class="container">
-  <form action="cartItem.php" method="POST">
+  <form action="cartItem.php" method="post">
     <input type="hidden" id="custId" name="item" value="<?php echo $item?>">
   <div class="drink_size" style="width: 600px; float: left;">
   <h2>Size</h2>

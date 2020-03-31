@@ -7,23 +7,8 @@ function console_log($output, $with_script_tags = true) {
     }
     echo $js_code;
 }
-$servername = "capstone2.cxiblbeokqky.us-east-1.rds.amazonaws.com:1433";
-$username = "admin";
-$password = "SixGuys1CapstoneProject";
-$dbname="Capstone";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password,$dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 $item=$_POST["item"];
-$VALIDITEMS=array("Cappuccino", "IcedLatte", "Espresso", "CaramelMacchiato");
-if(!in_array($item,$VALIDITEMS)){
-    //because it is get request, super quick questioning
-    echo '<script>window.location.replace("main.php");</script>';
-}
-
 console_log("after item");
 $size=$_POST["size"];
 $milk=$_POST["milk"];
