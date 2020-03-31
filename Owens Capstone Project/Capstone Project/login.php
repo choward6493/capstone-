@@ -59,8 +59,8 @@ if ($result2->num_rows > 0) {
             echo '<script>alert("dont remember");</script>';
         }else{
             //echo '<script>alert("remembr");</script>';
-            setcookie($userCookie, $userCookieVal, time() + (86400*30), "/");
-            setcookie($passCookie,$passCookieVal,time()+(86400*30),"/");
+            setcookie($userCookie, $userCookieVal, time() + 864000, "/");
+            setcookie($passCookie,$passCookieVal,time()+(86400),"/");
             echo '<script>alert("remembr");</script>';
         }
         
