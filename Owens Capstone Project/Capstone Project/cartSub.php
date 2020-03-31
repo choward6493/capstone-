@@ -62,9 +62,55 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
             //LOg IN IS CORRECT; ALL CODE IN HERE
             if(isset($_COOKIE['cart'])){
                 //cart cookie exists/has information
-                
+                try{
+                    $fullName=$_POST["cardname"];
+                    $cardNumber=$_POST["cardnumber"];
+                    $expdate=$_POST["expdate"];
+                    $cvv=$_POST["cvv"];
+                    $location=$_POST["location"];
+                    $orderDate=date('Ymd h:i:s A');
+                    //create new Orders list, last BIT 1=needs fufilled
+                    $sql = 'Insert into Orders(StoreName,OrderDate,1)Values("'.$location.'","'.$orderDate.'",1)';
+                    $result = $conn->query($sql);
+                    $orderID=$conn->insert_id;
+                    //now add order details for each item in cart
+                    $cart=json_decode($_COOKIE['cart']);
+                    for($i=0; $i<sizeof($cart); $i++){
+                        //console_log('in loop');
+                        $itemName=(array)$cart[$i];
 
-                //GOES HERE
+                        //console_log($itemName['item']);
+                        $sql2 = 'Select Cost,ProductID from Products where ProductName="'.$itemName['item'].'"';
+                        $result2 = $conn->query($sql2);
+                        $itemCost=$result2->fetch_assoc()["Cost"];
+                        //echo '<p><a href="#">'.$itemName['item'].'</a> <span class="price">$'.$itemCost.'</span></p>';
+                        $totalCost+=$itemCost;
+                        
+                        $sql2 = 'INSERT INTO OrderDetails(ProductID,OrderID,ItemQuantity,AddOns,OrderSize)Values('.$result2->fetch_assoc()["ProductID"].','.$orderID.',1,"'.$itemName['milk'].'","'.$itemName['size'].'")';
+                        $result2 = $conn->query($sql2);
+                    }
+                    $cardTypeNumber=substr($cardNumber, 0, 1);
+                    if($cardTypeNumber==3){
+                        $cardType="AmEx";
+                    }else if($cardTypeNumber==4){
+                        $cardType="Visa";
+                    }else if($cardTypeNumber==5){
+                        $cardType="MasterCard";
+                    }else if($cardTypeNumber==6){
+                        $cardType="Discover Card";
+                    }else{
+                        throw new Exception('Invalid Card Number.');
+                    }
+                    //now create new payment
+                    $sql3='INSERT INTO Payments(PaymentType,CardType,CardNumber,FirstName,ExpirationDate)Values("Card","'.$cardType.'","'.$cardNumber.'","'.$customerName.'","'.$expdate.'-01")';
+                    $result3 = $conn->query($sql3);
+                    $paymentId=$conn->insert_id;
+                    //now create CustomerTransactions
+                    $sql4='INSERT INTO CustomerTransactions(TransactionDate,TransactionTotal,TransactionType,CustomerID,OrderID,PaymentID)Values("'.$orderDate.'","'.$totalCost.'","Card-online",'.$userID.','.$orderID.','.$paymentId.')';
+                    $result4 = $conn->query($sql4);
+                }catch(Exception $e){
+                    echo 'Caught exception: ',  $e->getMessage(), "\n";
+                }
             }
             
         }else {
