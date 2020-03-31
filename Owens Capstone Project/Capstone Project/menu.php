@@ -180,7 +180,7 @@ window.onclick = function(event) {
   <div class="gallery">
   <form class="modal-content animate" action="/menuItem.php" method="post">
     <a type="submit">
-      <img src="pictures/cappuccino.jpg" alt="Cappuccino" width="600" height="400">
+      <input type="image" src="pictures/cappuccino.jpg" alt="Submit" width="600" height="400">
     </a>
 </form>
     <div class="desc">Cappuccino</div>
