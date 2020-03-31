@@ -290,33 +290,7 @@ window.onclick = function(event) {
       <form action="cartSub.php">
       
         <div class="row">
-          <div class="col-50">
-            <h3>Billing Address</h3>
-            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-            <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
-            <label for="email"><i class="fa fa-envelope"></i> Email</label>
-            <input type="text" id="email" name="email" placeholder="john@example.com">
-            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
-            <label for="city"><i class="fa fa-institution"></i> City</label>
-            <input type="text" id="city" name="city" placeholder="Columbus">
-            <label for="location">Location</label>
-            <select id='location' name="location" required>
-                            <option value="GC">Grove City</option>
-                            <option value="CO">Columbus</option>
-                            <option value="NA">New Albany</option></select><br/>
-            <div class="row">
-              <div class="col-50">
-                <label for="state">State</label>
-                <input type="text" id="state" name="state" placeholder="OH">
-              </div>
-              <div class="col-50">
-                <label for="zip">Zip</label>
-                <input type="text" id="zip" name="zip" placeholder="10001">
-              </div>
-            </div>
-            <input type="text" id="city" name="city" placeholder="Columbus">
-          </div>
+          
 
           
         
@@ -331,25 +305,25 @@ window.onclick = function(event) {
               <i class="fa fa-cc-discover" style="color:orange;"></i>
             </div>
             <label for="cname">Name on Card</label>
-            <input type="text" id="cname" name="cardname" placeholder="John More Doe">
+            <input type="text" id="cname" name="cardname" placeholder="John W Doe">
             <label for="ccnum">Credit card number</label>
             <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
-            <label for="expmonth">Exp Month</label>
-            <input type="text" id="expmonth" name="expmonth" placeholder="September">
+            <label for="expmonth">Expiration Date</label>
+            <input type="text" id="expmonth" name="expdate" placeholder="01/20">
             <div class="row">
-              <div class="col-50">
-                <label for="expyear">Exp Year</label>
-                <input type="text" id="expyear" name="expyear" placeholder="2018">
-              </div>
-              <div class="col-50">
+              
                 <label for="cvv">CVV</label>
-                <input type="text" id="cvv" name="cvv" placeholder="352">
-              </div>
+                <input type="text" id="cvv" name="cvv" placeholder="111">
+              
             </div>
           </div>
           
         </div>
-        
+        <label for="location">Pickup Location</label>
+            <select id='location' name="location" required>
+                            <option value="GC">Grove City</option>
+                            <option value="CO">Columbus</option>
+                            <option value="NA">New Albany</option></select><br/>
         <input type="submit" value="Checkout" class="btn">
       </form>
     </div>
