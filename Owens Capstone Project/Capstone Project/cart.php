@@ -357,8 +357,8 @@ window.onclick = function(event) {
     <div class="container">
       <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
       <?php 
-      if(isset($_COOKIE['cart'])){
-        $cart=json_decode($_COOKIE['cart']);
+        if(isset($_COOKIE['cart'])){
+            $cart=json_decode($_COOKIE['cart']);
         foreach($cart as $singleItem){
             $sql = 'Select Cost from Products where ProductName='.$singleItem['item'];
         //echo $sql;
@@ -368,8 +368,8 @@ window.onclick = function(event) {
             //
             echo '<p><a href="#">'.$singleItem['item'].'</a> <span class="price">$'.$itemCost.'</span></p>';
         }
-    }
-    }
+        }
+    
       ?>
       
       <p><a href="#">Product 2</a> <span class="price">$5</span></p>
