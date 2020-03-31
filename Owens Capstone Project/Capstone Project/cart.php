@@ -304,7 +304,7 @@ window.onclick = function(event) {
             <select id='location' name="location" required>
                             <option value="GC">Grove City</option>
                             <option value="CO">Columbus</option>
-                            <option value="NA">New Albany</option></select>
+                            <option value="NA">New Albany</option></select><br/>
             <div class="row">
               <div class="col-50">
                 <label for="state">State</label>
