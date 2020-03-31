@@ -371,8 +371,8 @@ window.onclick = function(event) {
             $cartCount=0;
             foreach($cart as $singleItem){
                 $cartCount+=1;
-                console_log($singleItem);
-                $itemName=$singleItem['item'];
+                itemArray=json_decode($singleItem);
+                $itemName=itemArray['item'];
                 //$sql = 'Select Cost from Products where ProductName="'.$singleItem["item"].'"';
                 console_log($itemName);
                 //echo $sql;
