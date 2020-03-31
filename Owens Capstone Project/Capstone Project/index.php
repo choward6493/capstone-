@@ -92,8 +92,8 @@
 
         <div class="topnav">
             <a href="/">Home</a>
-            <a href="menu.html">Menu</a>
-            <a href="rewards.html">Rewards</a>
+            <a href="menu.php">Menu</a>
+            <a href="rewards.php">Rewards</a>
             <script>
             function logMeOut(){
                 document.cookie = "token= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";

@@ -194,9 +194,9 @@ span.price {
 </div>
 
 <div class="topnav">
-  <a href="home.html">Home</a>
-  <a href="menu.html">Menu</a>
-  <a href="rewards.html">Rewards</a>
+  <a href="/">Home</a>
+  <a href="menu.php">Menu</a>
+            <a href="rewards.php">Rewards</a>
   <a href="cart.php"><img border="0" alt="Cart" src="pictures/cart.png" width="20" height="20" style="width:auto;float:right;font-family: Arial;"></a>
 
   <script>
