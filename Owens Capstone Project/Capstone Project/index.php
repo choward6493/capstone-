@@ -67,9 +67,10 @@
                 $result = $conn->query($sql);
                 $customerName=$result->fetch_assoc()["FirstName"];
                 console_log($result);
+                $loginStatus="Correct";
             }else {
                 //echo "Password not right";
-                $loginStatus="Correct";
+                $loginStatus="Not Correct";
             }
         } else {
             //echo "nothing found";
