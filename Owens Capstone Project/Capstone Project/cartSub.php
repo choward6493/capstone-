@@ -72,6 +72,7 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
                     //create new Orders list, last BIT 1=needs fufilled
                     $sql = 'Insert into Orders(StoreName,OrderDate,1)Values("'.$location.'","'.$orderDate.'",1)';
                     $result = $conn->query($sql);
+                    console_log("orders".$result);
                     $orderID=$conn->insert_id;
                     //now add order details for each item in cart
                     $cart=json_decode($_COOKIE['cart']);
@@ -87,7 +88,9 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
                         $totalCost+=$itemCost;
                         
                         $sql2 = 'INSERT INTO OrderDetails(ProductID,OrderID,ItemQuantity,AddOns,OrderSize)Values('.$result2->fetch_assoc()["ProductID"].','.$orderID.',1,"'.$itemName['milk'].'","'.$itemName['size'].'")';
+                        
                         $result2 = $conn->query($sql2);
+                        console_log("orderdetails".$result)2;
                     }
                     $cardTypeNumber=substr($cardNumber, 0, 1);
                     if($cardTypeNumber==3){
@@ -101,13 +104,16 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
                     }else{
                         throw new Exception('Invalid Card Number.');
                     }
+                    console_log("cardType")
                     //now create new payment
                     $sql3='INSERT INTO Payments(PaymentType,CardType,CardNumber,FirstName,ExpirationDate)Values("Card","'.$cardType.'","'.$cardNumber.'","'.$customerName.'","'.$expdate.'-01")';
                     $result3 = $conn->query($sql3);
                     $paymentId=$conn->insert_id;
+                    console_log("payment".$result3);
                     //now create CustomerTransactions
                     $sql4='INSERT INTO CustomerTransactions(TransactionDate,TransactionTotal,TransactionType,CustomerID,OrderID,PaymentID)Values("'.$orderDate.'","'.$totalCost.'","Card-online",'.$userID.','.$orderID.','.$paymentId.')';
                     $result4 = $conn->query($sql4);
+                    console_log("customerTrans".$result4);
                 }catch(Exception $e){
                     echo 'Caught exception: ',  $e->getMessage(), "\n";
                 }
