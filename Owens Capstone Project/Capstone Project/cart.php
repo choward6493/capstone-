@@ -370,7 +370,9 @@ window.onclick = function(event) {
             $cart=json_decode($_COOKIE['cart']);
             $cartCount=0;
             for($i=0; $x<=sizeof($cart); $x++){
+                console_log('in loop');
                 $itemName=$cart[$i]['item'];
+                console_log($itemName);
                 $sql = 'Select Cost from Products where ProductName="'.$itemName.'"';
                 $sql = 'SELECT CustomerID, Email FROM Customers WHERE Email="arenninger@student.cscc.edu"';
                 $result = $conn->query($sql);
