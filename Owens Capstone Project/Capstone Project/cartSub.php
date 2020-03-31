@@ -21,6 +21,7 @@ echo "Connected successfully";
 
 $totalCost=0;
 $userID=0;
+try{
 if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
     $usernamePP=$_COOKIE['user'];
     console_log($usernamePP);
@@ -40,6 +41,7 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
     } else {
         //echo "0 results";
     }
+
     $sql2 = 'SELECT CustomerPasswordHash FROM CustomerLOG WHERE CustomerID='.$userID;
     //echo $sql2;
     $result2 = $conn->query($sql2);
@@ -114,7 +116,9 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
     echo '<script>alert("You must be logged in to Order online");window.location.replace("cart.php");</script>';
 }
 
-
+}catch(Exception $e){
+    echo 'Caught exception: ',  $e->getMessage(), "\n";
+}
 
 $conn->close();
 ?>
