@@ -26,6 +26,9 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
     console_log($usernamePP);
     $hashPass=$_COOKIE['token'];
     $userID=0;
+    $sql = 'SELECT * FROM Customers WHERE CustomerID='.$userID;
+    $result = $conn->query($sql);
+    $customerName=$result->fetch_assoc()["FirstName"]." ".$result->fetch_assoc()["LastName"];
     $sql = 'SELECT CustomerID FROM Customers WHERE Email="'.$usernamePP.'"';
     //echo $sql;
     //$sql = 'SELECT CustomerID, Email FROM Customers WHERE Email="arenninger@student.cscc.edu"';
@@ -52,7 +55,7 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
                 try{
                     $fullName=$_POST["cardname"];
                     $cardNumber=$_POST["cardnumber"];
-                    $fullName=$_POST["expdate"];
+                    $expdate=$_POST["expdate"];
                     $cvv=$_POST["cvv"];
                     $location=$_POST["location"];
                     $orderDate=date('Ymd h:i:s A');
@@ -76,7 +79,25 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
                         $sql2 = 'INSERT INTO OrderDetails(ProductID,OrderID,ItemQuantity,AddOns,OrderSize)Values('.$result2->fetch_assoc()["ProductID"].','.$orderID.',1,"'.$itemName['milk'].'","'.$itemName['size'].'")';
                         $result2 = $conn->query($sql2);
                     }
-                    
+                    $cardTypeNumber=substr($cardNumber, 0, 1);
+                    if($cardTypeNumber==3){
+                        $cardType="AmEx";
+                    }else if($cardTypeNumber==4){
+                        $cardType="Visa";
+                    }else if($cardTypeNumber==5){
+                        $cardType="MasterCard";
+                    }else if($cardTypeNumber==6){
+                        $cardType="Discover Card";
+                    }else{
+                        throw new Exception('Invalid Card Number.');
+                    }
+                    //now create new payment
+                    $sql3='INSERT INTO Payments(PaymentType,CardType,CardNumber,FirstName,ExpirationDate)Values("Card","'.$cardType.'","',$cardNumber,'","'.$customerName.'","'.$expdate.'-01")';
+                    $result3 = $conn->query($sql3);
+                    $paymentId=$conn->insert_id;
+                    //now create CustomerTransactions
+                    $sql4='INSERT INTO CustomerTransactions(TransactionDate,TransactionTotal,TransactionType,CustomerID,OrderID,PaymentID)Values("'.$orderDate.'","'.$totalCost.'","Card-online",'.$userID.','.$orderID.','.$paymentId.')';
+                    $result4 = $conn->query($sql4);
                 }catch(Exception $e){
                     echo 'Caught exception: ',  $e->getMessage(), "\n";
                 }

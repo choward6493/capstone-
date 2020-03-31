@@ -85,6 +85,7 @@
             function logMeOut(){
                 document.cookie = "token= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
                 document.cookie = "user= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+                document.cookie = "cart= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
                 location.reload();
             }
             </script>

@@ -205,6 +205,7 @@ span.price {
             function logMeOut(){
                 document.cookie = "token= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
                 document.cookie = "user= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+                document.cookie = "cart= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
                 location.reload();
             }
     </script><button id="logB" display="none" class="login" onclick="document.getElementById('id01').style.display='block'" style="display:none;width:auto;float:right;font-family: Arial;">Login</button>
@@ -309,13 +310,12 @@ window.onclick = function(event) {
             <label for="ccnum">Credit card number</label>
             <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
             <label for="expmonth">Expiration Date</label>
-            <input type="text" id="expmonth" name="expdate" placeholder="01/20">
-            <div class="row">
+            <input type="month" id="expmonth" name="expdate" placeholder="01/20">
+            
               
                 <label for="cvv">CVV</label>
                 <input type="text" id="cvv" name="cvv" placeholder="111">
               
-            </div>
           </div>
           
         </div>
