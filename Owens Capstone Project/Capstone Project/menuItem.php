@@ -174,7 +174,7 @@ window.onclick = function(event) {
 
 <div class="container">
   <form action="cartItem.php" method="POST">
-  <input type="hidden" id="custId" name="item" value="<?php echo $item?>">
+    <input type="hidden" id="custId" name="item" value="<?php echo $item?>">
   <div class="drink_size" style="width: 600px; float: left;">
   <h2>Size</h2>
     <input type="radio" id="small" name="size" value="small" checked>
@@ -188,7 +188,7 @@ window.onclick = function(event) {
   <h2>Dairy/Non-dairy</h2>
   <input type="radio" id="no" name="milk" value="no" checked>
   <label for="no">No Milk</label><br>
-  <input type="radio" id="2%" name="milk" value="2%">
+  <input type="radio" id="2%" name="milk" value="2">
   <label for="2%">2% Milk</label><br>
   <input type="radio" id="whole" name="milk" value="whole">
   <label for="whole">Whole Milk</label><br>

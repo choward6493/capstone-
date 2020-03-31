@@ -55,6 +55,5 @@ echo "Connected successfully";
 
 
 
-$conn->close();
-window.location.replace("menu.php");
+$conn->close();echo '<script>window.location.replace("main.php");</script>';
 ?>
