@@ -53,7 +53,7 @@ echo "Connected successfully";
 
 
 $conn->close();
-echo '<script>window.location.replace("main.php");</script>';
+//echo '<script>window.location.replace("main.php");</script>';
 ?>
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
@@ -86,7 +86,7 @@ input[type=submit]:hover {
 </div>
 
 <div class="topnav">
-  <a href="home.html">Home</a>
+  <a href="/main.php">Home</a>
   <a href="menu.html">Menu</a>
   <a href="rewards.html">Rewards</a>
   <button class="login" onclick="document.getElementById('id01').style.display='block'" style="width:auto;float:right;font-family: Arial;">Login</button>
