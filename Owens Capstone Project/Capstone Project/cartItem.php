@@ -1,26 +1,17 @@
 <?php
-function console_log($output, $with_script_tags = true) {
-    $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) . 
-');';
-    if ($with_script_tags) {
-        $js_code = '<script>' . $js_code . '</script>';
-    }
-    echo $js_code;
-}
 
-$item=$_POST["item"];
-console_log("after item");
-$size=$_POST["size"];
-$milk=$_POST["milk"];
+$item="Cap";
+$size="yes";
+$milk="yes"
 if(isset($_COOKIE['cart']){
     $cart=json_decode($_COOKIE['cart']);
     $age = array("item"=>$item, "size"=>$size, "milk"=>$milk);
     array_push($item,$cart,$age);
-    //setcookie('cart',json_encode(array($age)), time() + (86400/24), "/");
+    setcookie('cart',json_encode(array($age)), time() + (86400/24), "/");
 }else{
     
     console_log("before array creation");
-    //setcookie('cart',json_encode(array($age)), time() + (86400/24), "/");
+    setcookie('cart',json_encode(array($age)), time() + (86400/24), "/");
 }
 /*
 
