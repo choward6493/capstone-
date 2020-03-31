@@ -376,7 +376,9 @@ window.onclick = function(event) {
                 $result = $conn->query($sql);
                 $itemCost=$result->fetch_assoc()["cost"];
                 echo '<p><a href="#">'.$itemName.'</a> <span class="price">$'.$itemCost.'</span></p>';
+            
             }
+            /*
             foreach($cart as $singleItem){
                 $cartCount+=1;
                 console_log($singleItem);
@@ -398,6 +400,7 @@ window.onclick = function(event) {
                 $itemCost=1;
                 echo '<p><a href="#">'.$itemName.'</a> <span class="price">$'.$itemCost.'</span></p>';
             }
+            */
         }
     
       ?>
