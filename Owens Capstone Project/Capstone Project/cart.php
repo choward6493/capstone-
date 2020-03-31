@@ -371,8 +371,8 @@ window.onclick = function(event) {
             $cartCount=0;
             for($i=0; $x<=sizeof($cart); $x++){
                 console_log('in loop');
-                $itemName=$cart[$i];
-                console_log($itemName);
+                $itemName=(array)$cart[$i];
+                console_log($itemName['item']);
                 $sql = 'Select Cost from Products where ProductName="'.$itemName.'"';
                 $sql = 'SELECT CustomerID, Email FROM Customers WHERE Email="arenninger@student.cscc.edu"';
                 $result = $conn->query($sql);
