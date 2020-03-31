@@ -375,7 +375,7 @@ window.onclick = function(event) {
                 console_log($itemName['item']);
                 $sql = 'Select Cost from Products where ProductName="'.$itemName['item'].'"';
                 $result = $conn->query($sql);
-                $itemCost=$result->fetch_assoc()["cost"];
+                $itemCost=$result->fetch_assoc()["Cost"];
                 echo '<p><a href="#">'.$itemName['item'].'</a> <span class="price">$'.$itemCost.'</span></p>';
             
             }
