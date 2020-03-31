@@ -366,18 +366,19 @@ window.onclick = function(event) {
       <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b><?php echo $cartCount?></b></span></h4>
       <?php 
         if(isset($_COOKIE['cart'])){
-            console_log($_COOKIE['cart']);
+            //console_log($_COOKIE['cart']);
             $cart=json_decode($_COOKIE['cart']);
             $cartCount=0;
+            $totalCost=0;
             for($i=0; $x<sizeof($cart); $x++){
-                console_log('in loop');
+                //console_log('in loop');
                 $itemName=(array)$cart[$i];
-                console_log($itemName['item']);
+                //console_log($itemName['item']);
                 $sql = 'Select Cost from Products where ProductName="'.$itemName['item'].'"';
                 $result = $conn->query($sql);
                 $itemCost=$result->fetch_assoc()["Cost"];
                 echo '<p><a href="#">'.$itemName['item'].'</a> <span class="price">$'.$itemCost.'</span></p>';
-            
+                $totalCost+=$itemCost;
             }
             /*
             foreach($cart as $singleItem){
@@ -406,11 +407,9 @@ window.onclick = function(event) {
     
       ?>
       
-      <p><a href="#">Product 2</a> <span class="price">$5</span></p>
-      <p><a href="#">Product 3</a> <span class="price">$8</span></p>
-      <p><a href="#">Product 4</a> <span class="price">$2</span></p>
+      
       <hr>
-      <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+      <p>Total <span class="price" style="color:black"><b>$<?php echo $totalCost?></b></span></p>
     </div>
   </div>
 </div>
