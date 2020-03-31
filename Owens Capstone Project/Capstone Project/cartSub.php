@@ -94,7 +94,7 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
                         throw new Exception('Invalid Card Number.');
                     }
                     //now create new payment
-                    $sql3='INSERT INTO Payments(PaymentType,CardType,CardNumber,FirstName,ExpirationDate)Values("Card","'.$cardType.'","',$cardNumber,'","'.$customerName.'","'.$expdate.'-01")';
+                    $sql3='INSERT INTO Payments(PaymentType,CardType,CardNumber,FirstName,ExpirationDate)Values("Card","'.$cardType.'","'$cardNumber,'","'.$customerName.'","'.$expdate.'-01")';
                     $result3 = $conn->query($sql3);
                     $paymentId=$conn->insert_id;
                     //now create CustomerTransactions
