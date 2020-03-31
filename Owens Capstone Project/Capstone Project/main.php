@@ -89,6 +89,8 @@
             <a href="main.php">Home</a>
             <a href="menu.php">Menu</a>
             <a href="rewards.php">Rewards</a>
+            <a href="cart.php"><img border="0" alt="Cart" src="pictures/cart.png" width="20" height="20" style="width:auto;float:right;font-family: Arial;"></a>
+
             <script>
             function logMeOut(){
                 document.cookie = "token= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
@@ -99,8 +101,7 @@
             <button id="logB" display="none" class="login" onclick="document.getElementById('id01').style.display='block'" style="display:none;width:auto;float:right;font-family: Arial;">Login</button>
             <button id="logOut" display="none" class="login" onclick="logMeOut();" style="display:none;width:auto;float:right;font-family: Arial;">Log Out</button>
             <button id="welcomeP" display="none" class="login" onclick="#" style="display:none;width:auto;float:right;font-family: Arial;">Welcome, <?php echo $customerName;?></button>
-            <a href="cart.php"><img border="0" alt="Cart" src="pictures/cart.png" width="20" height="20" style="width:auto;float:right;font-family: Arial;"></a>
-
+            
             <script>
                 //get cookie values
                 function getCookie(cname) {
