@@ -51,11 +51,13 @@ if ($result2->num_rows > 0) {
         $userCookieVal=$usernamePP;
         $passCookie="token";
         $passCookieVal=$hashedData;
-        echo '<script>alert("'.$_POST["remember"].'");</script>';
-        if(($_POST["remember"]=="remember=on")){
+        
+        if(!($_POST["remember"]=="on")){
+            echo '<script>alert("dont remember);</script>';
             setcookie($userCookie,$userCookieVal, time() + (86400/24), "/");
             setcookie($passCookie,$passCookieVal,time()+(86400/24),"/");
         }else{
+            echo '<script>alert("remembr");</script>';
             setcookie($userCookie, $userCookieVal, time() + (86400*30), "/");
             setcookie($passCookie,$passCookieVal,time()+(86400*30),"/");
         }
