@@ -1,12 +1,5 @@
 <!DOCTYPE html>
-<html>
-    <head>
-    
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
-    <?php
+<?php
     function console_log($output, $with_script_tags = true) {
         $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) . 
     ');';
@@ -83,6 +76,15 @@
     }
     
     ?>
+<html>
+    <head>
+    
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        
+    </head>
+    
     <body>
 
         <div class="header">
