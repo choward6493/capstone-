@@ -3,7 +3,7 @@
 $item="Cap";
 $size="yes";
 $milk="yes";
-$age = array("item"=>$item, "size"=>$size, "milk"=>$milk);
+$age = array("item"=>"Cap", "size"=>"help", "milk"=>"please");
 setcookie('cart',json_encode(array($age)), time() + (86400/24), "/");
 
 /*
