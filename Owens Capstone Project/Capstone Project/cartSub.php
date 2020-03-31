@@ -82,7 +82,7 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
                         $itemName=(array)$cart[$i];
 
                         //console_log($itemName['item']);
-                        $sql2 = 'Select Cost,ProductID from Products where ProductName="'.$itemName['item'].'"';
+                        $sql2 = 'Select * from Products where ProductName="'.$itemName['item'].'"';
                         $result2 = $conn->query($sql2);
                         $itemCost=$result2->fetch_assoc()["Cost"];
                         //echo '<p><a href="#">'.$itemName['item'].'</a> <span class="price">$'.$itemCost.'</span></p>';
