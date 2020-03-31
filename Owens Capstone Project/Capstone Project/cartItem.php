@@ -24,6 +24,7 @@ if(!in_array($item,$VALIDITEMS)){
     echo '<script>window.location.replace("main.php");</script>';
 }
 
+console_log("after item");
 $size=$_POST["size"];
 $milk=$_POST["milk"];
 if(isset($_COOKIE['cart']){
