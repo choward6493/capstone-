@@ -135,7 +135,7 @@ window.onclick = function(event) {
 
 <div class="container">
   <form action="cartItem.php" method="POST">
-  <input type="hidden" id="custId" name="custId" value="<?php echo $item?>">
+  <input type="hidden" id="custId" name="item" value="<?php echo $item?>">
   <div class="drink_size" style="width: 600px; float: left;">
   <h2>Size</h2>
     <input type="radio" id="small" name="size" value="small" checked>
