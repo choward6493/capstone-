@@ -103,7 +103,7 @@
                 location.reload();
             }
             </script>
-            <button id="logB" display="inline" class="login" onclick="document.getElementById('id01').style.display='block'" style="display:block;width:auto;float:right;font-family: Arial;">Login</button>
+            <button id="logB" display="none" class="login" onclick="document.getElementById('id01').style.display='block'" style="display:block;width:auto;float:right;font-family: Arial;">Login</button>
             <button id="logOut" display="none" class="login" onclick="logMeOut();" style="display:none;width:auto;float:right;font-family: Arial;">Log Out</button>
             <button id="welcomeP" display="none" class="login" onclick="#" style="display:none;width:auto;float:right;font-family: Arial;">Welcome, <?php echo $customerName;?></button>
             
