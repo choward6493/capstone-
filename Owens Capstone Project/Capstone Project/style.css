@@ -367,12 +367,20 @@ div.desc {
   float: left;
   width: 24.9999%;
 }
-
+input.responsive
+{
+  width: 24.9999%;
+}
 @media only screen and (max-width: 700px) {
   .responsive {
     width: 49.99999%;
     margin: 6px 0;
   }
+}
+input[type="image"]
+{
+    background: transparent;
+    border: none;
 }
 
 @media only screen and (max-width: 500px) {
