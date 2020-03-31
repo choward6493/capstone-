@@ -178,8 +178,8 @@ window.onclick = function(event) {
 </div>
 
 <div style="padding:20px;">
-<div class="row">
-<div class="col-25">
+
+<div class="responsive">
   <div class="gallery">
   <form class="" action="/menuItem.php" method="post">
     <a type="submit">
@@ -192,7 +192,7 @@ window.onclick = function(event) {
 </div>
 
 
-<div class="col-25">
+<div class="responsive">
   <div class="gallery">
   <form class="" action="/menuItem.php" method="post">
     <a type="submit">
@@ -204,7 +204,8 @@ window.onclick = function(event) {
     <div class="desc">Iced Latte</div>
   </div>
 </div>
-<div class="col-25">
+
+<div class="responsive">
   <div class="gallery">
   <form class="" action="/menuItem.php" method="post">
     <a type="submit">
@@ -218,7 +219,8 @@ window.onclick = function(event) {
     <div class="desc">Espresso</div>
   </div>
 </div>
-<div class="col-25">
+
+<div class="responsive">
   <div class="gallery">
   <form class="" action="/menuItem.php" method="post">
     <a type="submit">
@@ -232,7 +234,7 @@ window.onclick = function(event) {
 </div>
 
 <div class="clearfix"></div>
-</div>
+
 <div style="padding:6px;">
 
 <div class="footer">
