@@ -180,6 +180,7 @@ window.onclick = function(event) {
   <div class="gallery">
   <form class="modal-content animate" action="/menuItem.php" method="post">
     <a type="submit">
+    <input type="hidden" id="custId" name="item" value="Cappuccino">
       <input type="image" src="pictures/cappuccino.jpg" alt="Submit" width="600" height="400">
     </a>
 </form>
@@ -190,15 +191,27 @@ window.onclick = function(event) {
 
 <div class="responsive">
   <div class="gallery">
-    <a target="_blank" href="menuItem.php?item=IcedLatte">
-      <img src="pictures/iced-latte.jpg" alt="Iced Latte" width="600" height="400">
+  <form class="modal-content animate" action="/menuItem.php" method="post">
+    <a type="submit">
+    <input type="hidden" id="custId" name="item" value="IcedLatte">
+      <input type="image" src="pictures/iced-latte.jpg" alt="Submit" width="600" height="400">
     </a>
+</form>
+    
     <div class="desc">Iced Latte</div>
   </div>
 </div>
 
 <div class="responsive">
   <div class="gallery">
+  <form class="modal-content animate" action="/menuItem.php" method="post">
+    <a type="submit">
+    <input type="hidden" id="custId" name="item" value="Espresso">
+      <input type="image" src="pictures/espresso.jpg" alt="Submit" width="600" height="400">
+    </a>
+</form>
+
+  
     <a target="_blank" href="menuItem.php?item=Espresso">
       <img src="pictures/espresso.jpg" alt="Espresso" width="600" height="400">
     </a>
@@ -208,9 +221,13 @@ window.onclick = function(event) {
 
 <div class="responsive">
   <div class="gallery">
-    <a target="_blank" href="menuItem.php?item=CaramelMacchiato">
-      <img src="pictures/caramel_macchiato.jpg" alt="Caramel Macchiato" width="600" height="400">
+  <form class="modal-content animate" action="/menuItem.php" method="post">
+    <a type="submit">
+    <input type="hidden" id="custId" name="item" value="CaramelMacchiato">
+      <input type="image" src="pictures/caramel_macchiato.jpg" alt="Submit" width="600" height="400">
     </a>
+</form>
+   
     <div class="desc">Caramel Macchiato</div>
   </div>
 </div>
