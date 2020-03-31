@@ -85,10 +85,11 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
                         $sql2 = 'Select * from Products where ProductName="'.$itemName['item'].'"';
                         $result2 = $conn->query($sql2);
                         $itemCost=$result2->fetch_assoc()["Cost"];
+                        $productID=$result2->fetch_assoc()["ProductID"];
                         //echo '<p><a href="#">'.$itemName['item'].'</a> <span class="price">$'.$itemCost.'</span></p>';
                         $totalCost+=$itemCost;
                         
-                        $sql2 = 'INSERT INTO OrderDetails(ProductID,OrderID,ItemQuantity,AddOns,OrderSize)Values('.$result2->fetch_assoc()["ProductID"].','.$orderID.',1,"'.$itemName['milk'].'","'.$itemName['size'].'")';
+                        $sql2 = 'INSERT INTO OrderDetails(ProductID,OrderID,ItemQuantity,AddOns,OrderSize)Values('.$productID.','.$orderID.',1,"'.$itemName['milk'].'","'.$itemName['size'].'")';
                         console_log($sql2);
                         $result2 = $conn->query($sql2);
                         console_log($result2);
