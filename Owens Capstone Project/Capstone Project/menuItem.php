@@ -30,7 +30,7 @@ if(in_array($item,$VALIDITEMS)){
     console_log($item);
 }else{
     //because it is get request, super quick questioning
-    window.location.replace("menu.php");
+    echo '<script>window.location.replace("main.php");</script>';
 }
 
 /*
@@ -51,8 +51,9 @@ echo "Connected successfully";
 
 
 
+
 $conn->close();
-window.location.replace("menu.php");
+echo '<script>window.location.replace("main.php");</script>';
 ?>
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
