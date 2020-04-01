@@ -69,6 +69,7 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
                     $cvv=$_POST["cvv"];
                     $location=$_POST["location"];
                     $orderDate=date('Ymd h:i:s A');
+                    console_log($orderDate);
                     //create new Orders list, last BIT 1=needs fufilled
                     $sql = 'Insert into Orders(StoreName,OrderDate,OrderStatus)Values("'.$location.'","'.$orderDate.'",1)';
                     $result = $conn->query($sql);
