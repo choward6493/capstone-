@@ -186,7 +186,7 @@
             <div class="rightcolumn">
                 <div class="card">
                     <h2>About Us</h2>
-                    <div class="img" style="height:300px;"><img src="pictures/coffee-shop.jpg" alt="coffee shop" width="370" height="260"></div>
+                    <div class="img" style="height:300px;"><img src="pictures/coffee-shop.jpg" alt="coffee shop" width="370" height="260" class="responsive"></div>
                     <p>The Montgomery Cup was founded in 2003 by owners Lex and Milli Montgomery as a family owned,  quality coffee shop located in central Ohio. Since then they have expanded and grown into three shops.</p>
                 </div>
                 <div class="card">
