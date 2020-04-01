@@ -84,7 +84,7 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
                         //console_log($itemName['item']);
                         $sql2 = 'Select * from Products where ProductName="'.$itemName['item'].'"';
                         $result2 = $conn->query($sql2);
-                        $itemCost=$result2->fetch_assoc()["Cost"];
+                        $itemCost =$result2->fetch_assoc()["Cost"];
                         $productID=$result2->fetch_assoc()["ProductID"];
                         console_log($productID);
                         //echo '<p><a href="#">'.$itemName['item'].'</a> <span class="price">$'.$itemCost.'</span></p>';
