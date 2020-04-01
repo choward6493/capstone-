@@ -125,6 +125,8 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
                 }catch(Exception $e){
                     echo 'Caught exception: ',  $e->getMessage(), "\n";
                 }
+                echo '<script>document.cookie = "cart= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";</script>';
+                
             }
             
         }else {
@@ -143,9 +145,7 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
 $conn->close();
 ?>
 <html>
-<!--
 <script>window.location.replace("/");</script>
--->
 <body>
 
 <!-- 
