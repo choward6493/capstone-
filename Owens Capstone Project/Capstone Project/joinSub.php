@@ -40,7 +40,7 @@ $address = $_POST["address"];
 $aptNumber = $_POST["aptNumber"];
 $city = $_POST["city"];
 $state = $_POST["states"];
-console_log($state);
+//console_log($state);
 $zipCode = $_POST["zipCode"];
 $date=$_POST["date"];
 $userID=0;
@@ -57,23 +57,18 @@ if ($result->num_rows > 0) {
     $sql = 'INSERT INTO Customers(FirstName,LastName,PhoneNumber,Email,Address,APTNumber,City,State,ZipCode,DOB)values("'.$firstName.'","'.$lastName.'","'.$phoneNumber.'","'.$usernamePP.'","'.$address.'","'.$aptNumber.'","'.$city.'","'.$state.'","'.$zipCode.'","'.$date.'")';
     $result = $conn->query($sql);
     console_log($result);
-    //get customerID for password storage
-    $sql = 'SELECT CustomerID FROM Customers WHERE Email="'.$usernamePP.'"';
-    $result = $conn->query($sql);
-    console_log($result);
-    if ($result->num_rows > 0) {
-        // output userID from email
-        $userID=$result->fetch_assoc()["CustomerID"];
-        //echo $result->fetch_assoc()["CustomerID"].'<br>';
-    } else {
-        //echo "0 results";
-    }
 
+    //get customer ID for password storage
+    $userID=$conn->insert_id;
+
+    //insert hashed password into database
+    //password is sent over as clear text??? somehow fix this
     $sql2 = 'INSERT INTO CustomerLOG(CustomerID,CustomerPasswordHash)values("'.$userID.'","'.$hashPass.'")';
-    
     $result2 = $conn->query($sql2);
     console_log($result2);
 
+    //store user info as cookie in browser
+    //change this as well.... some other unique format
     $userCookie="user";
     $userCookieVal=$usernamePP;
     $passCookie="token";

@@ -125,6 +125,7 @@
                         <img src="pictures/avatar.png" alt="Avatar" class="avatar" width="100%" height="100%">
                     </div>
 
+                    <!-- need real time validation before the person submits-->
                     <div class="container">
                         <label for="uname"><b>Username</b></label>
                         <input type="text" placeholder="Enter Username" name="uname" required>
@@ -159,6 +160,23 @@
             </script>
         </div>
 
+        <!-- replace these with PHP generated ones.... have form in intranet to create + delete news -->
+        <!-- 
+            $sql2 = 'select * from NewsTable';
+            $title
+            $titleDesc
+            $rawText
+
+            //split up raw text into readable paragraphs??? or just have CSS do it
+
+            $sql2 = 'SELECT CustomerPasswordHash FROM CustomerLOG WHERE CustomerID='.$userID;
+            $result2 = $conn->query($sql2);
+
+            $hashedData=$result2->fetch_assoc()["CustomerPasswordHash"];
+
+
+
+        -->
         <div class="row">
             <div class="leftcolumn">
                 <div class="card">
