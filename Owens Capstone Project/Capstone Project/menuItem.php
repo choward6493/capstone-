@@ -21,6 +21,42 @@ $dbname="Capstone";
 $conn = new mysqli($servername, $username, $password,$dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
+}if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
+  $usernamePP=$_COOKIE['user'];
+  console_log($usernamePP);
+  $hashPass=$_COOKIE['token'];
+  $userID=0;
+  $sql = 'SELECT CustomerID FROM Customers WHERE Email="'.$usernamePP.'"';
+  //echo $sql;
+  //$sql = 'SELECT CustomerID, Email FROM Customers WHERE Email="arenninger@student.cscc.edu"';
+  $result = $conn->query($sql);
+  if ($result->num_rows > 0) {
+      // output userID from email
+      $userID=$result->fetch_assoc()["CustomerID"];
+      //echo $result->fetch_assoc()["CustomerID"].'<br>';
+  } else {
+      //echo "0 results";
+  }
+  $sql2 = 'SELECT CustomerPasswordHash FROM CustomerLOG WHERE CustomerID='.$userID;
+  //echo $sql2;
+  $result2 = $conn->query($sql2);
+  if ($result2->num_rows > 0) {
+      // output userID from email
+      $hashedData=$result2->fetch_assoc()["CustomerPasswordHash"];
+      //echo '<br>'.$hashedData.'<br>';
+      //echo '<br>'.$hashPass;
+      if($hashPass==$hashedData){
+          //echo "You're in";
+          $sql = 'SELECT * FROM Customers WHERE CustomerID='.$userID;
+          $result = $conn->query($sql);
+          $customerName=$result->fetch_assoc()["FirstName"];
+          
+      }else {
+          //echo "Password not right";
+      }
+  } else {
+      //echo "nothing found";
+  }
 }
 
 $item=$_POST["item"];
@@ -89,6 +125,9 @@ input[type=submit]:hover {
   <a href="/main.php">Home</a>
   <a href="menu.php">Menu</a>
   <a href="rewards.php">Rewards</a>
+  <div class="cart">
+                <a href="cart.php"><img border="0" alt="Cart" src="pictures/cart4.png" width="20" height="20" style="width:auto;height:20px;float:right;font-family: Arial;"></a>
+            </div>
   <script>
             function logMeOut(){
                 document.cookie = "token= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
