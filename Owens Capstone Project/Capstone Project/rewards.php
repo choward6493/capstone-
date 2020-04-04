@@ -74,10 +74,10 @@
 </div>
 
 <div class="topnav">
-  <a href="home.html">Home</a>
-  <a href="menu.html">Menu</a>
-  <a href="rewards.html">Rewards</a>
-  <div class="cart"><a href="cart.html"><img border="0" alt="Cart" src="pictures/cart4.png" style="width:auto;height:20px;float:right;font-family: Arial;"></a></div>
+  <a href="main.php">Home</a>
+  <a href="menu.php">Menu</a>
+  <a href="rewards.php">Rewards</a>
+  <div class="cart"><a href="cart.php"><img border="0" alt="Cart" src="pictures/cart4.png" style="width:auto;height:20px;float:right;font-family: Arial;"></a></div>
   <script>
             function logMeOut(){
                 document.cookie = "token= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
