@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 <?php
     function console_log($output, $with_script_tags = true) {
         $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) . 
@@ -17,7 +19,6 @@
     $password = "SixGuys1CapstoneProject";
     $dbname="Capstone";
     $userID=0;
-    $loginStatus ="Not Correct";
     // Create connection
     $conn = new mysqli($servername, $username, $password,$dbname);
     /*
@@ -32,7 +33,6 @@
         console_log($usernamePP);
         $hashPass=$_COOKIE['token'];
         $userID=0;
-        $customerName="Invalid Credentials";
         $sql = 'SELECT CustomerID FROM Customers WHERE Email="'.$usernamePP.'"';
         //echo $sql;
         //$sql = 'SELECT CustomerID, Email FROM Customers WHERE Email="arenninger@student.cscc.edu"';
@@ -54,27 +54,12 @@
             //echo '<br>'.$hashPass;
             if($hashPass==$hashedData){
                 //echo "You're in";
-                /*
-                $userCookie="user";
-                $userCookieVal=$usernamePP;
-                $passCookie="token";
-                $passCookieVal=$hashedData;
-                if(!($_POST["remember"]=="on")){
-                    setcookie($userCookie,$userCookieVal, time() + (86400/24), "/");
-                    setcookie($passCookie,$passCookieVal,time()+(86400/24),"/");
-                }else{
-                    setcookie($userCookie, $userCookieVal, time() + (86400*30), "/");
-                    setcookie($passCookie,$passCookieVal,time()+(86400*30),"/");
-                }
-                */
                 $sql = 'SELECT * FROM Customers WHERE CustomerID='.$userID;
                 $result = $conn->query($sql);
                 $customerName=$result->fetch_assoc()["FirstName"];
-                //console_log($result);
-                $loginStatus="Correct";
+                
             }else {
                 //echo "Password not right";
-                $loginStatus="Not Correct";
             }
         } else {
             //echo "nothing found";
@@ -82,21 +67,17 @@
     }
     
     ?>
-</head>
-
 <body>
- <div class="header">
-  <h1>Menu</h1>
+<div class="header">
+  <h1>Rewards</h1>
   
 </div>
 
 <div class="topnav">
-  <a href="/main.php">Home</a>
-  <a href="menu.php">Menu</a>
-            <a href="rewards.php">Rewards</a>
-            <div class="cart">
-                <a href="cart.php"><img border="0" alt="Cart" src="pictures/cart4.png" width="20" height="20" style="width:auto;height:20px;float:right;font-family: Arial;"></a>
-            </div>
+  <a href="home.html">Home</a>
+  <a href="menu.html">Menu</a>
+  <a href="rewards.html">Rewards</a>
+  <div class="cart"><a href="cart.html"><img border="0" alt="Cart" src="pictures/cart4.png" style="width:auto;height:20px;float:right;font-family: Arial;"></a></div>
   <script>
             function logMeOut(){
                 document.cookie = "token= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
@@ -104,14 +85,11 @@
                 document.cookie = "cart= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
                 location.reload();
             }
-    </script><button id="logB" display="none" class="login" onclick="document.getElementById('id01').style.display='block'" style="display:none;width:auto;float:right;font-family: Arial;">Login</button>
+            </script>
+            <button id="logB" display="none" class="login" onclick="document.getElementById('id01').style.display='block'" style="display:none;width:auto;float:right;font-family: Arial;">Login</button>
             <button id="logOut" display="none" class="login" onclick="logMeOut();" style="display:none;width:auto;float:right;font-family: Arial;">Log Out</button>
             <button id="welcomeP" display="none" class="login" onclick="#" style="display:none;width:auto;float:right;font-family: Arial;">Welcome, <?php echo $customerName;?></button>
             
-  <!-- fix this part -->
-  <button id="logB" display="none" class="login" onclick="document.getElementById('id01').style.display='block'" style="display:none;width:auto;float:right;font-family: Arial;">Login</button>
-            <button id="logOut" display="none" class="login" onclick="logMeOut();" style="display:none;width:auto;float:right;font-family: Arial;">Log Out</button>
-            <button id="welcomeP" display="none" class="login" onclick="#" style="display:none;width:auto;float:right;font-family: Arial;">Welcome, <?php echo $customerName;?></button>
             <script>
                 //get cookie values
                 function getCookie(cname) {
@@ -130,7 +108,7 @@
                     return "";
                     }
                 //if user logged in token doesn't exist, show log in button
-                if((getCookie("token")=="")||"<?php echo $loginStatus;?>"=="Not Correct"){
+                if((getCookie("token")=="")){
                     document.getElementById('logB').style.display='inline';
                 }else{
                     document.getElementById('logOut').style.display='inline';
@@ -139,7 +117,7 @@
             </script>
 <div id="id01" class="modal">
   
-  <form class="modal-content animate" action="/login.php" method="post">
+  <form class="modal-content animate" action="/action_page.php" method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img src="pictures/avatar.png" alt="Avatar" class="avatar" width="100%" height="100%">
@@ -179,66 +157,8 @@ window.onclick = function(event) {
 </script>
 </div>
 
-<!-- need to make this data part of database and procedurally generate it through php.... add cost as well-->
-<div style="padding:20px;">
-
-<div class="responsive">
-  <div class="gallery">
-  <form class="" action="/menuItem.php" method="post">
-    <a type="submit">
-    <input type="hidden" id="custId" name="item" value="Cappuccino">
-      <input type="image" src="pictures/cappuccino.jpg" alt="Submit" width="600" height="400" class="responsive">
-    </a>
-</form>
-    <div class="desc">Cappuccino</div>
-  </div>
-</div>
 
 
-<div class="responsive">
-  <div class="gallery">
-  <form class="" action="/menuItem.php" method="post">
-    <a type="submit">
-    <input type="hidden" id="custId" name="item" value="IcedLatte">
-      <input type="image" src="pictures/iced-latte.jpg" alt="Submit" width="600" height="400" class="responsive">
-    </a>
-</form>
-    
-    <div class="desc">Iced Latte</div>
-  </div>
-</div>
-
-<div class="responsive">
-  <div class="gallery">
-  <form class="" action="/menuItem.php" method="post">
-    <a type="submit">
-    <input type="hidden" id="custId" name="item" value="Espresso">
-      <input type="image" src="pictures/espresso.jpg" alt="Submit" width="600" height="400" class="responsive">
-    </a>
-</form>
-
-  
-   
-    <div class="desc">Espresso</div>
-  </div>
-</div>
-
-<div class="responsive">
-  <div class="gallery">
-  <form class="" action="/menuItem.php" method="post">
-    <a type="submit">
-    <input type="hidden" id="custId" name="item" value="CaramelMacchiato">
-      <input type="image" src="pictures/caramel_macchiato.jpg" alt="Submit" width="600" height="400" class="responsive">
-    </a>
-</form>
-   
-    <div class="desc">Caramel Macchiato</div>
-  </div>
-</div>
-
-<div class="clearfix"></div>
-
-<div style="padding:6px;">
 
 <div class="footer">
 		<form class="form-inline" action="#">

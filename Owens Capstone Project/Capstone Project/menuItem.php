@@ -168,8 +168,7 @@ input[type=submit]:hover {
                     document.getElementById('welcomeP').style.display='inline';
                 }
             </script>
-  <button class="login" onclick="document.getElementById('id01').style.display='block'" style="width:auto;float:right;font-family: Arial;">Login</button>
-
+ 
 <div id="id01" class="modal">
   
   <form class="modal-content animate" action="/login.php" method="post">
