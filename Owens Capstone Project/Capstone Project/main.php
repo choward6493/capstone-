@@ -244,14 +244,14 @@
 
         <div class="footer">
         <p>Number of Visits: <?php 
-  $sql = 'UPDATE WebInfo SET NumHits='.($numHits+=1).' WHERE HitID=1';
-  $result = $conn->query($sql);
+  
     $sql = 'SELECT NumHits FROM WebInfo WHERE HitID=1';
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         $numHits=$result->fetch_assoc()["NumHits"];
         echo $numHits;
-        
+        $sql = 'UPDATE WebInfo SET NumHits='.($numHits+=1).' WHERE HitID=1';
+  $result = $conn->query($sql);
 
     } else {
         //echo "0 results";
