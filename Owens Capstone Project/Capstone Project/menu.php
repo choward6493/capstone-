@@ -241,6 +241,7 @@ window.onclick = function(event) {
 <div style="padding:6px;">
 
 <div class="footer">
+  
 		<form class="form-inline" action="#">
   <label for="email">Join our mailing list:</label>
   <input type="email" id="email" placeholder="Enter email" name="email">
