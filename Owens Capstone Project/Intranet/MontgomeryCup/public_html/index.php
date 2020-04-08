@@ -221,7 +221,7 @@ window.onclick = function(event) {
 };
 /*
 <?php if($loggedIn){
-  echo "/*";
+  echo "/*";?>
 */
 //dont do this anymore: user must log into website so see anything at all 
 
