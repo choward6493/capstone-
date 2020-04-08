@@ -1,0 +1,487 @@
+    * { box-sizing: border-box; }
+header,nav, main, footer { display: block; }
+
+body { background-color: #FCEBB6; 
+      background-image: url(images/background5.jpg);
+      color: #221811;
+      font-family: Verdana, Arial, sans-serif;
+	  
+}
+#wrapper { background-color: #231814;
+
+           width: 80%;
+           margin-right: auto;
+		   margin-left: auto;
+           min-width: 900px;
+		   max-width: 1280px;
+		   box-shadow: 3px 3px 3px #666666; 
+}
+
+header { background-color: #D2B48C;
+        height: 150px;
+       
+       background-image: url(images/logo.jpg);
+       background-repeat: no-repeat;
+       align-content: center;
+       text-align: center;
+}
+aside {
+  margin-top:20px;
+  background-image: url(images/background.jpg);
+  padding: 20px;
+  font-family: Arial;
+  text-align: center;
+  float:left;
+  width: 48%;
+}
+
+/* Center website */
+.food {
+  max-width: 1000px;
+  margin: auto;
+}
+section {
+  margin-top:20px;
+  background-image: url(images/background.jpg);
+  padding: 20px;
+  font-family: Arial;
+  text-align: center;
+  float: right;
+  width: 48%;
+}
+/* Center website */
+.drinks {
+  max-width: 1000px;
+  margin: auto;
+}
+
+article{
+  margin-top:20px;
+  background-image: url(images/background.jpg);
+  padding: 20px;
+  font-family: Arial;
+  text-align: center;
+  width: 100%;
+  size: 50px;
+}
+
+/* Style the sidenav links and the dropdown button */
+article a, .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #996633;
+  display: block;
+  border-bottom:1px red;
+  background:none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+/* On mouse-over */
+article a:hover, .dropdown-btn:hover {
+  color: #f1f1f1;
+}
+
+h3 {
+  font-size: 10px;
+  word-break: break-all;
+}
+
+.row {
+  margin: 8px -16px;
+}
+
+/* Add padding BETWEEN each column */
+.row,
+.row > .column {
+  padding: 8px;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+}
+
+/* Clear floats after rows */ 
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content {
+  background-color: #D2B48C;
+  padding: 10px;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 900px) {
+  .column {
+    width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+div.topnav {
+   
+ color:#ffffff;
+ background-color:#734d26;
+ background-image: url(images/header4.jpg);
+ background-size: cover;
+ background-repeat: no-repeat;
+ overflow: auto;
+ white-space: nowrap;
+ width:100%;
+}
+div.topnav a{
+  display: inline-block;
+  text-align: center;
+  color:  #ecd9c6;
+  padding: 18px;
+  text-decoration: none;
+}
+
+
+div.topnav a.active {
+  background-color:#FEF6C2;
+  color: #ecd9c6;
+}
+
+div.topnav a:hover:not(.active) {
+  background-color:#996633;
+  color: white;
+}
+
+div.topnav button{
+  display: inline-block;
+  text-align: center;
+  color:  #ecd9c6;
+  padding: 18px;
+  text-decoration: none;
+}
+
+
+div.topnav button.active {
+  background-color:#FEF6C2;
+  color: #ecd9c6;
+}
+
+div.topnav button:hover:not(.active) {
+  background-color:#996633;
+  color: white;
+}
+
+#news{
+  display:inline-block;width:auto;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+div.toplink {
+ padding: 50px;  
+ color:#ffffff;
+ background-color:#734d26;
+ background-image: url(images/header4.jpg);
+ background-size: cover;
+ background-repeat: no-repeat;
+ overflow: auto;
+ text-align: center;
+ white-space: nowrap;
+ width:100%;
+}
+div.toplink a{
+  display: inline-block;
+  text-align: center;
+  color:  #ecd9c6;
+  padding: 18px;
+  text-decoration: none;
+}
+
+
+div.toplink a.active {
+  background-color:#FEF6C2;
+  color: #ecd9c6;
+}
+
+div.toplink a:hover:not(.active) {
+  background-color:#996633;
+  color: white;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #d2a679;
+  color: white;
+  padding: 14px 20px;
+  margin:8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+ 
+  
+}
+#login{
+  float:right;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 20px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 30%;
+  border-radius: 40%;
+}
+
+.container {
+  padding: 15px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 2; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 100%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+  display:none;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+h1 { padding-top: 45px;
+    padding-left: 220px;
+	font-size: 3em; 
+}
+
+nav {
+  height: 100%;
+  width:100%;
+  position: relative;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background: none;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Style the sidenav links and the dropdown button */
+nav a, .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #996633;
+  display: block;
+  background:none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+/* On mouse-over */
+nav a:hover, .dropdown-btn:hover {
+  color: #f1f1f1;
+}
+
+/* Main content */
+.main {
+  
+  margin-left:20px; /* Same as the width of the sidenav */
+  font-size: 20px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+/* Add an active class to the active dropdown button */
+dropdown-container.active {
+  background-color: red;
+  color: white;
+  width: 200px;
+  float: left;
+  
+}
+.dropdown-btn:hover {
+  background-color:;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+  display: none;
+  background-color:#D2B48C;
+  padding-left: 8px;
+  width: 200px;
+  overflow: auto;
+  height:80px
+  
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
+footer { background-color: #D2B48C;
+       font-size: small;
+	   font-style: italic;
+	   text-align: center;
+	   padding-bottom: 10px;
+	   border-top: 2px #221811 solid;
+}
+main {padding: 0 0 2em 0;
+      margin-left: 200px;
+      background-color: #FEF6C2;
+      margin-top:-150px;
+      position: relative;
+      font-family: Arial;
+}
+
+
+
+main h2, main h3, main h4, main p, main div, main ul, main dl { padding-left: 3em; padding-right: 2em; }
+h4 { background-color: #d2B48C;
+    font-size: 1.2em;
+	padding-left: 10px;
+	padding-bottom: 0;
+	text-transform: uppercase;
+	border-bottom: 1px solid #000033;
+	clear: left;
+}
+.details { padding-left: 20%;
+          padding-right: 20%;
+		  overflow: auto;
+}
+.floatleft { float: left;
+             padding-right: 20px;
+			 padding-bottom: 20px; 
+}
+img { padding-left: 10px;
+     padding-right: 10px;
+}
+#heroroad { background-image: url(heroroad.jpg);
+           background-size: 100% 100%;
+		   height: 250px; }
+#heromugs { background-image: url(heromugs.jpg);
+           background-size: 100% 100%;
+		   height: 250px; }
+#heroguitar { background-image: url(heroguitar.jpg);
+           background-size: 100% 100%;
+		   height: 250px; }
+#mobile { display: none; }
+#desktop { display: inline; }
+table { width: 90%;
+      margin: auto;
+	  border-spacing: 0;
+	  background-color: #FFFFCC; }
+td, th { padding: 10px; }
+tr:nth-of-type(odd) { background-color: #D2B48C; }
+form { padding: 2em; }
+label { float: left;
+      display: block;
+	  text-align: right;
+	   width: 8em;
+	   padding-right: 1em; }
+input, textarea { display: block; margin-bottom: 1em; }
+#mySubmit { margin-left: 9.5em; }
+
+#viewOrders{
+  background-color: #FFFFFF;
+  width: auto;
+  float:left;
+  /*
+  height: 100%;
+  */
+}
+#locationTag{
+  float:left;
+  height:auto;
+  padding:2px;
+}
+
+.navLinks{
+  width: 200px;
+  float:left;
+}
+.dropF{
+  padding:2px;
+}
