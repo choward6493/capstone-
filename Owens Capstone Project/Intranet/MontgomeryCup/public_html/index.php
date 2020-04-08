@@ -90,7 +90,7 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
 </header>
 <div class="topnav">
  <a class="active" href="/">Home</a>
- <a id="news" href="javascript:alert('View Orders');">News</a>
+ <a id="news" href="javascript:alert('News');">News</a>
  <!--
  <button id="login"onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 -->
@@ -208,9 +208,11 @@ Copyright &copy; 2016 Montgomery Cup Coffee <br>
 // Get the modal
 var modal = document.getElementById('id01');
 /*
-<?php if($loggedIn){
+<?php 
+if($loggedIn){
   echo 'modal.style.display="none";/*';
-}?>
+}
+?>
 */
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
@@ -221,7 +223,7 @@ window.onclick = function(event) {
 };
 /*
 <?php if($loggedIn){
-  echo "/*";?>
+  echo "/*";}?>
 */
 //dont do this anymore: user must log into website so see anything at all 
 
