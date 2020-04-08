@@ -95,7 +95,7 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
  <button id="login"onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 -->
 </div> 
- <div id="id01" class="modal" style="display:none"> 
+ <div id="id01" class="modal" style="display:block"> 
     <form class="modal-content animate" action="/login.php" method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -207,6 +207,7 @@ Copyright &copy; 2016 Montgomery Cup Coffee <br>
 <script>
 // Get the modal
 var modal = document.getElementById('id01');
+modal.style.display = "none";
 /*
 <?php 
 if($loggedIn){
@@ -218,7 +219,7 @@ if($loggedIn){
 window.onclick = function(event) {
     if (event.target ===modal) {
       
-        //modal.style.display = "block";
+        modal.style.display = "block";
     }
 };
 /*
@@ -258,4 +259,3 @@ for (i = 0; i < dropdown2.length; i++) {
 </script>
 </body>
 </html>
-
