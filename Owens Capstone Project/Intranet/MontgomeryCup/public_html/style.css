@@ -450,6 +450,7 @@ img { padding-left: 10px;
 #mobile { display: none; }
 #desktop { display: inline; }
 table { width: 90%;
+  table-layout:fixed;
       margin: auto;
 	  border-spacing: 0;
 	  background-color: #FFFFCC; }
