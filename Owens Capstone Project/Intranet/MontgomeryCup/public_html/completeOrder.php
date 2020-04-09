@@ -3,7 +3,7 @@ $location=$_POST['locationVal'];
 $orderID=$_POST['orderID'];
 
 $sql='SELECT * FROM Orders WHERE OrderId='.$orderID;
-$result3=$conn->query($sql3);
+$result3=$conn->query($sql);
 //even though there is only going to be one result
 $orderArray=[];
 array_push($orderArray,$result3->fetch_array(MYSQLI_ASSOC));
