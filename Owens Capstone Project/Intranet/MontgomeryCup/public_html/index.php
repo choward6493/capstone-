@@ -252,7 +252,7 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
             echo '<th>'.$singleOrder["OrderDate"].'</th>';
             echo '<th>'.$orderStatusText.'</th>';
             //also put in items as hidden input for extra validation/checking
-            echo '<th><form action="completeOrder.php" method="post"><input type="hidden" id="locationVal" name="locationVal" value="'.$singleOrder["StoreName"].'"><input type="hidden" id="orderVal" name="orderID" value="'.$singleOrder["OrderID"].'"><button style="width:75%" type="submit">Completed</button></form></th>';
+            echo '<th><form action="completeOrder.php" method="post"><input type="hidden" id="locationVal" name="locationVal" value="'.$singleOrder["StoreName"].'"><input type="hidden" id="orderVal" name="orderID" value="'.$singleOrder["OrderID"].'"><button style="width:100%;display:block" type="submit">Completed</button></form></th>';
             echo '</tr>';
           }
           //$variableName=$result->fetch_assoc()["OrderID"];
