@@ -76,7 +76,7 @@ if ($result->num_rows > 0) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>JavaJam Coffee House</title>
+<title>Montgomery Cup Coffee</title>
 <meta charset="utf-8">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="index.css">

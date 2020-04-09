@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Montgomery Cup</title>
+<title>Montgomery Cup Coffee</title>
 <meta charset="utf-8">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="index.css">
