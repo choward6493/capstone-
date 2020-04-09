@@ -18,6 +18,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 $location="";
+echo $location;
 try{
 $location=$_POST['location'];
 }catch(Exception $e){
@@ -149,19 +150,19 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
     <div class="dropdown-container">
         <form class="dropF" action="/" method="post">
           <a type="submit">
-          <input type="hidden" id="custId" name="location" value="Columbus">
+          <input type="hidden" id="custId" name="location" value="CO">
             <a href="javascript:{}" onclick="this.closest('form').submit();return false;">Columbus</a>
           </a>
         </form>
         <form class="dropF" action="/" method="post">
           <a type="submit">
-          <input type="hidden" id="custId" name="location" value="GroveCity">
+          <input type="hidden" id="custId" name="location" value="GC">
             <a href="javascript:{}" onclick="this.closest('form').submit();return false;">Grove City</a>
           </a>
         </form> 
         <form class="dropF" action="/" method="post">
           <a type="submit">
-          <input type="hidden" id="custId" name="location" value="NewAlbany">
+          <input type="hidden" id="custId" name="location" value="NA">
             <a href="javascript:{}" onclick="this.closest('form').submit();return false;">New Albany</a>
           </a>
         </form>
@@ -212,7 +213,7 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
           echo '<tr><th>'.$singleOrder["OrderID"].'</th>';
           echo '<th>'.$singleOrder["OrderDate"].'</th>';
           echo '<th>'.$orderStatusText.'</th>';
-          echo '<th><form action="completeOrder.php" method="post"><input type="hidden" id="locationVal" name="locationVal" value="'.$location.'"><input type="hidden" id="orderVal" name="orderID" value="'.$singleOrder["OrderID"].'"><button style="width:75%" type="submit">Completed</button></form></th>';
+          echo '<th><form action="completeOrder.php" method="post"><input type="hidden" id="locationVal" name="locationVal" value="'.$singleOrder["StoreName"].'"><input type="hidden" id="orderVal" name="orderID" value="'.$singleOrder["OrderID"].'"><button style="width:75%" type="submit">Completed</button></form></th>';
           echo '</tr>';
           }
           //$variableName=$result->fetch_assoc()["OrderID"];
