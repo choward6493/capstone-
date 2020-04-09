@@ -100,6 +100,16 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
  <!--
  <button id="login"onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 -->
+<script>
+            function logMeOut(){
+                document.cookie = "token= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+                document.cookie = "user= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+                document.cookie = "cart= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+                location.reload();
+            }
+    </script>
+<button id="logOut" display="none" class="login" onclick="logMeOut();" style="display:none;width:auto;float:right;font-family: Arial;">Log Out</button>
+            
 </div> 
  <div id="id01" class="modal" style="display:block"> 
     <form class="modal-content animate" action="/login.php" method="post">
@@ -207,7 +217,7 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
       }
         //if person selects a location 
         if(location!=""){
-          echo 'test';
+          //echo 'test';
           $sql = 'SELECT * from Orders WHERE OrderStatus=1';
           $result = $conn->query($sql);
           $ordersArray=[];
@@ -235,12 +245,13 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
               $sql4= 'SELECT ProductName FROM Products WHERE ProductID='.$itemSingle["ProductID"].'';
               $result4= $conn->query($sql4);
               $productName= $result4->fetch_assoc()["ProductName"];
-              $itemsString=$productName.' - '.$itemSingle["OrderSize"].' x '.strval($itemSingle["ItemQuantity"]);
-              echo $itemsString.'<br/>';
+              $itemsString=$itemSingle["OrderSize"].' - '.$productName.' x '.strval($itemSingle["ItemQuantity"]);
+              echo $itemsString.'<br/><br/>';
             }
             echo '</th>';
             echo '<th>'.$singleOrder["OrderDate"].'</th>';
             echo '<th>'.$orderStatusText.'</th>';
+            //also put in items as hidden input for extra validation/checking
             echo '<th><form action="completeOrder.php" method="post"><input type="hidden" id="locationVal" name="locationVal" value="'.$singleOrder["StoreName"].'"><input type="hidden" id="orderVal" name="orderID" value="'.$singleOrder["OrderID"].'"><button style="width:75%" type="submit">Completed</button></form></th>';
             echo '</tr>';
           }
