@@ -197,6 +197,7 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
           <th>Order Status</th>
           <th>Complete</th>
         </tr>
+        <!--
         <tr>
           <th>0</th>
           <th>Iced Macchiato<br/>Espresso</th>
@@ -206,6 +207,7 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
             <button style="width:75%">Completed</button>
           </th>
         </tr>
+            -->
         <?php
         function console_log2($output, $with_script_tags = true) {
           $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) . 
@@ -216,7 +218,7 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
           echo $js_code;
       }
         //if person selects a location 
-        if(location!=""){
+        if(location=="CO"||location=="GC"||location=="NA"){
           //echo 'test';
           $sql = 'SELECT * from Orders WHERE OrderStatus=1';
           $result = $conn->query($sql);
@@ -231,7 +233,7 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
           foreach($ordersArray as $singleOrder){
             echo '<tr><th>'.$singleOrder["OrderID"].'</th>';
             //for each orderdetails with that order ID
-            $sql3= 'SELECT * FROM OrderDetails WHERE OrderID='.$singleOrder["OrderID"].'';
+            $sql3= 'SELECT * FROM OrderDetails WHERE OrderID='.$singleOrder["OrderID"].' AND StoreName="'.$location.'"';
             $result3=$conn->query($sql3);
             $itemsArray=[];
             echo '<th>';
