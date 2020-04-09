@@ -199,6 +199,7 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
         <?php
         //if person selects a location 
         if(location!=""){
+          echo 'test';
           $sql = 'SELECT * from Orders WHERE OrderStatus=1';
           $result = $conn->query($sql);
           $ordersArray=[];
@@ -218,9 +219,11 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
           }
           //$variableName=$result->fetch_assoc()["OrderID"];
           
+        }else{
+          echo '<p>Please select a location on the side</p>';
         }
         //else tell them to select location
-        echo '<p>Please select a location on the side</p>';
+        
         ?>
       </table>
     </div>
