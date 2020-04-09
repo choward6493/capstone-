@@ -175,15 +175,15 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
     <h1 id="locationTag">Location: </h1>
       <table>
         <tr>
-          <th><h2>Order #</h2></th>
-          <th><h2>Items</h2></th>
-          <th><h2>Order Date</h2></th>
-          <th><h2>Order Status</h2></th>
-          <th><h2>Complete</h2></th>
+          <th>Order #</th>
+          <th>Items</th>
+          <th>Order Date</th>
+          <th>Order Status</th>
+          <th>Complete</th>
         </tr>
         <tr>
           <th>0</th>
-          <th><p>Iced Macchiato</p><p>Espresso</p></th>
+          <th>Iced Macchiato<br/>Espresso</th>
           <th>2020-4-8</th>
           <th>Not completed</th>
           <th>
