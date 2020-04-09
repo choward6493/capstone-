@@ -204,7 +204,7 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
           $result = $conn->query($sql);
           $ordersArray=[];
           while($row = $result->fetch_array(MYSQLI_ASSOC)){
-            array_push($row);
+            array_push($ordersArray,$row);
           }
 
           if($singleOrder["OrderStatus"]==1){
