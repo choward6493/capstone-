@@ -205,13 +205,13 @@ Copyright &copy; 2016 Montgomery Cup Coffee <br>
 <script>
 // Get the modal
 var modal = document.getElementById('id01');
-/*
+
 <?php 
 if($loggedIn){
   echo 'modal.style.display="none";/*';
 }
 ?>
-*/
+
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target ===modal) {
