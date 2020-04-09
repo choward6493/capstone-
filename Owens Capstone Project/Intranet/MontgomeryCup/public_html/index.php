@@ -38,7 +38,6 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
           //echo '<br>'.$hashedData.'<br>';
           //echo '<br>'.$hashPass;
           if($hashPass==$hashedData){
-              //echo "You're in";
               $sql = 'SELECT * FROM Employees WHERE EmployeeID='.$userID;
               $result = $conn->query($sql);
               $employeeName=$result->fetch_assoc()["FirstName"];
@@ -177,18 +176,41 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
       <table>
         <tr>
           <th><h2>Order #</h2></th>
+          <th><h2>Items</h2></th>
           <th><h2>Order Date</h2></th>
           <th><h2>Order Status</h2></th>
           <th><h2>Complete</h2></th>
         </tr>
         <tr>
           <th>0</th>
+          <th><p>Iced Macchiato</p><p>Espresso</p></th>
           <th>2020-4-8</th>
           <th>Not completed</th>
           <th>
             <button style="width:75%">Completed</button>
           </th>
         </tr>
+        <?php 
+        $sql = 'SELECT * from Orders WHERE OrderStatus=1';
+        $result = $conn->query($sql);
+        $ordersArray=[];
+        while($row = $result->fetch_array(MYSQLI_ASSOC)){
+          array_push($row);
+        }
+
+        if($singleOrder["OrderStatus"]==1){
+          $orderStatusText="Not Completed";
+        }
+        foreach($ordersArray as $singleOrder){
+         echo '<tr><th><p>'.$singleOrder["OrderID"].'</p></th>';
+         echo '<th><p>'.$singleOrder["OrderDate"].'</p></th>';
+         echo '<th><p>'.$orderStatusText.'</p></th>';
+         echo '</tr>';
+        }
+        //$variableName=$result->fetch_assoc()["OrderID"];
+        
+
+        ?>
       </table>
     </div>
     </main>
