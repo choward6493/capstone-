@@ -178,7 +178,7 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
 
 
   <div id="viewOrders" style="display:block">
-    <h1 id="locationTag">Location: </h1>
+    <h1 id="locationTag">Location: <?php echo $location;?></h1>
       <table>
         <tr>
           <th>Order #</th>
