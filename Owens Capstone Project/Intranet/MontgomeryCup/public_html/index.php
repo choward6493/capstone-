@@ -234,7 +234,7 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
 
               $sql4= 'SELECT ProductName FROM Products WHERE ProductID='.$itemSingle["ProductID"].'';
               $result4= $conn->query($sql4);
-              $productName= $result->fetch_assoc()["ProductName"];
+              $productName= $result4->fetch_assoc()["ProductName"];
               $itemsString=$productName.' - '.$itemSingle["OrderSize"].' x '.strval($itemSingle["ItemQuantity"]);
               echo $itemsString.'<br/>';
             }
