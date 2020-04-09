@@ -43,6 +43,7 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
               $result = $conn->query($sql);
               $employeeName=$result->fetch_assoc()["FirstName"];
               $loggedIn=true;
+              echo 'test';
 
           }else {
               //echo "Password not right";
@@ -97,10 +98,7 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
 </div> 
  <div id="id01" class="modal" style="display:block"> 
     <form class="modal-content animate" action="/login.php" method="post">
-    <div class="imgcontainer">
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img src="images/avatar.png" alt="Avatar" class="avatar">
-    </div>
+    
 
     <div class="container">
       <label for="uname"><b>Username</b></label>
