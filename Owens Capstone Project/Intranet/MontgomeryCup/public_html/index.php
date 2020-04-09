@@ -217,14 +217,16 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
             $result3=$conn->query($sql3);
             $itemsArray=[];
             echo '<th>';
-            while($row = $result->fetch_array(MYSQLI_NUM)){
-              array_push($itemsArray,$row);
+            while($row2 = $result->fetch_array(MYSQLI_NUM)){
+              array_push($itemsArray,$row2);
             }
+            $console_log($itemsArray);
             foreach($itemsArray as $itemSingle){
               //ask products where productID
 
               $sql4= 'SELECT ProductName FROM Products WHERE ProductID='.$itemSingle["ProductID"].'';
               $result4= $conn->query($sql4);
+              console_log($result4);
               $productName= $result->fetch_assoc()["ProductName"];
               $itemsString=$productName.' - '.$itemSingle["OrderSize"].' x '.strval($itemSingle["ItemQuantity"]);
               echo $itemsString.'<br/>';
