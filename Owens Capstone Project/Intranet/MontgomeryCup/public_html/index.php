@@ -225,7 +225,7 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
             $result3=$conn->query($sql3);
             $itemsArray=[];
             echo '<th>';
-            while($row2 = $result->fetch_array(MYSQLI_NUM)){
+            while($row2 = $result3->fetch_array(MYSQLI_NUM)){
               array_push($itemsArray,$row2);
             }
             console_log($itemsArray);
