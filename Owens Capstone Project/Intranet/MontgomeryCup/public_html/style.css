@@ -364,7 +364,7 @@ nav a:hover, .dropdown-btn:hover {
   color: #f1f1f1;
 }
 
-/* Main content */
+/* Main cont ent */
 .main {
   
   margin-left:20px; /* Same as the width of the sidenav */
@@ -451,6 +451,7 @@ img { padding-left: 10px;
 #desktop { display: inline; }
 table { width: 90%;
   table-layout:fixed;
+  
       margin: auto;
 	  border-spacing: 0;
 	  background-color: #FFFFCC; }
