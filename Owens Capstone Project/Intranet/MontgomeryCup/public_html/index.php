@@ -207,15 +207,33 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
             array_push($ordersArray,$row);
           }
 
-          if($singleOrder["OrderStatus"]==1){
-            $orderStatusText="Not Completed";
-          }
+          
+          $orderStatusText="Not Completed";
+          
           foreach($ordersArray as $singleOrder){
-          echo '<tr><th>'.$singleOrder["OrderID"].'</th>';
-          echo '<th>'.$singleOrder["OrderDate"].'</th>';
-          echo '<th>'.$orderStatusText.'</th>';
-          echo '<th><form action="completeOrder.php" method="post"><input type="hidden" id="locationVal" name="locationVal" value="'.$singleOrder["StoreName"].'"><input type="hidden" id="orderVal" name="orderID" value="'.$singleOrder["OrderID"].'"><button style="width:75%" type="submit">Completed</button></form></th>';
-          echo '</tr>';
+            echo '<tr><th>'.$singleOrder["OrderID"].'</th>';
+            //for each orderdetails with that order ID
+            $sql3= 'SELECT * FROM OrderDetails WHERE OrderID='.$singleOrder["OrderID"].'';
+            $result3=$conn->query($sql3);
+            $itemsArray=[];
+            echo '<th>';
+            while($row = $result->fetch_array(MYSQLI_NUM)){
+              array_push($itemsArray,$row);
+            }
+            foreach($itemsArray as $itemSingle){
+              //ask products where productID
+
+              $sql4= 'SELECT ProductName FROM Products WHERE ProductID='.$itemSingle["ProductID"].'';
+              $result4= $conn->query($sql4);
+              $productName= $result->fetch_assoc()["ProductName"];
+              $itemsString=$productName.' - '.$itemSingle["OrderSize"].' x '.strval($itemSingle["ItemQuantity"]);
+              echo $itemsString.'<br/>';
+            }
+            echo '</th>';
+            echo '<th>'.$singleOrder["OrderDate"].'</th>';
+            echo '<th>'.$orderStatusText.'</th>';
+            echo '<th><form action="completeOrder.php" method="post"><input type="hidden" id="locationVal" name="locationVal" value="'.$singleOrder["StoreName"].'"><input type="hidden" id="orderVal" name="orderID" value="'.$singleOrder["OrderID"].'"><button style="width:75%" type="submit">Completed</button></form></th>';
+            echo '</tr>';
           }
           //$variableName=$result->fetch_assoc()["OrderID"];
           
