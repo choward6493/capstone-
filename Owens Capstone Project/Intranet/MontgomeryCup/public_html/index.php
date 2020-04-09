@@ -21,6 +21,8 @@ $location="";
 echo $location;
 try{
 $location=$_POST['location'];
+setcookie("location",$location, time() + (86400/24), "/");
+            
 }catch(Exception $e){
 
 }
@@ -158,7 +160,7 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-container">
-        <form class="dropF" action="/" method="post">
+        <form class="dropF" action="/" method="post" onsubmit="return false">
           <a type="submit">
           <input type="hidden" id="custId" name="location" value="CO">
             <a href="javascript:{}" onclick="this.closest('form').submit();return false;">Columbus</a>
@@ -274,7 +276,56 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
     </main>
 </nav>
 
+<form id="reloadForm" method="post">
+  <input type="hidden" id="custId" name="location" value="<?php echo $location;?>">
+        
+</form>
+<script>
+  function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
 
+  if(getCookie(location)!="CO"||getCookie(location)!="GC"||getCookie(location)!="NA")
+  {
+    //automatically reload page every 10 seconds to get new online orders
+    //maybe make it so that only the order part reloads???
+    window.onload = function() {
+      // Onload event of Javascript
+      // Initializing timer variable
+      var x = 10;
+      //timer
+      setInterval(function() {
+        if (x <= 11 && x >= 1) {
+          x--;
+          if (x == 1) {
+            x = 11;
+          }
+        }
+        }, 1000);
+    //submit on timer end
+      var auto_refresh = setInterval(function() {
+        submitform();
+        }, 20000);
+      // Form submit function
+      function submitform() {
+        document.getElementById("reloadForm").submit();
+      }
+    };
+  }
+  
+</script>
 
 <footer>
 Copyright &copy; 2016 Montgomery Cup Coffee <br>
