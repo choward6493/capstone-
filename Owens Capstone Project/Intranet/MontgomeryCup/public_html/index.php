@@ -224,11 +224,11 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
             $sql3= 'SELECT * FROM OrderDetails WHERE OrderID='.$singleOrder["OrderID"].'';
             $result3=$conn->query($sql3);
             $itemsArray=[];
-            $console_log2($itemsArray);
             echo '<th>';
             while($row2 = $result->fetch_array(MYSQLI_NUM)){
               array_push($itemsArray,$row2);
             }
+            console_log($itemsArray);
             foreach($itemsArray as $itemSingle){
               //ask products where productID
 
