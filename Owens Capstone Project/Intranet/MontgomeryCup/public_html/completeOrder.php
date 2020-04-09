@@ -27,7 +27,7 @@ $orderArray=[];
 array_push($orderArray,$result3->fetch_array(MYSQLI_ASSOC));
 // $orderArray[0]["VALUEHERE"]
 $sqlUPDATE='UPDATE Orders SET OrderStatus=0 WHERE OrderID='.$orderID;
-
+$resultUpdate=$conn->query($sqlUPDATE);
 ?>
 <html>
 <script>window.location.replace("/");</script></html>
