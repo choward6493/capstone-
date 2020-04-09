@@ -26,7 +26,7 @@ $location=$_POST['location'];
 }
 if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
   $usernamePP=$_COOKIE['user'];
-  console_log($usernamePP);
+  //console_log($usernamePP);
   $hashPass=$_COOKIE['token'];
   $userID=0;
   $sql = 'SELECT EmployeeID FROM Employees WHERE Email="'.$usernamePP.'"';
