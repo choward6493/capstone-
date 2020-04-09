@@ -17,7 +17,12 @@ $conn = new mysqli($servername, $username, $password,$dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
+$location="";
+try{
+$location=$_POST['location'];
+}catch(Exception $e){
 
+}
 if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
   $usernamePP=$_COOKIE['user'];
   console_log($usernamePP);
@@ -190,26 +195,31 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
             <button style="width:75%">Completed</button>
           </th>
         </tr>
-        <?php 
-        $sql = 'SELECT * from Orders WHERE OrderStatus=1';
-        $result = $conn->query($sql);
-        $ordersArray=[];
-        while($row = $result->fetch_array(MYSQLI_ASSOC)){
-          array_push($row);
-        }
+        <?php
+        //if person selects a location 
+        if(location!=""){
+          $sql = 'SELECT * from Orders WHERE OrderStatus=1';
+          $result = $conn->query($sql);
+          $ordersArray=[];
+          while($row = $result->fetch_array(MYSQLI_ASSOC)){
+            array_push($row);
+          }
 
-        if($singleOrder["OrderStatus"]==1){
-          $orderStatusText="Not Completed";
+          if($singleOrder["OrderStatus"]==1){
+            $orderStatusText="Not Completed";
+          }
+          foreach($ordersArray as $singleOrder){
+          echo '<tr><th>'.$singleOrder["OrderID"].'</th>';
+          echo '<th>'.$singleOrder["OrderDate"].'</th>';
+          echo '<th>'.$orderStatusText.'</th>';
+          echo '<th><form action="completeOrder.php" method="post"><input type="hidden" id="locationVal" name="locationVal" value="'.$location.'"><input type="hidden" id="orderVal" name="orderID" value="'.$singleOrder["OrderID"].'"><button style="width:75%" type="submit">Completed</button></form></th>';
+          echo '</tr>';
+          }
+          //$variableName=$result->fetch_assoc()["OrderID"];
+          
         }
-        foreach($ordersArray as $singleOrder){
-         echo '<tr><th><p>'.$singleOrder["OrderID"].'</p></th>';
-         echo '<th><p>'.$singleOrder["OrderDate"].'</p></th>';
-         echo '<th><p>'.$orderStatusText.'</p></th>';
-         echo '</tr>';
-        }
-        //$variableName=$result->fetch_assoc()["OrderID"];
-        
-
+        //else tell them to select location
+        echo '<p>Please select a location on the side</p>';
         ?>
       </table>
     </div>
