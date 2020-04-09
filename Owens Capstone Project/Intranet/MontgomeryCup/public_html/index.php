@@ -207,7 +207,6 @@ Copyright &copy; 2016 Montgomery Cup Coffee <br>
 <script>
 // Get the modal
 var modal = document.getElementById('id01');
-modal.style.display = "none";
 /*
 <?php 
 if($loggedIn){
