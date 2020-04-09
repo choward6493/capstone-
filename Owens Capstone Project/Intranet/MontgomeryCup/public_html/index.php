@@ -231,6 +231,8 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
           $orderStatusText="Not Completed";
           
           foreach($ordersArray as $singleOrder){
+            console_log($singleOrder['StoreName']);
+            console_log($location);
             if($singleOrder['StoreName']==$location){
               echo '<tr><th>'.$singleOrder["OrderID"].'</th>';
               //for each orderdetails with that order ID
