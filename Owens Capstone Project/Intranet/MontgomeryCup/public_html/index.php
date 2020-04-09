@@ -197,6 +197,14 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
           </th>
         </tr>
         <?php
+        function console_log2($output, $with_script_tags = true) {
+          $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) . 
+      ');';
+          if ($with_script_tags) {
+              $js_code = '<script>' . $js_code . '</script>';
+          }
+          echo $js_code;
+      }
         //if person selects a location 
         if(location!=""){
           echo 'test';
@@ -216,7 +224,7 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
             $sql3= 'SELECT * FROM OrderDetails WHERE OrderID='.$singleOrder["OrderID"].'';
             $result3=$conn->query($sql3);
             $itemsArray=[];
-            $console_log($itemsArray);
+            $console_log2($itemsArray);
             echo '<th>';
             while($row2 = $result->fetch_array(MYSQLI_NUM)){
               array_push($itemsArray,$row2);
