@@ -485,3 +485,7 @@ input, textarea { display: block; margin-bottom: 1em; }
 .dropF{
   padding:2px;
 }
+
+th{
+  width:19%;
+}
