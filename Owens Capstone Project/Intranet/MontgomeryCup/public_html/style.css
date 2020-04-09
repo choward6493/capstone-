@@ -451,7 +451,7 @@ img { padding-left: 10px;
 #desktop { display: inline; }
 table { width: 90%;
   table-layout:fixed;
-  
+
       margin: auto;
 	  border-spacing: 0;
 	  background-color: #FFFFCC; }
@@ -490,4 +490,6 @@ input, textarea { display: block; margin-bottom: 1em; }
 
 th{
   width:19%;
+}h2{
+  float:left;
 }
