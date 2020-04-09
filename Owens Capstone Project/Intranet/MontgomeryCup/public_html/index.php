@@ -231,31 +231,33 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
           $orderStatusText="Not Completed";
           
           foreach($ordersArray as $singleOrder){
-            echo '<tr><th>'.$singleOrder["OrderID"].'</th>';
-            //for each orderdetails with that order ID
-            $sql3= 'SELECT * FROM OrderDetails WHERE OrderID='.$singleOrder["OrderID"].' AND StoreName="'.$location.'"';
-            $result3=$conn->query($sql3);
-            $itemsArray=[];
-            echo '<th>';
-            while($row2 = $result3->fetch_array(MYSQLI_ASSOC)){
-              array_push($itemsArray,$row2);
+            if($singleOrder['StoreName']==$location){
+              echo '<tr><th>'.$singleOrder["OrderID"].'</th>';
+              //for each orderdetails with that order ID
+              $sql3= 'SELECT * FROM OrderDetails WHERE OrderID='.$singleOrder["OrderID"];
+              $result3=$conn->query($sql3);
+              $itemsArray=[];
+              echo '<th>';
+              while($row2 = $result3->fetch_array(MYSQLI_ASSOC)){
+                array_push($itemsArray,$row2);
+              }
+              console_log($itemsArray);
+              foreach($itemsArray as $itemSingle){
+                //ask products where productID
+                $sql4= 'SELECT ProductName FROM Products WHERE ProductID='.$itemSingle["ProductID"].'';
+                $result4= $conn->query($sql4);
+                $productName= $result4->fetch_assoc()["ProductName"];
+                $itemsString=$itemSingle["OrderSize"].' - '.$productName.' x '.strval($itemSingle["ItemQuantity"]);
+                echo $itemsString.'<br/><br/>';
+              }
+              echo '</th>';
+              echo '<th>'.$singleOrder["OrderDate"].'</th>';
+              echo '<th>'.$orderStatusText.'</th>';
+              //also put in items as hidden input for extra validation/checking
+              echo '<th><form action="completeOrder.php" style="padding:0;margins:0;" method="post"><input type="hidden" id="locationVal" name="locationVal" value="'.$singleOrder["StoreName"].'"><input type="hidden" id="orderVal" name="orderID" value="'.$singleOrder["OrderID"].'"><button style="width:75%%;" type="submit">Completed</button></form></th>';
+              echo '</tr>';
             }
-            console_log($itemsArray);
-            foreach($itemsArray as $itemSingle){
-              //ask products where productID
-
-              $sql4= 'SELECT ProductName FROM Products WHERE ProductID='.$itemSingle["ProductID"].'';
-              $result4= $conn->query($sql4);
-              $productName= $result4->fetch_assoc()["ProductName"];
-              $itemsString=$itemSingle["OrderSize"].' - '.$productName.' x '.strval($itemSingle["ItemQuantity"]);
-              echo $itemsString.'<br/><br/>';
-            }
-            echo '</th>';
-            echo '<th>'.$singleOrder["OrderDate"].'</th>';
-            echo '<th>'.$orderStatusText.'</th>';
-            //also put in items as hidden input for extra validation/checking
-            echo '<th><form action="completeOrder.php" style="padding:0;margins:0;" method="post"><input type="hidden" id="locationVal" name="locationVal" value="'.$singleOrder["StoreName"].'"><input type="hidden" id="orderVal" name="orderID" value="'.$singleOrder["OrderID"].'"><button style="width:75%%;" type="submit">Completed</button></form></th>';
-            echo '</tr>';
+            
           }
           //$variableName=$result->fetch_assoc()["OrderID"];
           
