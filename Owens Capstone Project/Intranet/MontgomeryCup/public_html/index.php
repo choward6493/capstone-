@@ -43,7 +43,7 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
               $result = $conn->query($sql);
               $employeeName=$result->fetch_assoc()["FirstName"];
               $loggedIn=true;
-              echo 'test';
+              //echo 'test';
 
           }else {
               //echo "Password not right";
