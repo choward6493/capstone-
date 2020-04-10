@@ -197,7 +197,7 @@ document.getElementById('viewOrders').style.display='none';">News</a>
                     array_push($newsArray,$row);
                 }
                 foreach($newsArray as $newsArticle){
-                    echo '<div class="card">';
+                    echo '<div class="card" style="clear:both;display:table;">';
                     echo '<h2>'.$newsArticle["Title"].'</h2>';
                     echo '<h5>'.$newsArticle["Description"].', '.$newsArticle["NewsDate"].'</h5>';
                     //HAVE CODE FOR IMAGE??
