@@ -1,8 +1,12 @@
+<?php
+//need handling to make sure user is logged in
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <title>Montgomery Cup Coffe</title>
 <meta charset="utf-8">
+
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="index.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">

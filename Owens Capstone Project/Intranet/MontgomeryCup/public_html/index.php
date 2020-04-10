@@ -125,14 +125,9 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
       <input type="password" placeholder="Enter Password" name="psw" required>
         
       <button type="submit">Login</button>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
+      
     </div>
-    <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
-    </div>
+    
   </form>
 </div>
 
@@ -141,6 +136,7 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
   <button class="dropdown-btn">Status 
     <i class="fa fa-caret-down"></i>
   </button>
+  <!-- what do we want this to be?? is this supposed to be an employee check in system? -->
   <div class="dropdown-container">
     <a href="#">ready</a>
     <a href="#">break1</a>
@@ -190,6 +186,7 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
 
 
   <div id="viewOrders" style="display:block">
+  -- Online Orders --
     <h1 id="locationTag">Location: <?php echo $location;?></h1>
       <table>
         <tr>
@@ -281,23 +278,9 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
         
 </form>
 <script>
-  function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return "";
-  }
-
-  if(getCookie(location)!="CO"||getCookie(location)!="GC"||getCookie(location)!="NA")
+ 
+  var locationValue= "<?php echo $location;?>";
+  if(locationValue=="CO"||locationValue=="GC"||locationValue=="NA")
   {
     //automatically reload page every 10 seconds to get new online orders
     //maybe make it so that only the order part reloads???

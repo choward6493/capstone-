@@ -1,3 +1,6 @@
+<?php
+//need handling to make sure user is logged in
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

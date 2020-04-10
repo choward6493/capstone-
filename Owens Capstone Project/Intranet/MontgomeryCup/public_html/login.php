@@ -58,17 +58,10 @@ if ($result2->num_rows > 0) {
         $passCookie="token";
         $passCookieVal=$hashedData;
         
-        if(!($_POST["remember"]=="on")){
-            
-            setcookie($userCookie,$userCookieVal, time() + (86400/24), "/");
-            setcookie($passCookie,$passCookieVal,time()+(86400/24),"/");
-            //echo '<script>alert("dont remember");</script>';
-        }else{
-            //echo '<script>alert("remembr");</script>';
-            setcookie($userCookie, $userCookieVal, time() + (86400*30), "/");
-            setcookie($passCookie,$passCookieVal,time()+(86400*30),"/");
-            //echo '<script>alert("remembr");</script>';
-        }
+        setcookie($userCookie,$userCookieVal, time() + (86400/24), "/");
+        setcookie($passCookie,$passCookieVal,time()+(86400/24),"/");
+        //echo '<script>alert("dont remember");</script>';
+        
         
     }else {
         //echo "Password not right";
