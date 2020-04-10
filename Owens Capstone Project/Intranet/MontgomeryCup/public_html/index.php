@@ -110,7 +110,7 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
                 location.reload();
             }
     </script>
-<button id="logOut" display="none" class="login" onclick="logMeOut();" style="display:none;width:auto;float:right;font-family: Arial;">Log Out</button>
+<button id="logOut" display="block" class="login" onclick="logMeOut();" style="display:none;width:auto;float:right;font-family: Arial;">Log Out</button>
             
 </div> 
  <div id="id01" class="modal" style="display:block"> 
