@@ -184,7 +184,23 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
     
 
     <div id="viewNews" style="display:none">
-            
+    
+    <?php 
+                $sql5='SELECT * FROM NewsArticle';
+                $result5=$conn->query($sql5);
+                $newsArray=[];
+                while($row = $result5->fetch_array(MYSQLI_ASSOC)){
+                    array_push($newsArray,$row);
+                }
+                foreach($newsArray as $newsArticle){
+                    echo '<div class="card">';
+                    echo '<h2>'.$newsArticle["Title"].'</h2>';
+                    echo '<h5>'.$newsArticle["Description"].', '.$newsArticle["NewsDate"].'</h5>';
+                    //HAVE CODE FOR IMAGE??
+                    echo '<p>'.$newsArticle["NewsText"].'</p>';
+                    echo '</div>';
+                }
+                ?>
   
   </div>
 
