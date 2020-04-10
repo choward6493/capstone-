@@ -184,7 +184,7 @@
                 $sql5='SELECT * FROM NewsArticle';
                 $result5=$conn->query($sql5);
                 $newsArray=[];
-                while($row = $result->fetch_array(MYSQLI_ASSOC)){
+                while($row = $result5->fetch_array(MYSQLI_ASSOC)){
                     array_push($newsArray,$row);
                 }
                 foreach($newsArray as $newsArticle){
