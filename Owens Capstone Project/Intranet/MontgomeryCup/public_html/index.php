@@ -183,7 +183,10 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
   <main>
     
 
-
+    <div id="viewNews" style="display:none">
+            
+  
+  </div>
 
   <div id="viewOrders" style="display:block">
   -- Online Orders -- <p id="onlineOrders"></p>

@@ -17,16 +17,16 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
 <body>
 <div id="wrapper">
 <div class="toplink">
-   <a href="index.html">Home</a>
-   <a href="order.html">New order</a>
-   <a href="#Employee Portal">Employee Portal</a>
+   <a href="index.php">Home</a>
+   <a href="order.php">New order</a>
+   <a href="#">Employee Portal</a>
 </div>
  <article>
     <div class="portal">
        <div class="row">
   <div class="column">
     <div class="content">
-      <a href="drink_form.html">
+      <a href="drink_form.php">
       <img src="images/Profile.png" alt="Profile" style="width:100%">
     </a>
       <h3>Profile</h3>
@@ -34,7 +34,7 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
   </div>
   <div class="column">
     <div class="content">
-    <a href="drink_form.html">
+    <a href="drink_form.php">
       <img src="images/time_sheet.png" alt="time_sheet" style="width:100%">
     </a>
       <h3>Employee Time Sheet</h3>
@@ -42,7 +42,7 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
   </div>
   <div class="column">
     <div class="content">
-  <a href="drink_form.html">
+  <a href="drink_form.php">
       <img src="images/adp.png" alt="adp" style="width:100%">
     </a>
       <h3>ADP Portal</h3>
@@ -50,29 +50,19 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
   </div>
   <div class="column">
     <div class="content">
-    <a href="drink_form.html">
+    <a href="drink_form.php">
       <img src="images/trainning.png" alt="trainning" style="width:100%">
     </a>
       <h3>Trainings</h3>
     </div>
   </div>
   
-<!-- END GRID -->
 </div> 
     </div>
 </article>
 </div>
-<script src="index.js"></script>
 <script>
-// Get the modal
-var modal = document.getElementById('id01');
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target ===modal) {
-        modal.style.display = "none";
-    }
-};
 
 var dropdown = document.getElementsByClassName("dropdown-btn");
 var i;
