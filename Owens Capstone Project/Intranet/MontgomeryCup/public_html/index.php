@@ -196,6 +196,7 @@ document.getElementById('viewOrders').style.display='none';">News</a>
                 while($row = $result5->fetch_array(MYSQLI_ASSOC)){
                     array_push($newsArray,$row);
                 }
+                $newsArray=array_reverse($newsArray);
                 foreach($newsArray as $newsArticle){
                     echo '<div class="card" style="clear:both;display:table;">';
                     echo '<h2>'.$newsArticle["Title"].'</h2>';
