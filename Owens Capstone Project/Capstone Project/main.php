@@ -180,28 +180,23 @@
         -->
         <div class="row">
             <div class="leftcolumn">
-                <div class="card">
-                    <h2>Grand Re-opening</h2>
-                    <h5>Welcome, Dec 7, 2019</h5>
-                    <div class="img" style="height:200px;">Image</div>
-                    <p>We are re-opening all sites as of today!</p>
-                    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-                </div>
-                <div class="card">
-                    <h2>TITLE HEADING</h2>
-                    <h5>Title description, Sep 2, 2019</h5>
-                    <div class="img" style="height:200px;">Image</div>
-                    <p>Some text..</p>
-                    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-                </div>
-	            <div class="card">
-                    <h2>TITLE HEADING</h2>
-                    <h5>Title description, Sep 2, 2019</h5>
-                    <div class="img" style="height:200px;">Image</div>
-                    <p>Some text..</p>
-                    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-                </div>
+                <?php 
+                $sql5='SELECT * FROM NewsArticle';
+                $result5=$conn->query($sql5);
+                $newsArray=[];
+                while($row = $result->fetch_array(MYSQLI_ASSOC)){
+                    array_push($newsArray,$row);
+                }
+                foreach($newsArray as $newsArticle){
+                    echo '<div class="card">';
+                    echo '<h2>'.$newsArticle["Title"].'</h2>';
+                    echo '<h5>'.$newsArticle["Description"].', '.$newsArticle["NewsDate"].'</h5>';
+                    //HAVE CODE FOR IMAGE??
+                    echo '<p>'.$newsArticle["Text"].'</p>';
+                }
+                ?>
             </div>
+
             <div class="rightcolumn">
                 <div class="card">
                     <h2>About Us</h2>
