@@ -97,8 +97,12 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
 
 </header>
 <div class="topnav">
- <a class="active" href="/">Home</a>
- <a id="news" href="javascript:alert('News');">News</a>
+ <a class="active" href="javascript:
+document.getElementById('viewNews').style.display='none';
+document.getElementById('viewOrders').style.display='block';">Home</a>
+ <a id="news" href="javascript:
+document.getElementById('viewNews').style.display='block';
+document.getElementById('viewOrders').style.display='none';">News</a>
  <!--
  <button id="login"onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 -->
@@ -340,7 +344,6 @@ Copyright &copy; 2016 Montgomery Cup Coffee <br>
 <script>
 // Get the modal
 var modal = document.getElementById('id01');
-
 <?php 
 if($loggedIn){
   echo 'modal.style.display="none";/*';
