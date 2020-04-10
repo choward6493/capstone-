@@ -186,7 +186,7 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
 
 
   <div id="viewOrders" style="display:block">
-  -- Online Orders --
+  -- Online Orders -- <p id="onlineOrders"></p>
     <h1 id="locationTag">Location: <?php echo $location;?></h1>
       <table>
         <tr>
@@ -288,6 +288,8 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
       // Onload event of Javascript
       // Initializing timer variable
       var x = 10;
+      var orderTag=document.getElementById("onlineOrders");
+      y.innerHTML = "Refreshing in: " + x + "seconds";
       //timer
       setInterval(function() {
         if (x <= 11 && x >= 1) {
