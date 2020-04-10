@@ -193,6 +193,7 @@
                     echo '<h5>'.$newsArticle["Description"].', '.$newsArticle["NewsDate"].'</h5>';
                     //HAVE CODE FOR IMAGE??
                     echo '<p>'.$newsArticle["Text"].'</p>';
+                    echo '</div>';
                 }
                 ?>
             </div>
