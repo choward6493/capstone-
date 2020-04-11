@@ -200,7 +200,7 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
     
 
     <div id="viewNews" style="display:none">
-    <h1>NEWS:</h1>
+    <h1 stlye="clear:right">NEWS:</h1>
     <?php 
                 $sql5='SELECT * FROM NewsArticle';
                 $result5=$conn->query($sql5);
@@ -210,7 +210,7 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
                 }
                 $newsArray=array_reverse($newsArray);
                 foreach($newsArray as $newsArticle){
-                    echo '<div class="card" style="clear:both;display:table;">';
+                    echo '<div class="card" style="clear:right;display:table;">';
                     echo '<h2>'.$newsArticle["Title"].'</h2>';
                     echo '<h5>'.$newsArticle["Description"].', '.$newsArticle["NewsDate"].'</h5>';
                     //HAVE CODE FOR IMAGE??
