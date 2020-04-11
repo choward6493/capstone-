@@ -26,7 +26,7 @@
         die("Connection failed: " . $conn->connect_error);
     }
     */
-    $subMessage=$_GET['submitMessage'];
+    $subMessage=$_GET['subMessage'];
     if($subMessage!=""){
       echo '<script>alert("'.$subMessage.'");</script>';
     }
