@@ -46,9 +46,14 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
           //echo '<br>'.$hashedData.'<br>';
           //echo '<br>'.$hashPass;
           if($hashPass==$hashedData){
+            //get employee name
               $sql = 'SELECT * FROM Employees WHERE EmployeeID='.$userID;
               $result = $conn->query($sql);
               $employeeName=$result->fetch_assoc()["FirstName"];
+              //get employee title
+              $sql = 'SELECT * FROM Employees WHERE EmployeeID='.$userID;
+              $result = $conn->query($sql);
+              $employeeTitle=$result->fetch_assoc()["Title"];
               $loggedIn=true;
               //echo 'test';
 
@@ -78,6 +83,17 @@ if ($result->num_rows > 0) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+var screenSwitch=function(screenNum){
+if(screenNum==0){
+document.getElementById('viewNews').style.display='none';
+document.getElementById('viewOrders').style.display='block';
+}else if(screenNum==1){
+document.getElementById('viewNews').style.display='block';
+document.getElementById('viewOrders').style.display='none';
+}
+}
+</script>
 <title>Montgomery Cup Coffee</title>
 <meta charset="utf-8">
 <link rel="stylesheet" href="style.css">
@@ -97,12 +113,8 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
 
 </header>
 <div class="topnav">
- <a class="active" href="javascript:
-document.getElementById('viewNews').style.display='none';
-document.getElementById('viewOrders').style.display='block';">Home</a>
- <a id="news" href="javascript:
-document.getElementById('viewNews').style.display='block';
-document.getElementById('viewOrders').style.display='none';">News</a>
+ <a class="active" href="javascript:screenSwitch(0);">Home</a>
+ <a id="news" href="javascript:screenSwitch(1);">News</a>
  <!--
  <button id="login"onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 -->
@@ -188,7 +200,7 @@ document.getElementById('viewOrders').style.display='none';">News</a>
     
 
     <div id="viewNews" style="display:none">
-    
+    <h1>NEWS:</h1>
     <?php 
                 $sql5='SELECT * FROM NewsArticle';
                 $result5=$conn->query($sql5);

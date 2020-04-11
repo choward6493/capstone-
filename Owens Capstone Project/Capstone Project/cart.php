@@ -26,7 +26,10 @@
         die("Connection failed: " . $conn->connect_error);
     }
     */
-
+    $subMessage=$_GET['submitMessage'];
+    if($subMessage!=""){
+      echo '<script>alert("'.$subMessage.'");</script>';
+    }
     //if login data is stored, check that it is actual
     if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
         $usernamePP=$_COOKIE['user'];
