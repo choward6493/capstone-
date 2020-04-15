@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="index.css">
 <script src="processing.min.js"></script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -16,7 +17,29 @@
    <a href="order.php">New order</a>
    <a href="Employee_Portal.php">Employee Portal</a>
 </div>
-<canvas data-processing-sources="orderForm.pde"></canvas>
+
+<canvas id="canvas1" width="1000" height="1000"></canvas>
+<script id="script1">
+function sketchProc(processing) {
+  
+  // Override draw function, by default it will be called 60 times per second
+  processing.draw = function() {
+    // determine center and max clock arm length
+    
+
+    // erase background
+    processing.background(224);
+
+    
+  };
+  
+}
+
+var canvas = document.getElementById("canvas1");
+// attaching the sketchProc function to the canvas
+var p = new Processing(canvas, sketchProc);
+</script>
+
  <aside>
      <h2>Food</h2>
         <div class="drinks">
