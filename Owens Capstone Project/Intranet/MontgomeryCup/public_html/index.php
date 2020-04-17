@@ -115,6 +115,7 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
 <div class="topnav">
  <a class="active" href="javascript:screenSwitch(0);">Home</a>
  <a id="news" href="javascript:screenSwitch(1);">News</a>
+ <a id="files" href="/files/">Files</a>
  <!--
  <button id="login"onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 -->
