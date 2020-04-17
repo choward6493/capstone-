@@ -26,7 +26,7 @@
         die("Connection failed: " . $conn->connect_error);
     }
     */
-
+    
     //if login data is stored, check that it is actual
     if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
         $usernamePP=$_COOKIE['user'];
