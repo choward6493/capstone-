@@ -23,7 +23,7 @@ string drinkSize="medium";
 //arrays for values of buttons
 int[] imageXArray=new int[imageNames.length];
 int[] imageYArray=new int[imageNames.length];
-int[] buttonArray={0,0,0}
+//int[] buttonArray={0,0,0}
 //boolean[] focusArray=new boolean[imageNames.length];
 
 
@@ -109,7 +109,7 @@ void draw(){
             fill(0,0,0);
         }
         //added +100 for space for size modifier buttons
-        rect(imageXArray[i],imageYArray[i]+100,imageC[0],imageC[1]);
+        rect(imageXArray[i],imageYArray[i],imageC[0],imageC[1]);
         image(loadImage(imageNames[i]),imageXArray[i]+5,imageYArray[i]+5,imageC[0]-10,imageC[1]-10);
     }
     stroke(30   );
