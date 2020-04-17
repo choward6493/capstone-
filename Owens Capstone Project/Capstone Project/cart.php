@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <?php
     function console_log($output, $with_script_tags = true) {
-        $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) . 
+        $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) .
     ');';
         if ($with_script_tags) {
             $js_code = '<script>' . $js_code . '</script>';
@@ -84,7 +84,7 @@
             //echo "nothing found";
         }
     }
-    
+
     ?>
 <style>
 body {
@@ -195,7 +195,7 @@ span.price {
 <body>
 <div class="header">
   <h1>Checkout</h1>
-  
+
 </div>
 
 <div class="topnav">
@@ -215,7 +215,7 @@ span.price {
     </script><button id="logB" display="none" class="login" onclick="document.getElementById('id01').style.display='block'" style="display:none;width:auto;float:right;font-family: Arial;">Login</button>
             <button id="logOut" display="none" class="login" onclick="logMeOut();" style="display:none;width:auto;float:right;font-family: Arial;">Log Out</button>
             <button id="welcomeP" display="none" class="login" onclick="#" style="display:none;width:auto;float:right;font-family: Arial;">Welcome, <?php echo $customerName;?></button>
-            
+
   <!-- fix this part -->
   <button id="logB" display="none" class="login" onclick="document.getElementById('id01').style.display='block'" style="display:none;width:auto;float:right;font-family: Arial;">Login</button>
             <button id="logOut" display="none" class="login" onclick="logMeOut();" style="display:none;width:auto;float:right;font-family: Arial;">Log Out</button>
@@ -246,7 +246,7 @@ span.price {
                 }
             </script>
 <div id="id01" class="modal">
-  
+
   <form class="modal-content animate" action="/login.php" method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -259,7 +259,7 @@ span.price {
 
       <label for="psw"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="psw" required>
-        
+
       <button class="login" type="submit">Login</button>
       <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
@@ -293,12 +293,12 @@ window.onclick = function(event) {
   <div class="col-75">
     <div class="container">
       <form action="cartSub.php" method="post">
-      
-        <div class="row">
-          
 
-          
-        
+        <div class="row">
+
+
+
+
 
           <div class="col-50">
             <h3>Payment</h3>
@@ -315,13 +315,13 @@ window.onclick = function(event) {
             <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
             <label for="expmonth">Expiration Date</label>
             <input type="month" id="expmonth" name="expdate" placeholder="01/20">
-            
-              
+
+
                 <label for="cvv">CVV</label>
                 <input type="text" id="cvv" name="cvv" placeholder="111">
-              
+
           </div>
-          
+
         </div>
         <label for="location">Pickup Location</label>
             <select id='location' name="location" required>
@@ -343,7 +343,7 @@ window.onclick = function(event) {
             }
         }?>
       <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b><?php echo $cartCount?></b></span></h4>
-      <?php 
+      <?php
         if(isset($_COOKIE['cart'])){
             //console_log($_COOKIE['cart']);
             $cart=json_decode($_COOKIE['cart']);
@@ -369,7 +369,7 @@ window.onclick = function(event) {
                 $itemName=$singleItem['item'];
                 //itemArray=json_decode($singleItem);
                 //$itemName=itemArray['item'];
-                
+
                 //$sql = 'Select Cost from Products where ProductName="'.$singleItem["item"].'"';
                 console_log("before");
                 console_log($itemName);
@@ -383,10 +383,10 @@ window.onclick = function(event) {
             }
             */
         }
-    
+
       ?>
-      
-      
+
+
       <hr>
       <p>Total <span class="price" style="color:black"><b>$<?php echo $totalCost?></b></span></p>
     </div>

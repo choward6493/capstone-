@@ -99,8 +99,7 @@ document.getElementById('viewOrders').style.display='none';
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="index.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Javajam is a coffee shop that serves a locally roasted free-trade coffee and Tea
-with a smooth aroma, Bagels, Muffins and Organic Snacks.">
+<meta name="description" content="The Montgomery Cup was founded in 2003 by owners Lex and Milli Montgomery as a family owned, quality coffee shop located in central Ohio. Since then they have expanded and grown into three shops.">
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js">
 </script>
@@ -115,6 +114,7 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
 <div class="topnav">
  <a class="active" href="javascript:screenSwitch(0);">Home</a>
  <a id="news" href="javascript:screenSwitch(1);">News</a>
+ <a id="files" href="/files/">Files</a>
  <!--
  <button id="login"onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 -->
