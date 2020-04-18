@@ -20,10 +20,28 @@ for(var i=0;i<imageNames.length;i++;){
 //array for buttons clicked
 String[] drinkNames={"Americano","CaffeMacchiato","CaffeMocha","Cappuccino","CaramelLatte","CaramelMacchiato","DarkChocolateMocha","Espresso","HavanaCappuccino","HoneyLavenderLatte","IcedCaffeMocha","IcedLatte","IcedVanillaLatte","WhiteChocolateMocha"};
 string drinkSize="medium";
+
+class CartObject {
+    var itemName,itemSize,cost;
+    CartObject(var itemNam, var itemSiz, var costt){
+        itemName=itemNam;itemSize=itemSize;cost=costt;
+    }
+}
+CartObject[] cart={};
+class Clickable {
+    var minX, width, minY, height, cName, cFunction;
+    Clickable(int mx, int mtx, int my, int mty, String cnam,var funcT){
+        minX=mx;width=mtx;minY=my;height=mty;cName=cnam;cFunction=funcT;
+    }
+    void onClick(){
+        cFunction();
+    }
+}
 //arrays for values of buttons
 int[] imageXArray=new int[imageNames.length];
 int[] imageYArray=new int[imageNames.length];
-//int[] buttonArray={0,0,0}
+int[] buttonArray=new int[3];
+//button
 //boolean[] focusArray=new boolean[imageNames.length];
 
 
@@ -42,21 +60,30 @@ var fullMargin=(screenI-(numWide*(imageC[0]+imageMargin)+imageMargin))/2;
 //println(numWide+"what"+fullMargin);
 var imageyY=40;
 
+void addCart(String itemName, String itemSize, var cost){
+    //add stuff to cart array
+    expand(cart,cart.length+1);
+    cart[cart.length-1]=new CartObject(itemName,itemSize,cost);
+}
+void selectSize(var sizeName){
+    drinkSize=sizeName;
+}
+
+Clickable optionClick={};
+
 void setup(){
     frameRate(60);
     size(screenC[0],screenC[1])
     background(255);
     noStroke();
     fill(100);
-    //println("testing");
 
+    //size of drink buttons
     for(var i=0;i<3;i++;){
 
     }
     //populate array of image information
     for(var i=0;i<imageNames.length;i++;){
-        //imageArray[0]=loadImage("name.jpg");
-        //image(variable,x,y,width,height);
         var controlW=false;
         var testW=numWide;
         var row=1;
@@ -65,35 +92,15 @@ void setup(){
                 testW+=numWide;
                 row++;
             }else{
+                //add coordinates of button to array
                 imageXArray[i]=(fullMargin+imageMargin+((imageC[0]+imageMargin)*(i-((row-1)*numWide))));
                 imageYArray[i]=row*(imageyY)+((row-1)*imageC[1]);
                 controlW=true;
+                //add button to clickable objects array
+                expand(optionClick,optionClick.length+1);
+                optionClick[optionClick.length-1]=new Clickable(imageXArray[i]+5,imageC[0]-10,imageYArray[i]+5,imageC[1]-10,drinkNames[i]);
             }
         }
-        
-        /*
-        //POSSIBLE CHANGE THE Y THROUGH MODULOUS/MATH.FLOOR INSTEAD OF IF STATEMENTS
-        if((numWide/i)<=(1/8)){
-            imageXArray[i]=(fullMargin+imageMargin+((imageC[0]+imageMargin)*(i-(8*numWide))));
-            imageYArray[i]=5*(imageyY)+(4*imageC[1]);
-        }else if((numWide/i)<=(1/4)){
-            imageXArray[i]=(fullMargin+imageMargin+((imageC[0]+imageMargin)*(i-(4*numWide))));
-            imageYArray[i]=4*(imageyY)+(3*imageC[1]);
-            console.log("yet");
-        }
-        else if((numWide/i)<=(1/2)){  
-            imageXArray[i]=(fullMargin+imageMargin+((imageC[0]+imageMargin)*(i-(2*numWide))));
-            imageYArray[i]=3*(imageyY)+(2*imageC[1]);
-        }else if((numWide/i)<=1){
-            imageXArray[i]=(fullMargin+imageMargin+((imageC[0]+imageMargin)*(i-numWide)));
-            imageYArray[i]=2*(imageyY)+imageC[1];
-            //println(imageyY);
-            //console.log(imageyY);
-        }else{
-            imageXArray[i]=(fullMargin+imageMargin+((imageC[0]+imageMargin)*i));
-            imageYArray[i]=imageyY;
-        }
-        */
     }
 }
 
@@ -112,20 +119,27 @@ void draw(){
         rect(imageXArray[i],imageYArray[i],imageC[0],imageC[1]);
         image(loadImage(imageNames[i]),imageXArray[i]+5,imageYArray[i]+5,imageC[0]-10,imageC[1]-10);
     }
-    stroke(30   );
+    stroke(30);
     strokeWeight(3);
     line(screenI,0,screenI,screenC[1])
     strokeWeight(0);
+    if(bPressed){
+        
+        bPressed=false;
+    }
+
     //rect(30,20,55,55);
     //rect(30,80,10,10);
+}
+
+void mouseMoved(){
+    mouseC[0]=mouseX;
+    mouseC[1]=mouseY;
 }
 
 void mouseReleased() {
     //mouseX, mouseY
     bPressed=true;
-}
-
-void mouseMoved(){
     mouseC[0]=mouseX;
     mouseC[1]=mouseY;
 }
