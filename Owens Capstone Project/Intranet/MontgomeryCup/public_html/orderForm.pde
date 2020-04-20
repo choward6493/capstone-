@@ -28,15 +28,18 @@ class CartObject {
     }
 }
 CartObject[] cart={};
+
 class Clickable {
     var minX, width, minY, height, cName, cFunction;
     Clickable(int mx, int mtx, int my, int mty, String cnam,var funcT){
         minX=mx;width=mtx;minY=my;height=mty;cName=cnam;cFunction=funcT;
     }
     void onClick(){
-        cFunction();
+        cFunction(cName);
     }
+    
 }
+
 //arrays for values of buttons
 int[] imageXArray=new int[imageNames.length];
 int[] imageYArray=new int[imageNames.length];
@@ -60,13 +63,22 @@ var fullMargin=(screenI-(numWide*(imageC[0]+imageMargin)+imageMargin))/2;
 //println(numWide+"what"+fullMargin);
 var imageyY=40;
 
-void addCart(String itemName, String itemSize, var cost){
+void addCart(String itemName){
     //add stuff to cart array
     expand(cart,cart.length+1);
-    cart[cart.length-1]=new CartObject(itemName,itemSize,cost);
+    //size is equal to selected size 
+
+    //get cost from Object dictionary in html script that gets data from php
+    cart[cart.length-1]=new CartObject(itemName,drinkSize,costDict[itemName]);
+    drinkSize="medium";
+
 }
 void selectSize(var sizeName){
     drinkSize=sizeName;
+}
+
+void removeObj(var cartNum){
+    //move all array values past cartNum down 1, decrease array size by 1
 }
 
 Clickable optionClick={};
@@ -98,7 +110,7 @@ void setup(){
                 controlW=true;
                 //add button to clickable objects array
                 expand(optionClick,optionClick.length+1);
-                optionClick[optionClick.length-1]=new Clickable(imageXArray[i]+5,imageC[0]-10,imageYArray[i]+5,imageC[1]-10,drinkNames[i]);
+                optionClick[optionClick.length-1]=new Clickable(imageXArray[i]+5,imageC[0]-10,imageYArray[i]+5,imageC[1]-10,drinkNames[i],addCart);
             }
         }
     }
@@ -107,6 +119,8 @@ void setup(){
 
 void draw(){
     background(255);
+
+    //draw drink/food option buttons
     for(var i=0;i<imageNames.length;i++;){
         fill(color1,color2,color3);
 
@@ -123,8 +137,21 @@ void draw(){
     strokeWeight(3);
     line(screenI,0,screenI,screenC[1])
     strokeWeight(0);
-    if(bPressed){
+    //draw cart items
+    for(var i=0;i<cart.length;i++){
         
+    }
+    //if a button is pressed
+    if(bPressed){
+        //replace mouceC[0] with mouseX if mouse X is updated constantly
+        for(var i=1;i<optionClick.length;i++;){
+            //if mouse is in area of the button
+            if( mouseC[0]>=optionClick[i].minX && mouseC[0]<= optionClick[i].minX+optionClick[i].width && mouseC[1]>=optionClick[i].minY && mouseC[1] <= optionClick[i].minY +optionClick[i].height){
+                //do whatever function it is defined for.
+                //when making items, should make those clickable too -> removable maybe somehow?
+                optionClick[i].onClick();
+            }
+        }
         bPressed=false;
     }
 
