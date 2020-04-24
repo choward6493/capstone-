@@ -372,6 +372,7 @@ window.onclick = function(event) {
           //cartJSON[numT]
           var testeststsetsets=JSON.stringify(cartJSON);
           document.cookie="cart= "+testeststsetsets;
+          window.location.replace(cart.php);
         }
       </script>
       <?php
