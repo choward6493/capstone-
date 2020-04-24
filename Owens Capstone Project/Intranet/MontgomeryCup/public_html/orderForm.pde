@@ -155,10 +155,13 @@ void submitButton(x,y,width,height){
     rect(x,y,width,height);
     */
     subBut[0]=x;subBut[1]=y;subBut[2]=width;subBut[3]=height;
-    submitButtond=new Clickable(x,y,width,height,cart,submitCart);
+    submitButtond=new Clickable(x,y,width,height,cart,submitCartd);
     fill(10);
 }
-
+void submitCartd(CartObject[] cartT){
+    console.log("submitted cart");
+    submitCard(cartT);
+}
 Clickable optionClick={};
 
 void setup(){
