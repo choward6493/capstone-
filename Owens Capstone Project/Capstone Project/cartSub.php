@@ -32,7 +32,8 @@ echo "Connected successfully";
 
 $totalCost=0;
 $userID=0;
-
+$testthing=$_GET['message'];
+print_r($testthing);
 //if login cookie is set
 if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
     //get username and password from cookie
