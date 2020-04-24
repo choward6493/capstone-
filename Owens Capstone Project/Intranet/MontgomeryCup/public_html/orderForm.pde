@@ -159,7 +159,9 @@ void submitButton(x,y,width,height){
     fill(10);
 }
 void submitCartd(CartObject[] cartT){
+    cartT=cart;
     console.log("submitted cart");
+    console.log(cartT);
     var allCart=new String[cartT.length*2];
     var stringSub="";
     for(var i=0;i<cartT.length;i++;){
