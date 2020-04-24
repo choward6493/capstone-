@@ -7,7 +7,7 @@ function console_log($output, $with_script_tags = true) {
     }
     echo $js_code;
 }
-function alertJS($message){
+function alertJS($message, $with_script_tags = true){
   $js_code = 'alert(' . json_encode($output, JSON_HEX_TAG) . 
 ');';
   if ($with_script_tags) {
