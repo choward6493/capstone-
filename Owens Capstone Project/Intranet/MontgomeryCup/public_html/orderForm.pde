@@ -167,6 +167,7 @@ void submitCartd(CartObject[] cartT){
         stringSub+=cartT[i].itemSize+";";
         
     }
+    console.log(stringSub);
     submitCart(stringSub);
 }
 Clickable optionClick={};
