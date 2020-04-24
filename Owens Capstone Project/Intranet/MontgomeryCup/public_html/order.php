@@ -19,6 +19,7 @@ function submitCart(tcart){
   //MAKE THIS MAKE A COOKIE INSTEAD
   console.log("submitted");
   document.cookie="cart="+tcart;
+  console.log(tcart);
   var form = document.createElement("form");
     
     var element1 = document.createElement("input"); 
@@ -35,7 +36,7 @@ function submitCart(tcart){
 
     document.body.appendChild(form);
 
-    form.submit();
+    //form.submit();
 }
 </script>
 </head>
