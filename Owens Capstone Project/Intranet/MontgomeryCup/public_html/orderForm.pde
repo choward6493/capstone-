@@ -166,7 +166,7 @@ void submitCartd(CartObject[] cartT){
     var stringSub="";
     for(var i=0;i<cartT.length;i++;){
         stringSub+=cartT[i].itemName+":";
-        stringSub+=cartT[i].itemSize+";";
+        stringSub+=cartT[i].itemSize+",";
         
     }
     console.log(stringSub);
