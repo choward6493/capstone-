@@ -39,6 +39,7 @@ try{
   console_log($testthing);
   console_log($_GET);
   console_log($testthing[0]);
+  echo $testthing[0];
   console_log("Nee");
 //alertJS($testthing[0]);
 $testtwo=$_GET;
