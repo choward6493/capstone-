@@ -7,7 +7,32 @@
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="index.css">
 <script src="processing.min.js"></script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+
+var costDict={
+  CaffeMacchiato:2, Americano:2
+};
+function submitCart(tcart){
+  var form = document.createElement("form");
+    var element1 = document.createElement("input"); 
+    var element2 = document.createElement("input");  
+
+    form.method = "POST";
+    form.action = "orderSub.php";   
+
+    element1.value=tcart;
+    element1.name="cart";
+    form.appendChild(element1);  
+
+    
+
+    document.body.appendChild(form);
+
+    form.submit();
+}
+</script>
 </head>
 <body>
 <div id="wrapper">
@@ -16,7 +41,12 @@
    <a href="order.php">New order</a>
    <a href="Employee_Portal.php">Employee Portal</a>
 </div>
-<canvas data-processing-sources="orderForm.pde"></canvas>
+
+<canvas id="canvas1" width="1000" height="2000" data-processing-sources="orderForm.pde"></canvas>
+<script id="script1">
+
+</script>
+
  <aside>
      <h2>Food</h2>
         <div class="drinks">

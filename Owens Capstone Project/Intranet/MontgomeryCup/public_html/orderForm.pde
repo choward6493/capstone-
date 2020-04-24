@@ -19,23 +19,26 @@ for(var i=0;i<imageNames.length;i++;){
 }
 //array for buttons clicked
 String[] drinkNames={"Americano","CaffeMacchiato","CaffeMocha","Cappuccino","CaramelLatte","CaramelMacchiato","DarkChocolateMocha","Espresso","HavanaCappuccino","HoneyLavenderLatte","IcedCaffeMocha","IcedLatte","IcedVanillaLatte","WhiteChocolateMocha"};
-string drinkSize="medium";
+String drinkSize="medium";
 
 class CartObject {
-    var itemName,itemSize,cost;
+    var itemName,cost, itemSize, clickableNum;
     CartObject(var itemNam, var itemSiz, var costt){
-        itemName=itemNam;itemSize=itemSize;cost=costt;
+        itemName=itemNam;itemSize=itemSiz;cost=costt;
     }
 }
 CartObject[] cart={};
 
 class Clickable {
     var minX, width, minY, height, cName, cFunction;
-    Clickable(int mx, int mtx, int my, int mty, String cnam,var funcT){
+    Clickable(int mx, int mtx, int my, int mty, var cnam,var funcT){
         minX=mx;width=mtx;minY=my;height=mty;cName=cnam;cFunction=funcT;
     }
     void onClick(){
+
+        //console.log(cFunction);
         cFunction(cName);
+        
     }
     
 }
@@ -47,7 +50,7 @@ int[] buttonArray=new int[3];
 //button
 //boolean[] focusArray=new boolean[imageNames.length];
 
-
+var extraText="";
 //space in between images and outside of screen
 int imageMargin=30;
 
@@ -63,22 +66,97 @@ var fullMargin=(screenI-(numWide*(imageC[0]+imageMargin)+imageMargin))/2;
 //println(numWide+"what"+fullMargin);
 var imageyY=40;
 
-void addCart(String itemName){
-    //add stuff to cart array
-    expand(cart,cart.length+1);
-    //size is equal to selected size 
 
-    //get cost from Object dictionary in html script that gets data from php
-    cart[cart.length-1]=new CartObject(itemName,drinkSize,costDict[itemName]);
-    drinkSize="medium";
-
-}
-void selectSize(var sizeName){
-    drinkSize=sizeName;
-}
 
 void removeObj(var cartNum){
     //move all array values past cartNum down 1, decrease array size by 1
+    //do  clickable first because clickable number is stored in cart object
+
+    //for some reason, removing all items errors the screen out.
+    if(cart=={}){
+       console.log("fuck"); 
+    }
+    if(cart.length!=null&&cart.length!=0&&cart.length!=1){
+        console.log("not null");
+        for(var i=(optionClick.length-1); i>(cart[cartNum].clickableNum); i--;){
+            optionClick[i]=optionClick[i-1];
+        }
+        
+        for(var i=cart[cartNum].clickableNum; i<(optionClick.length-1);i++;){
+            optionClick[i]=optionClick[i+1];
+        }
+        optionClick=(Clickable[])shorten(optionClick);
+        
+
+        console.log("remove obj");
+        if(cart.length!=1){
+        for(var i=cartNum;i<(cart.length-1);i++;){
+            cart[i]=cart[i+1];
+        }
+        cart=(CartObject[])shorten(cart);}else{
+            cart=new CartObject();
+        }
+        
+        //console.log(cart.length)
+    }else{
+        extraText="Cannot have empty cart";
+    }
+    
+    
+    //fix the clickable removing
+    /*
+    for(var i=cartNum;i<(cart.length-1);i++;){
+        cart[i]=cart[i+1];
+    }
+    cart=(CartObject[])shorten(cart);
+    */
+}
+void addCart(String itemName){
+    //add stuff to cart array
+    //console.log(itemName);
+    if(cart.length==null){
+        cart={};
+    }
+    cart=expand(cart,cart.length+1);
+    //size is equal to selected size 
+    //drinkSize="test";
+    //get cost from Object dictionary in html script that gets data from php
+    cart[cart.length-1]=new CartObject(itemName,drinkSize,costDict[itemName]);
+    /*
+    if(mouseC[0]>605 && mouseC[0]<645 && mouseC[1]>(55+(i*40)) && mouseC[1] < (95+(i*40)) ){
+            fill(10);
+    }
+    */
+    //add button to remove cart
+    optionClick=(optionClick[])expand(optionClick,optionClick.length+1);
+    optionClick[optionClick.length-1]=new Clickable(605,40,(55+((cart.length-1)*40)),40,(cart.length-1),removeObj);
+    
+    cart[cart.length-1].clickableNum=optionClick.length-1;
+    //console.log((55*((cart.length-1)*40)));
+    //console.log(optionClick.length);
+
+    //console.log(drinkSize);
+    //console.log(cart[cart.length-1].itemSize);
+    //reset drink size to default medium
+    drinkSize="medium";
+    
+}
+
+
+
+void selectSize(var sizeName){
+    drinkSize=sizeName;
+}
+Clickable submitButtond = new Clickable();
+int[] subBut=new int(4);
+void submitButton(x,y,width,height){
+    /*
+    fill(20,200,20);
+    rect(x,y,width,height);
+    */
+    subBut[0]=x;subBut[1]=y;subBut[2]=width;subBut[3]=height;
+    submitButtond=(x,y,width,height,cart,submitCart);
+    fill(10);
 }
 
 Clickable optionClick={};
@@ -89,7 +167,7 @@ void setup(){
     background(255);
     noStroke();
     fill(100);
-
+    submitButton(650,800,300,40);
     //size of drink buttons
     for(var i=0;i<3;i++;){
 
@@ -109,7 +187,7 @@ void setup(){
                 imageYArray[i]=row*(imageyY)+((row-1)*imageC[1]);
                 controlW=true;
                 //add button to clickable objects array
-                expand(optionClick,optionClick.length+1);
+                optionClick=(optionClick[])expand(optionClick,optionClick.length+1);
                 optionClick[optionClick.length-1]=new Clickable(imageXArray[i]+5,imageC[0]-10,imageYArray[i]+5,imageC[1]-10,drinkNames[i],addCart);
             }
         }
@@ -119,7 +197,9 @@ void setup(){
 
 void draw(){
     background(255);
-
+    fill(30,200,30);
+    //submit button
+    rect(subBut[0],subBut[1],subBut[2],subBut[3]);
     //draw drink/food option buttons
     for(var i=0;i<imageNames.length;i++;){
         fill(color1,color2,color3);
@@ -138,18 +218,39 @@ void draw(){
     line(screenI,0,screenI,screenC[1])
     strokeWeight(0);
     //draw cart items
-    for(var i=0;i<cart.length;i++){
-        
+    fill(10);
+    text("Items:            "+extraText,650, 20);
+    if(cart.length!=null){
+        //console.log("not null");
+        for(var i=0;i<cart.length;i++){
+            //fill(10);
+            
+
+            fill(200,10,30);
+            //if mouse inbetween box (with added margins) change color
+            if(mouseC[0]>605 && mouseC[0]<645 && mouseC[1]>(55+(i*40)) && mouseC[1] < (95+(i*40)) ){
+                fill(10);
+            }
+            rect(610,60+(i*40),30,30);
+
+            fill(10);
+            text(cart[i].itemName+" - "+cart[i].itemSize+" - $"+cart[i].cost+" - "+cart[i].clickableNum,650,60+(i*40),100,30);
+        }
     }
     //if a button is pressed
     if(bPressed){
+        console.log("pressed");
         //replace mouceC[0] with mouseX if mouse X is updated constantly
-        for(var i=1;i<optionClick.length;i++;){
+        for(var i=0;i<optionClick.length;i++;){
+            //console.log(i);
             //if mouse is in area of the button
             if( mouseC[0]>=optionClick[i].minX && mouseC[0]<= optionClick[i].minX+optionClick[i].width && mouseC[1]>=optionClick[i].minY && mouseC[1] <= optionClick[i].minY +optionClick[i].height){
                 //do whatever function it is defined for.
                 //when making items, should make those clickable too -> removable maybe somehow?
+                //console.log(optionClick[i].minX);
+                //if(mouse)
                 optionClick[i].onClick();
+
             }
         }
         bPressed=false;

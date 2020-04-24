@@ -10,9 +10,28 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
+
 var costDict={
-  Latte:2, Americano:2
+  CaffeMacchiato:2, Americano:2
 };
+function submitCart(tcart){
+  var form = document.createElement("form");
+    var element1 = document.createElement("input"); 
+    var element2 = document.createElement("input");  
+
+    form.method = "POST";
+    form.action = "orderSub.php";   
+
+    element1.value=tcart;
+    element1.name="cart";
+    form.appendChild(element1);  
+
+    
+
+    document.body.appendChild(form);
+
+    form.submit();
+}
 </script>
 </head>
 <body>
