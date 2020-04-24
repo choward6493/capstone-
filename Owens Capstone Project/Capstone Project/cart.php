@@ -365,7 +365,8 @@ window.onclick = function(event) {
             cartJSON[i]=cartJSON[i+1];
           }
           //cartJSON[numT]
-          document.cookie="cart= "+cartJSON;
+          var testeststsetsets=JSON.stringify(cartJSON);
+          document.cookie="cart= "+testeststsetsets;
         }
       </script>
       <?php
