@@ -181,6 +181,7 @@ window.onclick = function(event) {
 <?php
 $sql = 'SELECT * FROM Products';
 $result = $conn->query($sql);
+$userID=array();
 if ($result->num_rows > 0) {
     // output userID from email
     while($userID=$result->fetch_array()[MYSQLI_ASSOC]){
