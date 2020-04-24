@@ -359,11 +359,15 @@ window.onclick = function(event) {
       <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b><?php echo $cartCount?></b></span></h4>
       <script>
         //remove cart item
-        cartJSON=JSON.parse(getCookie("cart"));
+        
+        
         function removeItem(numT){
+          cartJSON=JSON.parse(getCookie("cart"));
+          console.log(cartJSON);
           for(var i=numT;numT<(cartJSON.length-1);i++){
             cartJSON[i]=cartJSON[i+1];
           }
+          console.log(cartJSON);
           //cartJSON[numT]
           var testeststsetsets=JSON.stringify(cartJSON);
           document.cookie="cart= "+testeststsetsets;
