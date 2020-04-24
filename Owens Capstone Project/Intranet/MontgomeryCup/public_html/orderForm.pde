@@ -155,7 +155,7 @@ void submitButton(x,y,width,height){
     rect(x,y,width,height);
     */
     subBut[0]=x;subBut[1]=y;subBut[2]=width;subBut[3]=height;
-    submitButtond=(x,y,width,height,cart,submitCart);
+    submitButtond=new Clickable(x,y,width,height,cart,submitCart);
     fill(10);
 }
 
@@ -192,6 +192,10 @@ void setup(){
             }
         }
     }
+    optionClick=(optionClick[])expand(optionClick,optionClick.length+1);
+    optionClick[optionClick.length-1]=submitButtond;
+                
+
 }
 
 
@@ -254,14 +258,7 @@ void draw(){
             }
         }
         
-        if( mouseC[0]>=submitButtond.minX && mouseC[0]<= submitButtond.minX+submitButtond.width && mouseC[1]>=submitButtond.minY && mouseC[1] <= submitButtond.minY +submitButtond.height){
-                //do whatever function it is defined for.
-                //when making items, should make those clickable too -> removable maybe somehow?
-                //console.log(optionClick[i].minX);
-                //if(mouse)
-                submitButtond.onClick();
-
-        }
+        
         bPressed=false;
     }
 
