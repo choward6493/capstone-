@@ -14,9 +14,13 @@
 var costDict={
   CaffeMacchiato:2, Americano:2
 };
+//setcookie($userCookie,$userCookieVal, time() + (86400/24), "/");
 function submitCart(tcart){
+  //MAKE THIS MAKE A COOKIE INSTEAD
   console.log("submitted");
+  document.cookie="cart="+tcart;
   var form = document.createElement("form");
+    
     var element1 = document.createElement("input"); 
     var element2 = document.createElement("input");  
 
