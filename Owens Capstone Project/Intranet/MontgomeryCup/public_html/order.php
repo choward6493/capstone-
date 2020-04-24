@@ -15,6 +15,7 @@ var costDict={
   CaffeMacchiato:2, Americano:2
 };
 function submitCart(tcart){
+  console.log("submitted");
   var form = document.createElement("form");
     var element1 = document.createElement("input"); 
     var element2 = document.createElement("input");  
