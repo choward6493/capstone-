@@ -40,7 +40,7 @@ try{
 
 alertJS($testthing);
 $testtwo=$_GET;
-print_r($testtwo);
+print_r($testtwo['[message]']);
 }catch(Exception $e){
 
 }
