@@ -206,7 +206,9 @@ void draw(){
     background(255);
     fill(30,200,30);
     //submit button
-    if(mouseC[0]>=subBut[0] && mouseC[0]<=(subBut[0]+subBut[2]) && mouseC[1]>=subBut[1] && mouseC[1]<=(subBut[1]+subBut[3]))
+    if(mouseC[0]>=subBut[0] && mouseC[0]<=(subBut[0]+subBut[2]) && mouseC[1]>=subBut[1] && mouseC[1]<=(subBut[1]+subBut[3])){
+        fill(30,100,30);
+    }
     rect(subBut[0],subBut[1],subBut[2],subBut[3]);
     //draw drink/food option buttons
     for(var i=0;i<imageNames.length;i++;){
