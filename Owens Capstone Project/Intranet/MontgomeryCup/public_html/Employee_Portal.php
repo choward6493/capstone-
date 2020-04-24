@@ -26,7 +26,7 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
        <div class="row">
   <div class="column">
     <div class="content">
-      <a href="drink_form.php">
+      <a href="#">
       <img src="images/Profile.png" alt="Profile" style="width:100%">
     </a>
       <h3>Profile</h3>
@@ -34,7 +34,7 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
   </div>
   <div class="column">
     <div class="content">
-    <a href="drink_form.php">
+    <a href="#">
       <img src="images/time_sheet.png" alt="time_sheet" style="width:100%">
     </a>
       <h3>Employee Time Sheet</h3>
@@ -42,7 +42,7 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
   </div>
   <div class="column">
     <div class="content">
-  <a href="drink_form.php">
+  <a href="#">
       <img src="images/adp.png" alt="adp" style="width:100%">
     </a>
       <h3>ADP Portal</h3>
@@ -50,7 +50,7 @@ with a smooth aroma, Bagels, Muffins and Organic Snacks.">
   </div>
   <div class="column">
     <div class="content">
-    <a href="drink_form.php">
+    <a href="files/">
       <img src="images/trainning.png" alt="trainning" style="width:100%">
     </a>
       <h3>Trainings</h3>
