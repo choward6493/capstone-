@@ -155,7 +155,7 @@ void submitButton(x,y,width,height){
     rect(x,y,width,height);
     */
     subBut[0]=x;subBut[1]=y;subBut[2]=width;subBut[3]=height;
-    submitButtond=new Clickable(x,y,width,height,cart,submitCartd);
+    submitButtond=new Clickable(x,width,y,height,cart,submitCartd);
     fill(10);
 }
 void submitCartd(CartObject[] cartT){
@@ -206,6 +206,7 @@ void draw(){
     background(255);
     fill(30,200,30);
     //submit button
+    if(mouseC[0]>=subBut[0] && mouseC[0]<=(subBut[0]+subBut[2]) && mouseC[1]>=subBut[1] && mouseC[1]<=(subBut[1]+subBut[3]))
     rect(subBut[0],subBut[1],subBut[2],subBut[3]);
     //draw drink/food option buttons
     for(var i=0;i<imageNames.length;i++;){
