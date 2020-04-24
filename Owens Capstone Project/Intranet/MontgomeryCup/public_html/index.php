@@ -34,8 +34,9 @@ setcookie("location",$location, time() + (86400/24), "/");
 }catch(Exception $e){
 
 }
-try{
-alertJS(htmlspecialchars($_GET['message']));
+try{$testthing=array_values($_GET)[0];
+  console_log($testthing);
+alertJS($testthing);
 print_r($_GET);
 }catch(Exception $e){
 
