@@ -60,7 +60,7 @@ if ($conn->connect_error) {
 }
 
 $item=$_POST["item"];
-$VALIDITEMS=array("Cappuccino", "IcedLatte", "Espresso", "CaramelMacchiato");
+$VALIDITEMS=array("Cappuccino", "IcedLatte", "Espresso", "CaramelMacchiato","Americano","CaffeMocha","caffeMacchiato","CaramelLatte","CaffeMacciato2","DarkChocolateMocha","HavanaCappuccino","HoneyLavenderLatte","IcedCaffeMocha","IcedVanillaLatte","WhiteChocolateMocha");
 if(in_array($item,$VALIDITEMS)){
     //nothing
     console_log($item);

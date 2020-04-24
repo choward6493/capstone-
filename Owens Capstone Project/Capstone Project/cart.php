@@ -97,6 +97,8 @@
         }
     }
 
+  
+  
     ?>
 <style>
 body {
@@ -355,6 +357,17 @@ window.onclick = function(event) {
             }
         }?>
       <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b><?php echo $cartCount?></b></span></h4>
+      <script>
+        //remove cart item
+        cartJSON=JSON.parse(getCookie("cart"));
+        function removeItem(numT){
+          for(var i=numT;numT<(cartJSON.length-1);i++){
+            cartJSON[i]=cartJSON[i+1];
+          }
+          //cartJSON[numT]
+          document.cookie="cart= "+cartJSON;
+        }
+      </script>
       <?php
         if(isset($_COOKIE['cart'])){
             //console_log($_COOKIE['cart']);
@@ -368,7 +381,7 @@ window.onclick = function(event) {
                 $sql = 'Select Cost from Products where ProductName="'.$itemName['item'].'"';
                 $result = $conn->query($sql);
                 $itemCost=$result->fetch_assoc()["Cost"];
-                echo '<p><a href="#">'.$itemName['item'].' -- '.$itemName['size'].'</a> <span class="price">$'.$itemCost.'</span></p>';
+                echo '<p><a href="javascript:removeItem('.$i.')">'.$itemName['item'].' -- '.$itemName['size'].'</a> <span class="price">$'.$itemCost.'</span></p>';
                 $totalCost+=$itemCost;
             }
             /*
