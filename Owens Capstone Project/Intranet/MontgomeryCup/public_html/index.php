@@ -7,6 +7,14 @@ function console_log($output, $with_script_tags = true) {
     }
     echo $js_code;
 }
+function alertJS($message){
+  $js_code = 'alert(' . json_encode($output, JSON_HEX_TAG) . 
+');';
+  if ($with_script_tags) {
+    $js_code = '<script>' . $js_code . '</script>';
+}
+echo $js_code;
+}
 $servername = "capstone2.cxiblbeokqky.us-east-1.rds.amazonaws.com:1433";
 $username = "admin";
 $password = "SixGuys1CapstoneProject";
@@ -23,6 +31,11 @@ try{
 $location=$_POST['location'];
 setcookie("location",$location, time() + (86400/24), "/");
             
+}catch(Exception $e){
+
+}
+try{
+alertJS($_GET['message']);
 }catch(Exception $e){
 
 }
@@ -194,7 +207,9 @@ document.getElementById('viewOrders').style.display='none';
     </div>
    <a href="Employee_Portal.php">Employee Portal</a>
    <br/>
-   <a href="order.php">New order</a>
+   <a href="<?php if($location!=null){
+     echo 'order.php?location='.$location;
+   }else{echo 'index.php?message=Need%20Location';}?>">New order</a>
   </div>
   <main>
     

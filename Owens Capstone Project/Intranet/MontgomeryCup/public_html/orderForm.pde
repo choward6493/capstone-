@@ -160,6 +160,7 @@ void submitButton(x,y,width,height){
 }
 void submitCartd(CartObject[] cartT){
     cartT=cart;
+    if(cart.length!=null){
     console.log("submitted cart");
     console.log(cartT);
     var allCart=new String[cartT.length*2];
@@ -171,6 +172,7 @@ void submitCartd(CartObject[] cartT){
     }
     console.log(stringSub);
     submitCart(stringSub);
+    }
 }
 Clickable optionClick={};
 

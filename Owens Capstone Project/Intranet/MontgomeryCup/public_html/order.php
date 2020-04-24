@@ -7,6 +7,9 @@
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="index.css">
 <script src="processing.min.js"></script>
+<?php 
+$location=$_GET["location"];
+?>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
@@ -31,6 +34,7 @@ function submitCart(tcart){
     element1.value=tcart;
     element1.name="cart";
     form.appendChild(element1);  
+
 
     
 
