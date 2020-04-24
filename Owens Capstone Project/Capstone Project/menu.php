@@ -184,10 +184,10 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output userID from email
     while($userID=$result->fetch_array()[MYSQLI_ASSOC]){
-      console_log($userID["ProductName"]);
+      console_log($userID["ProductName"].$userID["ProductName"]);
     }
 
-    console_log($userID);
+    
     //echo $result->fetch_assoc()["CustomerID"].'<br>';
 } else {
     //echo "0 results";
