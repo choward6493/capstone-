@@ -38,7 +38,7 @@ try{
   $testthing=array_values($_GET);
   console_log($testthing);
   console_log($_GET);
-//alertJS($testthing);
+alertJS($testthing[0]);
 $testtwo=$_GET;
 print_r($testtwo['[message]']);
 }catch(Exception $e){
