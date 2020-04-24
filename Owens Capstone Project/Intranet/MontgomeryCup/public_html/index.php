@@ -37,7 +37,7 @@ setcookie("location",$location, time() + (86400/24), "/");
 try{
   $testthing=array_values($_GET)[0];
   console_log($testthing);
-
+  console_log($_GET);
 alertJS($testthing);
 $testtwo=$_GET;
 print_r($testtwo['[message]']);
