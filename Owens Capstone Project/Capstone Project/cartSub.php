@@ -186,7 +186,7 @@ $conn->close();
 ?>
 <html>
 <!-- always send back to cart-->
-<script>window.location.replace("cart.php?subMessage=Order+Submitted");</script>
+<script>window.location.replace("cart.php?subMessage=Order%20Submitted");</script>
 <body>
 
 <!-- 

@@ -26,9 +26,21 @@
         die("Connection failed: " . $conn->connect_error);
     }
     */
-    $subMessage=$_GET['subMessage'];
-    if($subMessage!=""){
-      echo '<script>alert("'.$subMessage.'");</script>';
+    try{
+      $testthing=array_values($_GET);
+      if($testthing!=null){
+      
+      //console_log($testthing);
+      //console_log($_GET);
+      //console_log($testthing[0]);
+      echo '<script>alert("'.$testthing[0].'");</script>';
+      //console_log("Nee");
+    //alertJS($testthing[0]);
+    //$testtwo=$_GET;
+    //print_r($testtwo['[message]']);
+      }
+    }catch(Exception $e){
+    
     }
     //if login data is stored, check that it is actual
     if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){

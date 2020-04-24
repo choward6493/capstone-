@@ -192,7 +192,7 @@ document.getElementById('viewOrders').style.display='none';
    <!--
    <a href="javascript:alert('View Orders');">View orders</a>
    -->
-   <button class="dropdown-btn">View Orders 
+   <button class="dropdown-btn">View Orders/Location
       <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-container">
