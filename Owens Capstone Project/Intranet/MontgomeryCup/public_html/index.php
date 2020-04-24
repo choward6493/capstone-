@@ -34,10 +34,13 @@ setcookie("location",$location, time() + (86400/24), "/");
 }catch(Exception $e){
 
 }
-try{$testthing=array_values($_GET)[0];
+try{
+  $testthing=array_values($_GET)[0];
   console_log($testthing);
+
 alertJS($testthing);
-print_r($_GET);
+$testtwo=$_GET;
+print_r($testtwo);
 }catch(Exception $e){
 
 }
