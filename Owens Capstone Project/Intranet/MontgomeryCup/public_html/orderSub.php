@@ -61,8 +61,8 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
                 $employeeTitle=$result->fetch_assoc()["Title"];
                 $loggedIn=true;
                 //echo 'test';
-  
-                $sql = 'Insert into Orders(StoreName,OrderDate,OrderStatus)Values("'.$location.'","'.$orderDate.'",1)';
+                //order status is 0 (completed) because person who takes order also makes it
+                $sql = 'Insert into Orders(StoreName,OrderDate,OrderStatus)Values("'.$location.'","'.$orderDate.'",0)';
                 $result = $conn->query($sql);
                 //console_log($result);
                 $orderID=$conn->insert_id;

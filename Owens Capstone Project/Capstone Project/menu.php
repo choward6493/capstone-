@@ -178,6 +178,18 @@ window.onclick = function(event) {
 }
 </script>
 </div>
+<?php
+$sql = 'SELECT * FROM Products';
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    // output userID from email
+    $userID=$result->fetch_array()[MYSQLI_ASSOC];
+    console_log($userID);
+    //echo $result->fetch_assoc()["CustomerID"].'<br>';
+} else {
+    //echo "0 results";
+}
+?>
 
 <!-- need to make this data part of database and procedurally generate it through php.... add cost as well-->
 <div style="padding:20px;">
@@ -215,10 +227,7 @@ window.onclick = function(event) {
     <input type="hidden" id="custId" name="item" value="Espresso">
       <input type="image" src="pictures/espresso.jpg" alt="Submit" width="600" height="400" class="responsive">
     </a>
-</form>
-
-  
-   
+</form>   
     <div class="desc">Espresso</div>
   </div>
 </div>
@@ -234,6 +243,7 @@ window.onclick = function(event) {
    
     <div class="desc">Caramel Macchiato</div>
   </div>
+</div>
 </div>
 
 <div class="clearfix"></div>
