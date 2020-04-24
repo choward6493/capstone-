@@ -364,7 +364,7 @@ window.onclick = function(event) {
         function removeItem(numT){
           cartJSON=JSON.parse(getCookie("cart"));
           console.log(cartJSON);
-          for(var i=numT;numT<=(cartJSON.length-1);i++){
+          for(var i=numT;i<=(cartJSON.length-1);i++){
             cartJSON[i]=cartJSON[i+1];
           }
           cartJSON.length-=1;
