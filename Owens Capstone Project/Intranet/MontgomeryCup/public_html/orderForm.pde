@@ -253,6 +253,15 @@ void draw(){
 
             }
         }
+        
+        if( mouseC[0]>=submitButtond.minX && mouseC[0]<= submitButtond.minX+submitButtond.width && mouseC[1]>=submitButtond.minY && mouseC[1] <= submitButtond.minY +submitButtond.height){
+                //do whatever function it is defined for.
+                //when making items, should make those clickable too -> removable maybe somehow?
+                //console.log(optionClick[i].minX);
+                //if(mouse)
+                submitButtond.onClick();
+
+        }
         bPressed=false;
     }
 
