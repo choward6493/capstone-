@@ -26,6 +26,11 @@
         die("Connection failed: " . $conn->connect_error);
     }
     */
+    //get buy stats
+    $sql='SELECT * FROM Products';
+    $sql='SELECT * FROM OrderDetails';
+    $result = $conn->query($sql);
+    
 
     //if login data is stored, check that it is actual
     if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
