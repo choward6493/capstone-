@@ -222,11 +222,7 @@ window.onclick = function(event) {
   $sql='SELECT DescriptionInfo FROM Products WHERE ProductName="'.$item.'"';
   console_log($sql);
   $result = $conn->query($sql);
-  if ($result->num_rows > 0) {
-      $descInfo=$result->fetch_assoc()["DescriptionInfo"];
-  } else {
-      //echo "0 results";
-  }
+  $descInfo=$result->fetch_assoc()["DescriptionInfo"];
   echo $descInfo;
   ?></h2>
   </div>
