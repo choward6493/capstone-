@@ -219,13 +219,13 @@ window.onclick = function(event) {
   </div>
   <div class="description" style="margin-left:850px; padding-top:100px;font-size:20px;">
   <h2><?php 
-  $sql='SELECT * FROM Products WHERE ProductName="Cappuccino"';
+  $sql4='SELECT * FROM Products WHERE ProductName="Cappuccino"';
   console_log($sql);
-  $result = $conn->query($sql);
-  console_log($result);
-  if ($result->num_rows > 0) {
+  $result4 = $conn->query($sql4);
+  console_log($result4);
+  if ($result4->num_rows > 0) {
       console_log("stuff");
-      $descInfo=$result->fetch_assoc()["DescriptionInfo"];
+      $descInfo=$result4->fetch_assoc()["DescriptionInfo"];
   } else {
       //echo "0 results";
   }
