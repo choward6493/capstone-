@@ -214,7 +214,7 @@ foreach($products as $product){
   echo '<input type="image" src="images/'.$product['ProductName'].'.jpg" alt="Submit" width="600" height="400" class="responsive">';
   echo '</a>';
   echo '</form>
-        <div class="desc">Cappuccino</div>
+        <div class="desc">'.$product['ProductName'].'</div>
         </div>
         </div>';
 }
