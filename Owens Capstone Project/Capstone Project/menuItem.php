@@ -70,7 +70,7 @@ if(in_array($item,$VALIDITEMS)){
     //because it is get request, super quick questioning
     echo '<script>window.location.replace("main.php");</script>';
 }
-$sql4='SELECT * FROM Products WHERE ProductName ="'.$item.'"';
+$sql4='SELECT DescriptionInfo FROM Products WHERE ProductName ="'.$item.'"';
   console_log($sql4);
   $result4 = $conn->query($sql4);
   console_log($result4);
