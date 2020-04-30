@@ -144,7 +144,7 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
 
                         //console_log($cardType);
                         //now create new payment
-                        $sql3='INSERT INTO Payments(PaymentType,CardType,CardNumber,CVV,FirstName,ExpirationDate)Values("Card","'.$cardType.'","'.$cardNumber.'",'$cvv',"'.$customerName.'","'.$expdate.'-01")';
+                        $sql3='INSERT INTO Payments(PaymentType,CardType,CardNumber,CVV,FirstName,ExpirationDate)Values("Card","'.$cardType.'","'.$cardNumber.'","'.$cvv.'","'.$customerName.'","'.$expdate.'-01")';
                         $result3 = $conn->query($sql3);
                         $paymentId=$conn->insert_id;
                         //console_log($result3);
