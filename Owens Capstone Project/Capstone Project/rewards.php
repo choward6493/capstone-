@@ -191,7 +191,7 @@ window.onclick = function(event) {
 <h2>Stats</h2>
 <h5>Most Popular</h5>
 <p>The most popular item is the <?php echo $products[getMostPopular()]["ProductName"];?>, which costs $<?php echo $products[getMostPopular()]["Cost"];?>, and is <?php if($products[getMostPopular()]["Availible"]!="1"){echo "not";}?> availible</p>
-
+<p>It has been bought a total of <?php echo $numBought[getMostPopular()];?> times</p>
  </div>
         
 
