@@ -342,7 +342,7 @@ window.onclick = function(event) {
                             <option value="GC">Grove City</option>
                             <option value="CO">Columbus</option>
                             <option value="NA">New Albany</option></select><br/>
-        <input type="submit" value="Checkout" class="btn">
+        <input type="submit" value="Submit" class="btn">
       </form>
     </div>
   </div>
@@ -389,6 +389,7 @@ window.onclick = function(event) {
                 $result = $conn->query($sql);
                 $itemCost=$result->fetch_assoc()["Cost"];
                 echo '<p><a href="javascript:removeItem('.$i.')">'.$itemName['item'].' -- '.$itemName['size'].'</a> <span class="price">$'.$itemCost.'</span></p>';
+                echo '<p style="margin-left:3em">'.$itemName['milk'].'</p>';
                 $totalCost+=$itemCost;
             }
             /*
