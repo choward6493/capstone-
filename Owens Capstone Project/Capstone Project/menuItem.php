@@ -219,8 +219,8 @@ window.onclick = function(event) {
   </div>
   <div class="description" style="margin-left:850px; padding-top:100px;font-size:20px;">
   <h2><?php 
-  $sql4='SELECT * FROM Products WHERE ProductName="Cappuccino"';
-  console_log($sql);
+  $sql4='SELECT * FROM Products';
+  console_log($sql4);
   $result4 = $conn->query($sql4);
   console_log($result4);
   if ($result4->num_rows > 0) {
