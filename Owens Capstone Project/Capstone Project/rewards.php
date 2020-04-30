@@ -45,18 +45,7 @@
         $numBought[((int)$orderS["ProductID"]-1)]+=1;
     }
     
-    function getMostPopular(){
-        //get biggest amount of bought, returns array item with most
-        $big=array(0,0);
-        for($i=0;$i<count($numBought);$i++;){
-            if($numBought[$i]>=$big[1]){
-                $big[0]=$i;
-                $big[1]=$numBought[$i];
-            }
-        }
-        console_log($big[0]);
-        return $big[0];
-    }
+    
     //if login data is stored, check that it is actual
     if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
         $usernamePP=$_COOKIE['user'];
