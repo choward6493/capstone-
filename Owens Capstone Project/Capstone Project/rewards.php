@@ -55,7 +55,7 @@
             }
         }
         console_log($big[0]);
-        
+        return $big[0];
     }
     //if login data is stored, check that it is actual
     if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
@@ -190,7 +190,6 @@ window.onclick = function(event) {
 <div class="card">
 <h2>Stats</h2>
 <h5>Most Popular</h5>
-<p>The most popular item is the <?php getMostPopular();?> availible</p>
  </div>
         
 
