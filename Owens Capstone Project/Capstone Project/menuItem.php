@@ -213,6 +213,22 @@ window.onclick = function(event) {
 
 <div class="container">
   <form action="cartItem.php" method="post">
+  <div class = "pic" style="float:left">
+  <img src="images/<?php echo $item?>.jpg" alt="<?php echo $item?>" width="auto">
+<br>
+  </div>
+  <div class="description" style="margin-left:850px; padding-top:100px;font-size:20px;">
+  <h2><?php 
+  $sql='SELECT DescriptionInfo FROM Products WHERE ProductName="'.$item.'"';
+  $result = $conn->query($sql);
+  if ($result->num_rows > 0) {
+      $descInfo=$result->fetch_assoc()["DescriptionInfo"];
+  } else {
+      //echo "0 results";
+  }
+  echo $descInfo;
+  ?></h2>
+  </div>
     <input type="hidden" id="custId" name="item" value="<?php echo $item?>">
   <div class="drink_size" style="width: 600px; float: left;">
   <h2>Size</h2>
