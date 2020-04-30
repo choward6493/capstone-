@@ -269,7 +269,7 @@ span.price {
 
     <div class="container">
       <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+      <input type="email" placeholder="Enter Username" name="uname" required>
 
       <label for="psw"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="psw" required>
@@ -324,15 +324,15 @@ window.onclick = function(event) {
               <i class="fa fa-cc-discover" style="color:orange;"></i>
             </div>
             <label for="cname">Name on Card</label>
-            <input type="text" id="cname" name="cardname" placeholder="John W Doe">
+            <input type="text" id="cname" name="cardname" placeholder="John W Doe" required>
             <label for="ccnum">Credit card number</label>
-            <input type="text" pattern="\d{4}-?\d{4}-?\d{4}-?\d{4}" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+            <input type="text" pattern="\d{4}-?\d{4}-?\d{4}-?\d{4}" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" required>
             <label for="expmonth">Expiration Date</label>
-            <input type="month" pattern="^\d{1,2}\/\d{2,4}$"id="expmonth" name="expdate" placeholder="01/20">
+            <input type="month" pattern="^\d{1,2}\/\d{2,4}$"id="expmonth" name="expdate" placeholder="01/20" required>
 
 
                 <label for="cvv">CVV</label>
-                <input type="number" pattern="^([0-9]{3,4})$" id="cvv" name="cvv" placeholder="111">
+                <input type="text" pattern="^([0-9]{3,4})$" id="cvv" name="cvv" placeholder="111" required>
 
           </div>
 
