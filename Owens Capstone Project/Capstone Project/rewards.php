@@ -45,7 +45,18 @@
         $numBought[((int)$orderS["ProductID"]-1)]+=1;
     }
     
-    
+    function getMostPopular(){
+        //get biggest amount of bought, returns array item with most
+        $big=array(0,0);
+        for($i=0;$i<count($numBought);$i++){
+            if($numBought[$i]>=$big[1]){
+                $big[0]=$i;
+                $big[1]=$numBought[$i];
+            }
+        }
+        //console_log($big[0]);
+        return $big[0];
+    }
     //if login data is stored, check that it is actual
     if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
         $usernamePP=$_COOKIE['user'];
@@ -179,6 +190,8 @@ window.onclick = function(event) {
 <div class="card">
 <h2>Stats</h2>
 <h5>Most Popular</h5>
+<p>The most popular item is the <?php echo $products[getMostPopular()]["ProductName"];?>, which costs $<?php echo $products[getMostPopular()]["Cost"];?>, and is <?php if($products[getMostPopular()]["Availible"]!="1"){echo "not";}?> availible</p>
+
  </div>
         
 
