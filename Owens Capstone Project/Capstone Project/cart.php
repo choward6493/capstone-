@@ -326,13 +326,13 @@ window.onclick = function(event) {
             <label for="cname">Name on Card</label>
             <input type="text" id="cname" name="cardname" placeholder="John W Doe">
             <label for="ccnum">Credit card number</label>
-            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+            <input type="text" pattern="\d{4}-?\d{4}-?\d{4}-?\d{4}" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
             <label for="expmonth">Expiration Date</label>
-            <input type="month" id="expmonth" name="expdate" placeholder="01/20">
+            <input type="month" pattern="^\d{1,2}\/\d{2,4}$"id="expmonth" name="expdate" placeholder="01/20">
 
 
                 <label for="cvv">CVV</label>
-                <input type="text" id="cvv" name="cvv" placeholder="111">
+                <input type="number" pattern="^([0-9]{3,4})$" id="cvv" name="cvv" placeholder="111">
 
           </div>
 
@@ -389,7 +389,7 @@ window.onclick = function(event) {
                 $result = $conn->query($sql);
                 $itemCost=$result->fetch_assoc()["Cost"];
                 echo '<p><a href="javascript:removeItem('.$i.')">'.$itemName['item'].' -- '.$itemName['size'].'</a> <span class="price">$'.$itemCost.'</span></p>';
-                echo '<p style="margin-left:3em">'.$itemName['milk'].'</p>';
+                echo '<p style="margin-left:3em">'.$itemName['milk'].' milk</p>';
                 $totalCost+=$itemCost;
             }
             /*

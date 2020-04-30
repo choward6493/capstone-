@@ -13,7 +13,7 @@
 
                     <div class="container">
                         <label for="uname"><b>Email</b></label>
-                        <input type="text" placeholder="Enter Email" name="uname" required>
+                        <input type="email" placeholder="Enter Email" name="uname" required>
 
                         <label for="psw"><b>Password</b></label>
                         <input type="password" placeholder="Enter Password" name="psw" required>
@@ -25,8 +25,8 @@
                         <input type="text" placeholder="Enter last name" name="lastName" required>
 
                         <label for="phoneNumber"><b>Phone Number</b></label>
-                        <input type="text" placeholder="Enter phone number" name="phoneNumber" required>
-
+                        <input type="text" pattern="^([\+][0-9]{1,3}([ \.\-])?)?([\(]{1}[0-9]{3}[\)])?([0-9A-Z \.\-]{1,32})((x|ext|extension)?[0-9]{1,4}?)$" placeholder="Enter phone number" name="phoneNumber" required>
+                        <!-- https://stackoverflow.com/questions/123559/how-to-validate-phone-numbers-using-regex thank you!!!!!!-->
                         <label for="address"><b>Address</b></label>
                         <input type="text" placeholder="Enter address" name="address" required>
 
@@ -94,8 +94,8 @@
                         <label for="zipCode"><b>Zip Code</b></label>
                         <input type="text" placeholder="Enter ZIP Code" name="zipCode" required>
 
-                        <label for="date"><b>Date</b></label>
-                        <input type="date" placeholder="Enter Date" name="date" required>
+                        <label for="date"><b>Birth Date</b></label>
+                        <input type="date" pattern="^\d{1,2}\/\d{1,2}\/\d{4}$" placeholder="Enter Date" name="date" required>
 <br/>
                         <button class="login" type="submit">Register</button>
                         
