@@ -99,14 +99,14 @@
     ?>
 <body>
 <div class="header">
-  <h1>Rewards</h1>
+  <h1>Stats</h1>
   
 </div>
 
 <div class="topnav">
   <a href="main.php">Home</a>
   <a href="menu.php">Menu</a>
-  <a href="rewards.php">Rewards</a>
+  <a href="rewards.php">Stats</a>
   <div class="cart"><a href="cart.php"><img border="0" alt="Cart" src="pictures/cart4.png" style="width:auto;height:20px;float:right;font-family: Arial;"></a></div>
   <script>
             function logMeOut(){

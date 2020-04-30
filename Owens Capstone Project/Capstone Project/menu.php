@@ -93,7 +93,7 @@
 <div class="topnav">
   <a href="/main.php">Home</a>
   <a href="menu.php">Menu</a>
-            <a href="rewards.php">Rewards</a>
+            <a href="rewards.php">Stats</a>
             <div class="cart">
                 <a href="cart.php"><img border="0" alt="Cart" src="pictures/cart4.png" width="20" height="20" style="width:auto;height:20px;float:right;font-family: Arial;"></a>
             </div>
@@ -198,6 +198,27 @@ if ($result->num_rows > 0) {
 <!-- need to make this data part of database and procedurally generate it through php.... add cost as well-->
 <div style="padding:20px;">
 
+<?php 
+
+$sql='SELECT * FROM Products';
+$result = $conn->query($sql);
+while($row=$result->fetch_array(MYSQLI_ASSOC)){
+    $products[]=$row;
+}
+foreach($products as $product){
+  echo '<div class="responsive">';
+  echo '<div class="gallery">';
+  echo '<form class="" action="/menuItem.php" method="post">';
+  echo '<a type="submit">';
+  echo '<input type="hidden" id="custId" name="item" value="'.$product['ProductName'].'">';
+  echo '<input type="image" src="images/'.$product['ProductName'].'.jpg" alt="Submit" width="600" height="400" class="responsive">';
+  echo '</a>';
+  echo '</form>
+        <div class="desc">Cappuccino</div>
+        </div>
+        </div>';
+}
+?>
 <div class="responsive">
   <div class="gallery">
   <form class="" action="/menuItem.php" method="post">
