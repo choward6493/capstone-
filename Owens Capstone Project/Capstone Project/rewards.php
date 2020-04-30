@@ -28,9 +28,16 @@
     */
     //get buy stats
     $sql='SELECT * FROM Products';
+    $result = $conn->query($sql);
+    while($row=$result->fetch_array(MYSQLI_ASSOC)){
+        $products[]=$row;
+    }
     $sql='SELECT * FROM OrderDetails';
     $result = $conn->query($sql);
-    
+    while($row=$result->fetch_array(MYSQLI_ASSOC)){
+        $orderd[]=$row;
+    }
+    console.log($orderd);
 
     //if login data is stored, check that it is actual
     if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
