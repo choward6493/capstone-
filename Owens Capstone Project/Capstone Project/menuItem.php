@@ -220,6 +220,7 @@ window.onclick = function(event) {
   <div class="description" style="margin-left:850px; padding-top:100px;font-size:20px;">
   <h2><?php 
   $sql='SELECT DescriptionInfo FROM Products WHERE ProductName="'.$item.'"';
+  console_log($sql);
   $result = $conn->query($sql);
   if ($result->num_rows > 0) {
       $descInfo=$result->fetch_assoc()["DescriptionInfo"];
