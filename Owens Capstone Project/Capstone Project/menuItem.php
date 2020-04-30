@@ -22,16 +22,7 @@ $conn = new mysqli($servername, $username, $password,$dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-$sql4='SELECT * FROM Products';
-  console_log($sql4);
-  $result4 = $conn->query($sql4);
-  console_log($result4);
-  if ($result4->num_rows > 0) {
-      console_log("stuff");
-      $descInfo=$result4->fetch_assoc()["DescriptionInfo"];
-  } else {
-      //echo "0 results";
-  }
+
 if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
   $usernamePP=$_COOKIE['user'];
   console_log($usernamePP);
@@ -79,7 +70,16 @@ if(in_array($item,$VALIDITEMS)){
     //because it is get request, super quick questioning
     echo '<script>window.location.replace("main.php");</script>';
 }
-
+$sql4='SELECT * FROM Products WHERE ProductName ="'.$item.'"';
+  console_log($sql4);
+  $result4 = $conn->query($sql4);
+  console_log($result4);
+  if ($result4->num_rows > 0) {
+      console_log("stuff");
+      $descInfo=$result4->fetch_assoc()["DescriptionInfo"];
+  } else {
+      //echo "0 results";
+  }
 /*
 
 // Check connection
@@ -228,7 +228,7 @@ window.onclick = function(event) {
   <img src="images/<?php echo $item?>.jpg" alt="<?php echo $item?>" width="auto">
 <br>
   </div>
-  <div class="description" style="margin-left:850px; padding-top:100px;font-size:20px;">
+  <div class="description" style="margin-left:300px; padding-top:100px;font-size:20px;">
   <h2><?php 
   
   echo $descInfo;
