@@ -82,7 +82,7 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
                         //console_log($orderDate);
 
                         //create new Orders list, last BIT 1=needs fufilled
-                        $sql = 'Insert into Orders(StoreName,OrderDate,OrderStatus,PickDate)Values("'.$location.'","'.$orderDate.'",1,"'.$_POST["picktime"].')';
+                        $sql = 'Insert into Orders(StoreName,OrderDate,OrderStatus,PickDate)Values("'.$location.'","'.$orderDate.'",1,"'.$_POST["picktime"].'")';
                         $result = $conn->query($sql);
                         //console_log($result);
                         $orderID=$conn->insert_id;
