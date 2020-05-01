@@ -143,7 +143,7 @@
 
                     <div class="container" style="background-color:#f1f1f1">
                         <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn"><b>Cancel</b></button>
-                        <a class="btn"href="#" style="float:right;padding: 10px 18px;background-color: #333;color: #f2f2f2;">Forgot password?</a>
+                        <a class="btn"href="javascript:alert('Please contact website owners')" style="float:right;padding: 10px 18px;background-color: #333;color: #f2f2f2;">Forgot password?</a>
                         <a class="btn"href="join.php" style="text-decoration:none;float:right;padding: 10px 18px;background-color: #333;color: #f2f2f2;">Join now</a>
                     </div>
                 </form>
@@ -188,6 +188,7 @@
                 while($row = $result5->fetch_array(MYSQLI_ASSOC)){
                     array_push($newsArray,$row);
                 }
+                $newsArray=array_reverse($newsArray);
                 foreach($newsArray as $newsArticle){
                     echo '<div class="card">';
                     echo '<h2>'.$newsArticle["Title"].'</h2>';

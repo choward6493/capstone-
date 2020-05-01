@@ -343,7 +343,7 @@ window.onclick = function(event) {
         <label for="location">Pickup Location</label>
             <select id='location' name="location" required>
                             <option value="GC">Grove City</option>
-                            <option value="CO">Columbus</option>
+                            <option value="CO" selected>Columbus</option>
                             <option value="NA">New Albany</option></select><br/>
         <input type="submit" value="Submit" class="btn">
       </form>
