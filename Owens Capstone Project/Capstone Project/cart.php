@@ -337,6 +337,8 @@ window.onclick = function(event) {
           </div>
 
         </div>
+        <label for="picktime">Pickup Time</label>
+        <input type="datetime-local" id="picktime" name="picktime">
         <label for="location">Pickup Location</label>
             <select id='location' name="location" required>
                             <option value="GC">Grove City</option>
