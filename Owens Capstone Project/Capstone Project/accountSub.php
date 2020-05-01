@@ -47,6 +47,7 @@ $zipCode = $_POST["zipCode"];
 $date=$_POST["date"];
 $userID=0;
 
+try{
 $sql = 'SELECT * FROM Customers WHERE Email="'.$usernamePP.'"';
 //echo $sql;
 //$sql = 'SELECT CustomerID, Email FROM Customers WHERE Email="arenninger@student.cscc.edu"';
@@ -147,7 +148,9 @@ if ($result->num_rows > 0) {
     echo '<script>window.location.replace("main.php");</script>';
     */
 }
-
+}catch(Exception $e){
+    echo 'Caught exception: ',  $e->getMessage(), "\n";
+}
 
 
 $conn->close();
