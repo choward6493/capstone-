@@ -96,7 +96,8 @@
                         <input type="text" placeholder="Enter city" name="city" value="<?php echo $userInfo["City"];?>" required>
 
                         <label for="states"><b>State</b></label>
-                        <select id='states' name="states" required value="<?php echo $userInfo["State"];?>">
+                        <select id='states' name="states" required>
+                            <option value="<?php echo $userInfo["State"];?>" selected hidden="hidden"><?php echo $userInfo["State"];?></option>
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
                             <option value="AZ">Arizona</option>
