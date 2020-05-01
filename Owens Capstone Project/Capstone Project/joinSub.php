@@ -76,7 +76,7 @@ if ($result->num_rows > 0) {
     setcookie($userCookie,$userCookieVal, time() + (86400/24), "/");
     setcookie($passCookie,$passCookieVal,time() + (86400/24),"/");
         
-    echo '<script>window.location.replace("main.php");</script>';
+    echo '<script>alert("Account Created!");window.location.replace("main.php");</script>';
 }
 
 

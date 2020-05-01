@@ -4,7 +4,68 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
+<?php
+    function console_log($output, $with_script_tags = true) {
+        $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) . 
+    ');';
+        if ($with_script_tags) {
+            $js_code = '<script>' . $js_code . '</script>';
+        }
+        echo $js_code;
+    }
+    $servername = "capstone2.cxiblbeokqky.us-east-1.rds.amazonaws.com:1433";
+    $username = "admin";
+    $password = "SixGuys1CapstoneProject";
+    $dbname="Capstone";
+    $userID=0;
+    // Create connection
+    $conn = new mysqli($servername, $username, $password,$dbname);
+    /*
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    */
 
+    //if login data is stored, check that it is actual
+    if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
+        $usernamePP=$_COOKIE['user'];
+        console_log($usernamePP);
+        $hashPass=$_COOKIE['token'];
+        $userID=0;
+        $sql = 'SELECT CustomerID FROM Customers WHERE Email="'.$usernamePP.'"';
+        //echo $sql;
+        //$sql = 'SELECT CustomerID, Email FROM Customers WHERE Email="arenninger@student.cscc.edu"';
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            // output userID from email
+            $userID=$result->fetch_assoc()["CustomerID"];
+            //echo $result->fetch_assoc()["CustomerID"].'<br>';
+        } else {
+            //echo "0 results";
+        }
+        $sql2 = 'SELECT CustomerPasswordHash FROM CustomerLOG WHERE CustomerID='.$userID;
+        //echo $sql2;
+        $result2 = $conn->query($sql2);
+        if ($result2->num_rows > 0) {
+            // output userID from email
+            $hashedData=$result2->fetch_assoc()["CustomerPasswordHash"];
+            //echo '<br>'.$hashedData.'<br>';
+            //echo '<br>'.$hashPass;
+            if($hashPass==$hashedData){
+                //echo "You're in";
+                $sql = 'SELECT * FROM Customers WHERE CustomerID='.$userID;
+                $result = $conn->query($sql);
+                $userInfo=$result->fetch_array(MYSQLI_ASSOC);
+                
+            }else {
+                //echo "Password not right";
+            }
+        } else {
+            //echo "nothing found";
+        }
+    }
+    
+    ?>
 <body class="coffee">
 
   <div id="id01" class="modal"style="display:block;">
@@ -13,31 +74,28 @@
 
                     <div class="container">
                         <label for="uname"><b>Email</b></label>
-                        <input type="email" placeholder="Enter Email" name="uname" required>
-
-                        <label for="psw"><b>Password</b></label>
-                        <input type="password" placeholder="Enter Password" name="psw" pattern="^(?=.*\d).{6,20}$" required>
+                        <input type="email" placeholder="Enter Email" name="uname"  value="<?php echo $userInfo["Email"];?>" required>
 
                         <label for="firstName"><b>First Name</b></label>
-                        <input type="text" placeholder="Enter first name" name="firstName" required>
+                        <input type="text" placeholder="Enter first name" name="firstName" value="<?php echo $userInfo["FirstName"];?>" required>
 
                         <label for="lastName"><b>Last Name</b></label>
-                        <input type="text" placeholder="Enter last name" name="lastName" required>
+                        <input type="text" placeholder="Enter last name" name="lastName" value="<?php echo $userInfo["LastName"];?>" required>
 
                         <label for="phoneNumber"><b>Phone Number</b></label>
-                        <input type="text" pattern="^([\+][0-9]{1,3}([ \.\-])?)?([\(]{1}[0-9]{3}[\)])?([0-9A-Z \.\-]{1,32})((x|ext|extension)?[0-9]{1,4}?)$" placeholder="Enter phone number" name="phoneNumber" required>
+                        <input type="text" pattern="^([\+][0-9]{1,3}([ \.\-])?)?([\(]{1}[0-9]{3}[\)])?([0-9A-Z \.\-]{1,32})((x|ext|extension)?[0-9]{1,4}?)$" placeholder="Enter phone number" name="phoneNumber" value="<?php echo $userInfo["PhoneNumber"];?>" required>
                         <!-- https://stackoverflow.com/questions/123559/how-to-validate-phone-numbers-using-regex thank you!!!!!!-->
                         <label for="address"><b>Address</b></label>
-                        <input type="text" placeholder="Enter address" name="address" required>
+                        <input type="text" placeholder="Enter address" name="address" value="<?php echo $userInfo["Address"];?>" required>
 
                         <label for="aptNumber"><b>Apartment Number (if applicable)</b></label>
-                        <input type="text" placeholder="Enter apartment number" name="aptNumber">
+                        <input type="text" placeholder="Enter apartment number" name="aptNumber" value="<?php echo $userInfo["APTNumber"];?>" >
 
                         <label for="city"><b>City</b></label>
-                        <input type="text" placeholder="Enter city" name="city" required>
+                        <input type="text" placeholder="Enter city" name="city" value="<?php echo $userInfo["City"];?>" required>
 
                         <label for="states"><b>State</b></label>
-                        <select id='states' name="states" required>
+                        <select id='states' name="states" required value="<?php echo $userInfo["State"];?>">
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
                             <option value="AZ">Arizona</option>
@@ -92,12 +150,18 @@
                         </select>				<br/><br/>
 
                         <label for="zipCode"><b>Zip Code</b></label>
-                        <input type="text" placeholder="Enter ZIP Code" name="zipCode" required>
+                        <input type="text" placeholder="Enter ZIP Code" name="zipCode" value="<?php echo $userInfo["ZipCode"];?>" required>
 
                         <label for="date"><b>Birth Date</b></label>
-                        <input type="date" pattern="^\d{1,2}\/\d{1,2}\/\d{4}$" placeholder="Enter Date" name="date" required>
+                        <input type="date" pattern="^\d{1,2}\/\d{1,2}\/\d{4}$" placeholder="Enter Date" name="date" value="<?php echo $userInfo["DOB"];?>" required>
 <br/>
-                        <button class="login" type="submit">Register</button>
+                        <label for="psw"><b>Old Password (Required to change details)</b></label>
+                        <input type="password" placeholder="Enter Old Password" name="psw" required>
+                        <label for="psw"><b>New Password (Don't enter anything if not changing password)</b></label>
+                        <input type="password" placeholder="Enter New Password" name="npsw1" pattern="^(?=.*\d).{6,20}$">
+                        <label for="psw"><b>Repeat New Password</b></label>
+                        <input type="password" placeholder="Enter New Password" name="npsw2" pattern="^(?=.*\d).{6,20}$">
+                        <button class="login" type="submit">Update</button>
                         
                     </div>
 
