@@ -70,7 +70,7 @@
 <body class="coffee">
 
   <div id="id01" class="modal"style="display:block;">
-  <form class="modal-content animate" action="/joinSub.php" method="post">
+  <form class="modal-content animate" action="/accountSub.php" method="post">
                     
 
                     <div class="container">
