@@ -102,12 +102,12 @@ if ($result->num_rows > 0) {
 
                     }
                 }
-                if(isset($aptNumber) && $aptNumber!=$userInfo["APTNumber"]){
+                if(isset($aptNumber)){
                     $sql='UPDATE Customers SET APTNumber="'.$aptNumber.'" WHERE CustomerID='.$userInfo["CustomerID"];
                     $result = $conn->query($sql);
                 }
 
-                if(isset($npsw1)&&$isset($npsw2)){
+                if(isset($npsw1)&&isset($npsw2)){
                     if($npsw1==$npsw2){
                         $npswHash=hash("md5",$npsw1);
                         $sql='UPDATE CustomerLOG SET CustomerPasswordHash="'.$npswHash.'" WHERE CustomerID='.$userInfo["CustomerID"];
