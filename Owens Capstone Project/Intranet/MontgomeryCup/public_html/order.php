@@ -79,6 +79,9 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
 }
 $location=array_values($_GET);
 console_log($location);
+$location=$location[0];
+
+console_log($location);
 ?>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
