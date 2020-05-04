@@ -155,23 +155,23 @@ void submitButton(x,y,width,height){
     rect(x,y,width,height);
     */
     subBut[0]=x;subBut[1]=y;subBut[2]=width;subBut[3]=height;
-    submitButtond=new Clickable(x,width,y,height,cart,submitCartd);
+    submitButtond=new Clickable(x,width,y,height,0,submitCartd);
     fill(10);
 }
-void submitCartd(CartObject[] cartT){
+void submitCartd(var randomThing){
     cartT=cart;
     if(cart.length!=null){
-    console.log("submitted cart");
-    console.log(cartT);
-    var allCart=new String[cartT.length*2];
-    var stringSub="";
-    for(var i=0;i<cartT.length;i++;){
-        stringSub+=cartT[i].itemName+":";
-        stringSub+=cartT[i].itemSize+",";
+        console.log("submitted cart");
+        console.log(cartT);
         
-    }
-    console.log(stringSub);
-    submitCart(stringSub);
+        var stringSub="";
+        for(var i=0;i<cartT.length;i++;){
+            stringSub+=cartT[i].itemName+":";
+            stringSub+=cartT[i].itemSize+",";
+            
+        }
+        console.log(stringSub);
+        submitCart(stringSub);
     }
 }
 Clickable optionClick={};
