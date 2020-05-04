@@ -37,6 +37,7 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
     $hashPass=$_COOKIE['token'];
     $userID=0;
     $sql = 'SELECT EmployeeID FROM Employees WHERE Email="'.$usernamePP.'"';
+    console_log($sql);
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         // output userID from email
@@ -63,6 +64,7 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
                 //echo 'test';
                 //order status is 0 (completed) because person who takes order also makes it
                 $sql = 'Insert into Orders(StoreName,OrderDate,OrderStatus)Values("'.$location.'","'.$orderDate.'",0)';
+                console_log($sql);
                 $result = $conn->query($sql);
                 //console_log($result);
                 $orderID=$conn->insert_id;
@@ -73,6 +75,7 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
                     //get product ID of product
                     //NEED TO FILTER OUT ANY OTHER CHARACTERS like ' or ;
                     $sql2 = 'Select * from Products where ProductName="'.$itemSplit[0].'"';
+                    console_log($sql);
                     $result2 = $conn->query($sql2);
                     if ($result2->num_rows > 0) {
                         $productID=$result2->fetch_assoc()["ProductID"];
@@ -125,4 +128,4 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
 
 
 ?>
-<script>alert("order Submitted");window.location.replace("order.php?location="<?php echo $location;?>);</script>
+<script>//alert("order Submitted");window.location.replace("order.php?location="<?php echo $location;?>);</script>
