@@ -102,70 +102,78 @@ if(!$loggedIn){
    <a href="order.php">New order</a>
    <a href="#">Employee Portal</a>
 </div>
- <article>
-    <div class="portal">
+  <script>
+      var screenSwitch=function(screenNum){
+        if(screenNum==0){
+          document.getElementById('newEmployee').style.display='none';
+          document.getElementById('editEmployee').style.display='block';
+        }else if(screenNum==1){
+          document.getElementById('newEmployee').style.display='block';
+          document.getElementById('editEmployee').style.display='none';
+        }
+      }
+</script>
+  <a href="javascript:screenSwitch(1);">New Employee</a>
+ <a  href="javascript:screenSwitch(0);">Edit Employees</a>
+  <article>
+    <div class="portal" id="editEmployee"style="display:none" ></div>
+    <div class="portal" id="newEmployee" style="display:none">
        <div class="row">
-       <h2>Add an Employee</h2>
-     <div class="inputfield">
-     <form action="/newUser.php" method="post" id="new_employee">
-  
-	<h4>Employee Personal Infos</h4>
-  <div>
-    <label for="ssn"></label><br>
-    <input type="text" name="ssn" id="ssn" placeholder="Enter employee social security number">
-  </div>
-    <div>
-    <label for="street_address"></label><br>
-    <input type="text" name="street_address" id="street_address" placeholder="Enter employee street address">
-  </div>
-  <div>
-    <label for="apt_number"></label><br>
-    <input type="text" name="apt_number" id="apt_number" placeholder="Enter employee apt number">
-  </div>
-    <div>
-    <label for="city"></label><br>
-    <input type="text" name="city" id="city" placeholder="Enter employee city">
-  </div>
-  <div>
-    <label for="state"></label><br>
-    <input type="text" name="state" id="state" placeholder="Enter employee state">
-  </div>
-    <div>
-    <label for="zip_code"></label><br>
-    <input type="text" name="zip_code" id="zip_code" placeholder="Enter employee zip code">
-  </div>
-
-	<legend>Employee General Infos</legend>
-  <div>
-    <label for="fname"></label><br>
-    <input type="text" name="fname" id="fname" placeholder="Enter employee firstt name">
-  </div>
-    <div>
-    <label for="lname"></label><br>
-    <input type="text" name="lname" id="lname" placeholder="Enter employee last name">
-  </div>
-  <div>
-    <label for="phone_number"></label><br>
-    <input type="text" name="phone_number" id="phone_number" placeholder="Enter employee phone number">
-  </div>
-    <div>
-    <label for="email"></label><br>
-    <input type="text" name="email" id="email" placeholder="Enter employee email">
-  </div>
-  <div>
-    <label for="status"></label><br>
-    <input type="text" name="status" id="status" placeholder="Enter employee status">
-  </div>
-    <div>
-    <label for="hire_date"></label><br>
-    <input type="text" name="hire_date" id="hire_date" placeholder="Enter employee hire_date">
-  </div>
-    <div>
-    <label for="title"></label><br>
-    <input type="text" name="title" id="title" placeholder="Enter employee status">
-  </div>
-<button type="submit" form="new_employee">Add New Employee</button>
-</form>
+        <h2>Add an Employee</h2>
+          <div class="inputfield">
+            <form action="/newUser.php" method="post" id="new_employee">
+              <legend>Employee General Info</legend>
+              <div>
+                <label for="fname"></label><br>
+                <input type="text" name="fname" id="fname" placeholder="Enter employee First name">
+              </div>
+                <div>
+                <label for="lname"></label><br>
+                <input type="text" name="lname" id="lname" placeholder="Enter employee Last name">
+              </div>
+              <div>
+                <label for="phone_number"></label><br>
+                <input type="text" name="phone_number" id="phone_number" placeholder="Enter employee phone number">
+              </div>
+                <div>
+                <label for="email"></label><br>
+                <input type="text" name="email" id="email" placeholder="Enter employee email">
+              </div>
+              <div>
+                <label for="status"></label><br>
+                <input type="text" name="status" id="status" placeholder="Enter employee status">
+              </div>
+                <div>
+                <label for="hire_date"></label><br>
+                <input type="text" name="hire_date" id="hire_date" placeholder="Enter employee hire date">
+              </div>
+              <h4>Employee Personal Infos</h4>
+              <div>
+                <label for="ssn"></label><br>
+                <input type="text" name="ssn" id="ssn" placeholder="Enter employee social security number">
+              </div>
+                <div>
+                <label for="street_address"></label><br>
+                <input type="text" name="street_address" id="street_address" placeholder="Enter employee address">
+              </div>
+              <div>
+                <label for="apt_number"></label><br>
+                <input type="text" name="apt_number" id="apt_number" placeholder="Enter employee apartment number">
+              </div>
+                <div>
+                <label for="city"></label><br>
+                <input type="text" name="city" id="city" placeholder="Enter employee city">
+              </div>
+              <div>
+                <label for="state"></label><br>
+                <input type="text" name="state" id="state" placeholder="Enter employee state">
+              </div>
+                <div>
+                <label for="zip_code"></label><br>
+                <input type="text" name="zip_code" id="zip_code" placeholder="Enter employee zip code">
+              </div>
+              <button type="submit" form="new_employee">Add New Employee</button>
+            </form>
   <!--
   <div class="column">
     <div class="content">
@@ -176,9 +184,10 @@ if(!$loggedIn){
     </div>
   </div>
   -->
-</div> 
-    </div>
-</article>
+          </div> 
+        </div>
+      </div>
+  </article>
 </div>
 <script>
 
