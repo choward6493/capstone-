@@ -66,13 +66,15 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
 
           }else {
               //echo "Password not right";
+              $loggedIn=false;
           }
       } else {
         //echo "nothing found";
+        $loggedIn=false;
       }
   } else {
       //echo "0 results";
-
+      $loggedIn=false;
   }
 }else{
   $loggedIn=false;
@@ -82,6 +84,9 @@ console_log($location);
 $location=$location[0];
 
 console_log($location);
+if($loggedIn==false){
+  echo "<script>window.location.replace('/');</script>";
+}
 ?>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
