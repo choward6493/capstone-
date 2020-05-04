@@ -85,7 +85,8 @@ if(!$loggedIn){
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head><title>Montgomery Cup Coffee</title>
+<head>
+<title>Montgomery Cup Coffee</title>
 <meta charset="utf-8">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="index.css">
@@ -104,20 +105,68 @@ if(!$loggedIn){
  <article>
     <div class="portal">
        <div class="row">
-       <?php
- if($employeeTitle=="Manager" || $employeeTitle=="Owner"){
-  echo '<div class="column">
-  <div class="content">
-<a href="manage.php">
-    <img src="images/adp.png" alt="Manager" style="width:100%">
-  </a>
-    <h3>Manager Functions</h3>
-  </div>
-</div>';
- }
- 
- ?>
+       <h2>Add an Employee</h2>
+     <div class="inputfield">
+     <form action="/newUser.php" method="post" id="new_employee">
   
+	<h4>Employee Personal Infos</h4>
+  <div>
+    <label for="ssn"></label><br>
+    <input type="text" name="ssn" id="ssn" placeholder="Enter employee social security number">
+  </div>
+    <div>
+    <label for="street_address"></label><br>
+    <input type="text" name="street_address" id="street_address" placeholder="Enter employee street address">
+  </div>
+  <div>
+    <label for="apt_number"></label><br>
+    <input type="text" name="apt_number" id="apt_number" placeholder="Enter employee apt number">
+  </div>
+    <div>
+    <label for="city"></label><br>
+    <input type="text" name="city" id="city" placeholder="Enter employee city">
+  </div>
+  <div>
+    <label for="state"></label><br>
+    <input type="text" name="state" id="state" placeholder="Enter employee state">
+  </div>
+    <div>
+    <label for="zip_code"></label><br>
+    <input type="text" name="zip_code" id="zip_code" placeholder="Enter employee zip code">
+  </div>
+
+	<legend>Employee General Infos</legend>
+  <div>
+    <label for="fname"></label><br>
+    <input type="text" name="fname" id="fname" placeholder="Enter employee firstt name">
+  </div>
+    <div>
+    <label for="lname"></label><br>
+    <input type="text" name="lname" id="lname" placeholder="Enter employee last name">
+  </div>
+  <div>
+    <label for="phone_number"></label><br>
+    <input type="text" name="phone_number" id="phone_number" placeholder="Enter employee phone number">
+  </div>
+    <div>
+    <label for="email"></label><br>
+    <input type="text" name="email" id="email" placeholder="Enter employee email">
+  </div>
+  <div>
+    <label for="status"></label><br>
+    <input type="text" name="status" id="status" placeholder="Enter employee status">
+  </div>
+    <div>
+    <label for="hire_date"></label><br>
+    <input type="text" name="hire_date" id="hire_date" placeholder="Enter employee hire_date">
+  </div>
+    <div>
+    <label for="title"></label><br>
+    <input type="text" name="title" id="title" placeholder="Enter employee status">
+  </div>
+<button type="submit" form="new_employee">Add New Employee</button>
+</form>
+  <!--
   <div class="column">
     <div class="content">
     <a href="files/">
@@ -126,7 +175,7 @@ if(!$loggedIn){
       <h3>Trainings</h3>
     </div>
   </div>
-  
+  -->
 </div> 
     </div>
 </article>
