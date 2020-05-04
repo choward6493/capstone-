@@ -72,41 +72,45 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
                 $allItems=explode(",",$cart);
                 foreach($allItems as $singleItem){
                     $itemSplit=explode(":",$singleItem);
-                    //get product ID of product
-                    //NEED TO FILTER OUT ANY OTHER CHARACTERS like ' or ;
-                    $sql2 = 'Select * from Products where ProductName="'.$itemSplit[0].'"';
-                    console_log($sql2);
-                    $result2 = $conn->query($sql2);
-                    if ($result2->num_rows > 0) {
-                        $productID=$result2->fetch_assoc()["ProductID"];
-                    }else{
-                        //MAKE O COST ITEM THAT NOTES AN ERROR/TAMPERING
-                        $productID=0;
+                    if($itemSplit[0]!=""){
+                        //get product ID of product
+                        //NEED TO FILTER OUT ANY OTHER CHARACTERS like ' or ;
+                        $sql2 = 'Select * from Products where ProductName="'.$itemSplit[0].'"';
+                        console_log($sql2);
+                        $result2 = $conn->query($sql2);
+                        if ($result2->num_rows > 0) {
+                            $productID=$result2->fetch_assoc()["ProductID"];
+                        }else{
+                            //MAKE O COST ITEM THAT NOTES AN ERROR/TAMPERING
+                            $productID=0;
+                        }
+                        //have to run this twice for some reason to get cost...... same as above
+                        $sql2 = 'Select * from Products where ProductName="'.$itemSplit[0].'"';
+                        $result2 = $conn->query($sql2);
+                        if ($result2->num_rows > 0) {
+                            $itemCost =$result2->fetch_assoc()["Cost"];
+                        }else{
+                            //MAKE O COST ITEM THAT NOTES AN ERROR/TAMPERING
+                            $itemCost=0;
+                        }
+                        $totalCost+=$itemCost;
+                        $sql2 = 'INSERT INTO OrderDetails(ProductID,OrderID,ItemQuantity,AddOns,OrderSize)Values('.$productID.','.$orderID.',1,"none","'.$itemSplit[1].'")';
+                        //console_log($sql2);
+                        $result2 = $conn->query($sql2);
+                        console_log($result2);
+
+
+                       
                     }
-                    //have to run this twice for some reason to get cost...... same as above
-                    $sql2 = 'Select * from Products where ProductName="'.$itemSplit[0].'"';
-                    $result2 = $conn->query($sql2);
-                    if ($result2->num_rows > 0) {
-                        $itemCost =$result2->fetch_assoc()["Cost"];
-                    }else{
-                        //MAKE O COST ITEM THAT NOTES AN ERROR/TAMPERING
-                        $itemCost=0;
-                    }
-                    $totalCost+=$itemCost;
-                    $sql2 = 'INSERT INTO OrderDetails(ProductID,OrderID,ItemQuantity,AddOns,OrderSize)Values('.$productID.','.$orderID.',1,"none","'.$itemSplit[1].'")';
-                    //console_log($sql2);
-                    $result2 = $conn->query($sql2);
-                    console_log($result2);
-
-
-                    //onsite transactions will be all cash in this case
-                    $sql3='INSERT INTO Payments(PaymentType)Values("Cash")';
-                    $result3 = $conn->query($sql3);
-                    $paymentId=$conn->insert_id;
-
-                    $sql4='INSERT INTO EmployeeTransactions(TransactionDate,TransactionTotal,TransactionType,EmployeeID,OrderID,PaymentID)Values("'.$orderDate.'","'.$totalCost.'","Cash",'.$userID.','.$orderID.','.$paymentId.')';
-                    $result4 = $conn->query($sql4);
+                    
                 }
+                 //onsite transactions will be all cash in this case
+                 $sql3='INSERT INTO Payments(PaymentType)Values("Cash")';
+                 $result3 = $conn->query($sql3);
+                 $paymentId=$conn->insert_id;
+
+                 $sql4='INSERT INTO EmployeeTransactions(TransactionDate,TransactionTotal,TransactionType,EmployeeID,OrderID,PaymentID)Values("'.$orderDate.'","'.$totalCost.'","Cash",'.$userID.','.$orderID.','.$paymentId.')';
+                 $result4 = $conn->query($sql4);
 
 
 
