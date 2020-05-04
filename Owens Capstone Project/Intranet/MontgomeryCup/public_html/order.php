@@ -84,7 +84,7 @@ console_log($location);
 $location=$location[0];
 
 console_log($location);
-if($loggedIn==false){
+if(!$loggedIn){
   echo "<script>window.location.replace('/');</script>";
 }
 ?>

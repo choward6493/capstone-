@@ -34,22 +34,7 @@ setcookie("location",$location, time() + (86400/24), "/");
 }catch(Exception $e){
 
 }
-try{
-  $testthing=array_values($_GET);
-  if($testthing!=null){
-  
-  //console_log($testthing);
-  //console_log($_GET);
-  //console_log($testthing[0]);
-  echo '<script>alert("'.$testthing[0].'");</script>';
-  //console_log("Nee");
-//alertJS($testthing[0]);
-//$testtwo=$_GET;
-//print_r($testtwo['[message]']);
-  }
-}catch(Exception $e){
 
-}
 if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
   $usernamePP=$_COOKIE['user'];
   //console_log($usernamePP);
