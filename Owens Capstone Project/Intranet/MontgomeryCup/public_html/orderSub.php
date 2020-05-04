@@ -71,8 +71,8 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
 
                 $allItems=explode(",",$cart);
                 foreach($allItems as $singleItem){
-                    $itemSplit=explode(":",$singleItem);
-                    if($itemSplit[0]!=""){
+                    if($singleItem!=$allItems[(count($allItems)-1)]){
+                        $itemSplit=explode(":",$singleItem);
                         //get product ID of product
                         //NEED TO FILTER OUT ANY OTHER CHARACTERS like ' or ;
                         $sql2 = 'Select * from Products where ProductName="'.$itemSplit[0].'"';
@@ -107,11 +107,13 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
                  //onsite transactions will be all cash in this case
                  $sql3='INSERT INTO Payments(PaymentType)Values("Cash")';
                  $result3 = $conn->query($sql3);
+                 console_log($sql3);
                  $paymentId=$conn->insert_id;
 
                  $sql4='INSERT INTO EmployeeTransactions(TransactionDate,TransactionTotal,TransactionType,EmployeeID,OrderID,PaymentID)Values("'.$orderDate.'","'.$totalCost.'","Cash",'.$userID.','.$orderID.','.$paymentId.')';
+                 console_log($sql4);
                  $result4 = $conn->query($sql4);
-
+                
 
 
 
