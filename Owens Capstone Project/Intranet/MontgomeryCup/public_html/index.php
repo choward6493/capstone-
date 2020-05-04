@@ -66,10 +66,10 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
       $result2 = $conn->query($sql2);
       if ($result2->num_rows > 0) {
           // output userID from email
-          $hashedData=$result2->fetch_assoc()["PasswordHash"];
+          $hashedData=$result2->fetch_array();
           //echo '<br>'.$hashedData.'<br>';
           //echo '<br>'.$hashPass;
-          if($hashPass==$hashedData){
+          if($hashPass==$hashedData["PasswordHash"]){
             //get employee name
               $sql = 'SELECT * FROM Employees WHERE EmployeeID='.$userID;
               $result = $conn->query($sql);
@@ -121,7 +121,6 @@ document.getElementById('viewOrders').style.display='none';
 <title>Montgomery Cup Coffee</title>
 <meta charset="utf-8">
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="index.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="The Montgomery Cup was founded in 2003 by owners Lex and Milli Montgomery as a family owned, quality coffee shop located in central Ohio. Since then they have expanded and grown into three shops.">
 <!--[if lt IE 9]>
@@ -139,6 +138,7 @@ document.getElementById('viewOrders').style.display='none';
  <a class="active" href="javascript:screenSwitch(0);">Home</a>
  <a id="news" href="javascript:screenSwitch(1);">News</a>
  <a id="files" href="/files/">Files</a>
+
  <!--
  <button id="login"onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
 -->
