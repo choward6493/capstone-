@@ -9,6 +9,7 @@
 <script src="processing.min.js"></script>
 <?php 
 $location=array_values($_GET);
+console_log($location);
 ?>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
