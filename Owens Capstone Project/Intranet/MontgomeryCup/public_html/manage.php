@@ -122,7 +122,7 @@ if(!$loggedIn){
         <h2>Add an Employee</h2>
           <div class="inputfield">
             <form action="/newUser.php" method="post" id="new_employee">
-              <legend>Employee General Info</legend>
+              <h3>Employee General Info</legend>
               <div>
                 <label for="fname"></label><br>
                 <input type="text" name="fname" id="fname" placeholder="Enter employee First name">
@@ -147,7 +147,6 @@ if(!$loggedIn){
                 <label for="hire_date"></label><br>
                 <input type="text" name="hire_date" id="hire_date" placeholder="Enter employee hire date">
               </div>
-              <h4>Employee Personal Infos</h4>
               <div>
                 <label for="ssn"></label><br>
                 <input type="text" name="ssn" id="ssn" placeholder="Enter employee social security number">
