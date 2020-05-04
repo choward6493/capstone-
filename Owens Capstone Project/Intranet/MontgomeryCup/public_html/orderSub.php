@@ -111,7 +111,7 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
                  console_log($result3);
                  $paymentId=$conn->insert_id;
 
-                 $sql4='INSERT INTO EmployeeTransactions(TransactionDate,TransactionTotal,TransactionType,EmployeeID,OrderID,PaymentID)Values("'.$orderDate.'",'.$totalCost.',"Cash",'.$userID.','.$orderID.','.$paymentId.')';
+                 $sql4='INSERT INTO EmployeeTransactions(EmployeeTransactionDate,TransactionTotal,TransactionType,EmployeeID,OrderID,PaymentID)Values("'.$orderDate.'",'.$totalCost.',"Cash",'.$userID.','.$orderID.','.$paymentId.')';
                  console_log($sql4);
                  $result4 = $conn->query($sql4);
                  console_log($result4);
