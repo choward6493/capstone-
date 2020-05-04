@@ -75,7 +75,7 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
                     //get product ID of product
                     //NEED TO FILTER OUT ANY OTHER CHARACTERS like ' or ;
                     $sql2 = 'Select * from Products where ProductName="'.$itemSplit[0].'"';
-                    console_log($sql);
+                    console_log($sql2);
                     $result2 = $conn->query($sql2);
                     if ($result2->num_rows > 0) {
                         $productID=$result2->fetch_assoc()["ProductID"];
