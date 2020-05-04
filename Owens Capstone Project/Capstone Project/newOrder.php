@@ -3,7 +3,7 @@
 //-- then new in OrderDetails for each item
 //-- then a new Payment
 //-- then put together to create CustomerTransactions
-$servername = "capstone2.cxiblbeokqky.us-east-1.rds.amazonaws.com:1433";
+$servername = "capstone.cfwnz1g6jqbd.us-east-1.rds.amazonaws.com:3306";
 $username = "admin";
 $password = "SixGuys1CapstoneProject";
 $dbname="Capstone";
