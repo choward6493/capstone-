@@ -79,11 +79,11 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
 if($loggedIn){
     $sql='INSERT INTO Employees(FirstName,LastName,PhoneNumber,Email,HireDate,Status,Title)Values("'.$fname.'","'.$lname.'","'.$phoneNumber.'","'.$email.'","'.$hireDate.'","Active","Crew Member")';
     $result=$conn->query($sql);
-    $userID=$conn->insert_id;
-    $sql2='INSERT INTO EmployeePersonalData(SSN,EmployeeID,StreetAddress,APTNumber,CITY,USState,ZipCode,DOB)Values("'.$ssn.'",'.$userID.',"'.$address.'","'.$aptNumber.'","'$city'","'.$state.',"'$dob'")';
+    $empID=$conn->insert_id;
+    $sql2='INSERT INTO EmployeePersonalData(SSN,EmployeeID,StreetAddress,APTNumber,CITY,USState,ZipCode,DOB)Values("'.$ssn.'",'.$empID.',"'.$address.'","'.$aptNumber.'","'$city'","'.$state.',"'$dob'")';
     //Address,APTNumber,City,State,ZipCode,
     $result2=$conn->query($sql2);
-    $sql3='INSERT INTO EmployeeLOG(EmployeeID,PasswordHash)Values('.$userID.',"'.hash("md5",$empPass).'")';
+    $sql3='INSERT INTO EmployeeLOG(EmployeeID,PasswordHash)Values('.$empID.',"'.hash("md5",$empPass).'")';
     $result3=$conn->query($sql3);
     echo '<script>window.location.replace("manage.php");</script>';
 }else{

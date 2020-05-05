@@ -458,6 +458,9 @@ table { width: 90%;
 td, th { padding: 10px; }
 tr:nth-of-type(odd) { background-color: #D2B48C; }
 form { padding: 2em; }
+#new_employee label{
+  color:white;
+}
 label { float: left;
       display: block;
 	  text-align: right;

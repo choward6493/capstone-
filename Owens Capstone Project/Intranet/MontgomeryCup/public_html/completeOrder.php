@@ -30,4 +30,16 @@ $sqlUPDATE='UPDATE Orders SET OrderStatus=0 WHERE OrderID='.$orderID;
 $resultUpdate=$conn->query($sqlUPDATE);
 ?>
 <html>
-<script>window.location.replace("/");</script></html>
+<script>var form = document.createElement("form");
+    
+    var element2 = document.createElement("input");  
+
+    form.method = "POST";
+    form.action = "index.php";   
+    element2.value=<?php echo $location;?>;
+    element2.name="location";
+    form.appendChild(element2);
+
+    document.body.appendChild(form);
+
+    form.submit();</script></html>

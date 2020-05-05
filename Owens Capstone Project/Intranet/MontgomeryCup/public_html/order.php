@@ -137,7 +137,7 @@ function submitCart(tcart){
 <script id="script1">
 
 </script>
-
+<!--
  <aside>
      <h2>Food</h2>
         <div class="drinks">
@@ -207,9 +207,7 @@ function submitCart(tcart){
       <h3>COMING SOON</h3>
     </div>
   </div>
-<!-- END GRID -->
 </div>
-<!-- END GRID -->
 </div>
          </div>
  </aside>
@@ -282,13 +280,11 @@ function submitCart(tcart){
       <h3>Caffe Mocha</h3>
     </div>
   </div>
-<!-- END GRID -->
 </div>
-<!-- END GRID -->
 </div>
          </div>   
     </section>
-
+-->
 
 
 </div>

@@ -122,8 +122,9 @@ if(!$loggedIn){
         <h2>Add an Employee</h2>
           <div class="inputfield">
             <form action="/newUser.php" method="post" id="new_employee">
-              <h3>Employee General Info</legend>
+              <h2>Employee General Info</h2>
               <div>
+              <br>
                 <label for="fname">First Name:</label><br>
                 <input type="text" name="fname" id="fname" placeholder="Enter employee First name">
               </div>
@@ -136,7 +137,7 @@ if(!$loggedIn){
                 <input type="text" name="phone_number" id="phone_number" placeholder="Enter employee phone number"required>
               </div>
                 <div>
-                <label for="email"></label>Email:<br>
+                <label for="email">Email: </label><br>
                 <input type="email" name="email" id="email" placeholder="Enter employee email"required>
               </div>
                 <div>
@@ -174,7 +175,7 @@ if(!$loggedIn){
             <br><br>
               <div>
                 <label for="empPass">Enter a new employee password:</label><br>
-                <input type="text" name="empPass" id="empPass" placeholder="Enter a new employee password"required>
+                <input type="password" name="empPass" id="empPass" placeholder="Enter a new employee password"required>
               </div>
               <br>
               <button type="submit" form="new_employee">Add New Employee</button>
