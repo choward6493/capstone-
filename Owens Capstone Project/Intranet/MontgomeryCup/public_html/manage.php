@@ -122,8 +122,7 @@ if(!$loggedIn){
         <h2>Add an Employee</h2>
           <div class="inputfield">
             <form action="newUser.php" method="post" id="new_employee">
-              <h2>Employee General Info</h2>
-              <br>
+              
               <div>
                 <br>
                 <label for="fname">First Name:</label><br>
