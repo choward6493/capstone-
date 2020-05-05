@@ -19,7 +19,7 @@ if ($conn->connect_error) {
 }
 $fname=$_POST["fname"];
 $lname=$_POST["lname"];
-$phoneNumber=$_POST["phoneNumber"];
+$phoneNumber=$_POST["phone_number"];
 $email=$_POST["email"];
 $ssn=$_POST["ssn"];
 $address=$_POST["street_address"];
