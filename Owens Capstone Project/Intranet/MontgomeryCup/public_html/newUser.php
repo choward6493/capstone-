@@ -80,7 +80,7 @@ if($loggedIn){
     $sql='INSERT INTO Employees(FirstName,LastName,PhoneNumber,Email,HireDate,Status,Title)Values("'.$fname.'","'.$lname.'","'.$phoneNumber.'","'.$email.'","'.$hireDate.'","Active","Crew Member")';
     $result=$conn->query($sql);
     $empID=$conn->insert_id;
-    $sql2='INSERT INTO EmployeePersonalData(SSN,EmployeeID,StreetAddress,APTNumber,CITY,USState,ZipCode,DOB)Values("'.$ssn.'",'.$empID.',"'.$address.'","'.$aptNumber.'","'$city'","'.$state.',"'$dob'")';
+    $sql2='INSERT INTO EmployeePersonalData(SSN,EmployeeID,StreetAddress,APTNumber,CITY,USState,ZipCode,DOB)Values("'.$ssn.'",'.$empID.',"'.$address.'","'.$aptNumber.'","'.$city.'","'.$state.',"'$dob'")';
     //Address,APTNumber,City,State,ZipCode,
     $result2=$conn->query($sql2);
     $sql3='INSERT INTO EmployeeLOG(EmployeeID,PasswordHash)Values('.$empID.',"'.hash("md5",$empPass).'")';
