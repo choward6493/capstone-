@@ -31,12 +31,64 @@ $hireDate=$_POST["hire_date"];
 $dob=$_POST["dob"];
 $empPass=$_POST["empPass"];
 
-$sql='INSERT INTO Employees(FirstName,LastName,PhoneNumber,Email,HireDate,Status,Title)Values("'.$fname.'","'.$lname.'","'.$phoneNumber.'","'.$email.'","'.$hireDate.'","Active","Crew Member")';
-$result=$conn->query($sql);
-$userID=$conn->insert_id;
-$sql2='INSERT INTO EmployeePersonalData(SSN,EmployeeID,StreetAddress,APTNumber,CITY,USState,ZipCode,DOB)Values("'.$ssn.'",'.$userID.',"'.$address.'","'.$aptNumber.'","'$city'","'.$state.',"'$dob'")';
-//Address,APTNumber,City,State,ZipCode,
-$result2=$conn->query($sql2);
+if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
+    $usernamePP=$_COOKIE['user'];
+    //console_log($usernamePP);
+    $hashPass=$_COOKIE['token'];
+    $userID=0;
+    $sql = 'SELECT EmployeeID FROM Employees WHERE Email="'.$usernamePP.'"';
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        // output userID from email
+        $userID=$result->fetch_assoc()["EmployeeID"];
+        //echo $result->fetch_assoc()["CustomerID"].'<br>';
+        $sql2 = 'SELECT PasswordHash FROM EmployeeLOG WHERE EmployeeID='.$userID;
+        //echo $sql2;
+        $result2 = $conn->query($sql2);
+        if ($result2->num_rows > 0) {
+            // output userID from email
+            $hashedData=$result2->fetch_array();
+            //echo '<br>'.$hashedData.'<br>';
+            //echo '<br>'.$hashPass;
+            if($hashPass==$hashedData["PasswordHash"]){
+              //get employee name
+                $sql = 'SELECT * FROM Employees WHERE EmployeeID='.$userID;
+                $result = $conn->query($sql);
+                $employeeName=$result->fetch_assoc()["FirstName"];
+                //get employee title
+                $sql = 'SELECT * FROM Employees WHERE EmployeeID='.$userID;
+                $result = $conn->query($sql);
+                $employeeTitle=$result->fetch_assoc()["Title"];
+                $loggedIn=true;
+                //echo 'test';
+  
+            }else {
+                //echo "Password not right";
+            }
+        } else {
+          //echo "nothing found";
+        }
+    } else {
+        //echo "0 results";
+  
+    }
+  }else{
+    $loggedIn=false;
+  }
+
+if($loggedIn){
+    $sql='INSERT INTO Employees(FirstName,LastName,PhoneNumber,Email,HireDate,Status,Title)Values("'.$fname.'","'.$lname.'","'.$phoneNumber.'","'.$email.'","'.$hireDate.'","Active","Crew Member")';
+    $result=$conn->query($sql);
+    $userID=$conn->insert_id;
+    $sql2='INSERT INTO EmployeePersonalData(SSN,EmployeeID,StreetAddress,APTNumber,CITY,USState,ZipCode,DOB)Values("'.$ssn.'",'.$userID.',"'.$address.'","'.$aptNumber.'","'$city'","'.$state.',"'$dob'")';
+    //Address,APTNumber,City,State,ZipCode,
+    $result2=$conn->query($sql2);
+    $sql3='INSERT INTO EmployeeLOG(EmployeeID,PasswordHash)Values('.$userID.',"'.hash("md5",$empPass).'")';
+    $result3=$conn->query($sql3);
+    echo '<script>window.location.replace("manage.php");</script>';
+}else{
+    echo '<script>window.location.replace("/");</script>';
+}
 
 ?>
 <html>
