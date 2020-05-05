@@ -124,53 +124,59 @@ if(!$loggedIn){
             <form action="/newUser.php" method="post" id="new_employee">
               <h3>Employee General Info</legend>
               <div>
-                <label for="fname"></label><br>
+                <label for="fname">First Name:</label><br>
                 <input type="text" name="fname" id="fname" placeholder="Enter employee First name">
               </div>
                 <div>
-                <label for="lname"></label><br>
-                <input type="text" name="lname" id="lname" placeholder="Enter employee Last name">
+                <label for="lname">Last Name:</label><br>
+                <input type="text" name="lname" id="lname" placeholder="Enter employee Last name" required>
               </div>
               <div>
-                <label for="phone_number"></label><br>
-                <input type="text" name="phone_number" id="phone_number" placeholder="Enter employee phone number">
+                <label for="phone_number">Phone Number:</label><br>
+                <input type="text" name="phone_number" id="phone_number" placeholder="Enter employee phone number"required>
               </div>
                 <div>
-                <label for="email"></label><br>
-                <input type="text" name="email" id="email" placeholder="Enter employee email">
-              </div>
-              <div>
-                <label for="status"></label><br>
-                <input type="text" name="status" id="status" placeholder="Enter employee status">
+                <label for="email"></label>Email:<br>
+                <input type="email" name="email" id="email" placeholder="Enter employee email"required>
               </div>
                 <div>
-                <label for="hire_date"></label><br>
-                <input type="text" name="hire_date" id="hire_date" placeholder="Enter employee hire date">
+                <label for="hire_date">Hire date:</label><br>
+                <input type="date" name="hire_date" id="hire_date" placeholder="Enter employee hire date"required>
               </div>
               <div>
-                <label for="ssn"></label><br>
-                <input type="text" name="ssn" id="ssn" placeholder="Enter employee social security number">
+                <label for="dob">Date of Birth:</label><br>
+                <input type="date" name="dob" id="dob" placeholder="Enter employee DOB"required>
+              </div>
+              <div>
+                <label for="ssn">SSN:</label><br>
+                <input type="password" name="ssn" id="ssn" placeholder="Enter employee social security number"required>
               </div>
                 <div>
-                <label for="street_address"></label><br>
-                <input type="text" name="street_address" id="street_address" placeholder="Enter employee address">
+                <label for="street_address">Street Address:</label><br>
+                <input type="text" name="street_address" id="street_address" placeholder="Enter employee address"required>
               </div>
               <div>
-                <label for="apt_number"></label><br>
+                <label for="apt_number">Apartment Number (if applicable):</label><br>
                 <input type="text" name="apt_number" id="apt_number" placeholder="Enter employee apartment number">
               </div>
                 <div>
-                <label for="city"></label><br>
-                <input type="text" name="city" id="city" placeholder="Enter employee city">
+                <label for="city">City</label><br>
+                <input type="text" name="city" id="city" placeholder="Enter employee city"required>
               </div>
               <div>
-                <label for="state"></label><br>
-                <input type="text" name="state" id="state" placeholder="Enter employee state">
+                <label for="state">State</label><br>
+                <input type="text" name="state" id="state" placeholder="Enter employee state"required>
               </div>
                 <div>
-                <label for="zip_code"></label><br>
-                <input type="text" name="zip_code" id="zip_code" placeholder="Enter employee zip code">
+                <label for="zip_code">ZIP Code:</label><br>
+                <input type="text" name="zip_code" id="zip_code" placeholder="Enter employee zip code"required>
               </div>
+            <br><br>
+              <div>
+                <label for="empPass">Enter a new employee password:</label><br>
+                <input type="text" name="empPass" id="empPass" placeholder="Enter a new employee password"required>
+              </div>
+              <br>
               <button type="submit" form="new_employee">Add New Employee</button>
             </form>
   <!--
