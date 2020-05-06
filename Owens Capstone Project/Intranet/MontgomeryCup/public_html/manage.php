@@ -77,7 +77,7 @@ if ($result->num_rows > 0) {
               $result=$conn->query($sql);
             }
           }catch(Exception $e){
-
+            console_log($e);
           }
             
         }else {
