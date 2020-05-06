@@ -27,7 +27,7 @@ $cart=$_POST["cart"];
 $location=$_POST["location"];
 console_log("cart object:");
 console_log($cart);
-$orderDate=date('Y-m-d h:i:s');
+$orderDate=date('Y-m-d H:i:s');
 $totalCost=0;
 
 
