@@ -135,4 +135,4 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
 
 
 ?>
-<script>alert("order Submitted");window.location.replace("order.php?location="<?php echo $location;?>);</script>
+<script>alert("order Submitted");window.location.replace("order.php?location=<?php echo $location;?>");</script>
