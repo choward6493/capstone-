@@ -81,7 +81,7 @@ if($loggedIn){
           var form = document.createElement("form");
           var element1 = document.createElement("input");
           form.method = "POST";
-          form.action = "";   
+          form.action = "/";   
           element1.value="Login Details incorrect";
           element1.name="message";
           document.body.appendChild(form);
