@@ -85,9 +85,9 @@ if($loggedIn){
     $result2=$conn->query($sql2);
     $sql3='INSERT INTO EmployeeLOG(EmployeeID,PasswordHash)Values('.$empID.',"'.hash("md5",$empPass).'")';
     $result3=$conn->query($sql3);
-    echo '<script>window.location.replace("manage.php");</script>';
+    echo '<script>alert("New Employee successfully submitted!");window.location.replace("manage.php");</script>';
 }else{
-    echo '<script>window.location.replace("/");</script>';
+    echo '<script>alert("Please log in again");window.location.replace("/");</script>';
 }
 
 ?>

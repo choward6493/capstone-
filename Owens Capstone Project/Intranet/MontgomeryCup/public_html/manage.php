@@ -30,7 +30,10 @@ echo $location;
 try{
 $location=$_POST['location'];
 setcookie("location",$location, time() + (86400/24), "/");
-          
+$message=$_POST['message'];
+if(!is_null($message)){
+  echo '<script>alert("'.$message.'");</script>';
+}
 }catch(Exception $e){
 
 }
@@ -116,7 +119,56 @@ if(!$loggedIn){
   <a href="javascript:screenSwitch(1);">New Employee</a>
  <a  href="javascript:screenSwitch(0);">Edit Employees</a>
   <article>
-    <div class="portal" id="editEmployee"style="display:none" ></div>
+    <div class="portal" id="editEmployee"style="display:none" >
+    <script>
+    var addToForm=function(formI,nameI,valueI){
+      var x=document.getElementById(formI);
+      var inputt=document.createElement("input");
+      inputt.value=valueI;
+      inputt.name=nameI;
+      x.add(inputt);
+    }
+    </script>
+    <form method="POST" id="editEmpForm"></form>
+      <table>
+        <tr>
+          <th>Employee Name</th>
+          <th>Employee Status</th>
+          <th>Employee Title</th>
+        </tr>
+      <?php 
+      $sql='SELECT * FROM Employees';
+      $result=$conn->query($sql);
+      $employees=$result->fetch_array(MYSQLI_ASSOC);
+      for($i=0;$i<count(employees);$i++){
+        echo '';
+        echo '<tr><th>'.$employees[i]["FirstName"].' '.$employees[i]["LastName"].' - </th>';
+        echo '<th><select id="empStatus'.$i.'">
+                  <option value="Active"'.($employees[i]["Status"]=="Active" ?'required':' ').'>Active</option>
+                  <option value="Inactive"'.($employees[i]["Status"]=="Inactive" ?'required':' ').'>Inactive</option>
+                  <option value="Quit"'.($employees[i]["Status"]=="Quit" ?'required':' ').'>Quit</option>
+                  <option value="Fired"'.($employees[i]["Status"]=="Fired" ?'required':' ').'>Fired</option>
+                  </select></th>';
+        echo '<script>
+        document.getElementById("empStatus'.$i.'").onchange=function(){
+          var form = document.createElement("form");=
+          var element1 = document.createElement("input");
+          var element2 = document.createElement("input");
+          form.method = "POST";
+          form.action = "#";   
+          element1.value=document.getElementById("empStatus'.$i.'").value;;
+          element1.name="empStatus";
+          element2.value="'.$employees[i]['EmployeeID'].'";
+          element2.name="empID";
+          form.appendChild(element1);
+          document.body.appendChild(form);
+          form.submit();
+        }
+        </script>';
+        echo '<th>'.$employees[$i]["Title"].'</th></tr>';
+      }
+      ?>
+  </div>
     <div class="portal" id="newEmployee" style="display:none">
        <div class="row">
         <h2>Add an Employee</h2>
