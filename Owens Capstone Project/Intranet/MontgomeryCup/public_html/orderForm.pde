@@ -182,7 +182,7 @@ void setup(){
     background(255);
     noStroke();
     fill(100);
-    submitButton(900,100,100,100);
+    submitButton(800,100,100,100);
     //size of drink buttons
     for(var i=0;i<3;i++;){
 
