@@ -145,12 +145,7 @@ if(!$loggedIn){
       for($i=0;$i<count($employees);$i++){
         echo '';
         echo '<tr><th>'.$employees[i]["FirstName"].' '.$employees[i]["LastName"].' - </th>';
-        echo '<th><select id="empStatus'.$i.'">
-                  <option value="Active"'.($employees[i]["Status"]=="Active" ?'required':' ').'>Active</option>
-                  <option value="Inactive"'.($employees[i]["Status"]=="Inactive" ?'required':' ').'>Inactive</option>
-                  <option value="Quit"'.($employees[i]["Status"]=="Quit" ?'required':' ').'>Quit</option>
-                  <option value="Fired"'.($employees[i]["Status"]=="Fired" ?'required':' ').'>Fired</option>
-                  </select></th>';
+        
         echo '<script>
         document.getElementById("empStatus'.$i.'").onchange=function(){
           var form = document.createElement("form");
