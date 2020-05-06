@@ -139,7 +139,7 @@ if(!$loggedIn){
       <?php 
       $sql='SELECT * FROM Employees';
       $result=$conn->query($sql);
-      $employees=$result->fetch_array(MYSQLI_ASSOC);
+      $employees=$result->fetch_all(MYSQLI_ASSOC);
       console_log($employees);
       for($i=0;$i<count(employees);$i++){
         echo '';
