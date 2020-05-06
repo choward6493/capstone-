@@ -256,9 +256,9 @@
     }
     
 
-  ?></p>
+  ?></p><h2>Feedback:</h2>
 		    <form class="form-inline" action="#">
-                <h2>Feedback:</h2>
+                
                 <label for="sendEmail">Contact Email:</label>
                 <input type="email" id="email" placeholder="Enter email" name="sendEmail">
                 <label for="sendMessage">Contact Message</label>
