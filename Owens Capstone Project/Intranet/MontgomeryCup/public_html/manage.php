@@ -144,12 +144,12 @@ if(!$loggedIn){
       //console_log();
       for($i=0;$i<count($employees);$i++){
         echo '';
-        echo '<tr><th>'.$employees[i]["FirstName"].'</th>';
+        echo '<tr><th>'.$employees[i]["Status"].'</th>';
         echo '<th><select id="empStatus'.$i.'">
-                  <option value="Active"'.($employees[i]["Status"]=="Active" ?'required':' ').'>Active</option>
-                  <option value="Inactive"'.($employees[i]["Status"]=="Inactive" ?'required':' ').'>Inactive</option>
-                  <option value="Quit"'.($employees[i]["Status"]=="Quit" ?'required':' ').'>Quit</option>
-                  <option value="Fired"'.($employees[i]["Status"]=="Fired" ?'required':' ').'>Fired</option>
+                  <option value="Active"'.($employees[i]["Status"]=="Active" ?'selected':' ').'>Active</option>
+                  <option value="Inactive"'.($employees[i]["Status"]=="Inactive" ?'selected':' ').'>Inactive</option>
+                  <option value="Quit"'.($employees[i]["Status"]=="Quit" ?'selected':' ').'>Quit</option>
+                  <option value="Fired"'.($employees[i]["Status"]=="Fired" ?'selected':' ').'>Fired</option>
                   </select></th>';
         echo '<script>
         document.getElementById("empStatus'.$i.'").onchange=function(){
