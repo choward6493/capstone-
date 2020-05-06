@@ -263,6 +263,7 @@
                 <input type="email" id="email" placeholder="Enter email" name="sendEmail">
                 <label for="sendMessage">Contact Message</label>
                 <textarea name="sendMessage" placeholder="Message Here"></textarea>
+                <br>
                 <button type="submit">Submit</button>
             </form>
 		</div>
