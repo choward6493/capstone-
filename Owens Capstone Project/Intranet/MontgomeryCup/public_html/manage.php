@@ -72,11 +72,11 @@ if ($result->num_rows > 0) {
           try{
             $empID=$_POST["empID"];
             $empStatus=$_POST["empStatus"];
-            
-              $sql='UPDATE Employees SET Status="'.$empStatus.'" WHERE EmployeeID='.$empID.';';
-              console_log($sql);
-              //$result=$conn->query($sql);
-            
+            if(!is_null($empID) && !is_null($empStatus)){
+              $sql='UPDATE Employees SET Status="'.$empStatus.'" WHERE EmployeeID='.$empID;
+              //console_log($sql);
+              $result=$conn->query($sql);
+            }
           }catch(Exception $e){
             console_log($e);
           }
@@ -177,6 +177,7 @@ if(!$loggedIn){
           element2.value="'.$employees[$i]['EmployeeID'].'";
           element2.name="empID";
           form.appendChild(element1);
+          form.appendChild(element2);
           document.body.appendChild(form);
           form.submit();
         }
