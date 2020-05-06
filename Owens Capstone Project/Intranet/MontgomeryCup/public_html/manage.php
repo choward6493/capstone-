@@ -144,7 +144,7 @@ if(!$loggedIn){
       //console_log();
       for($i=0;$i<count($employees);$i++){
         echo '';
-        echo '<tr><th>'.$employees[i]["FirstName"].' '.$employees[i]["LastName"].' - </th>';
+        echo '<tr><th>'.$employees[i]["FirstName"].'-'.$employees[i]["LastName"].' </th>';
         echo '<th><select id="empStatus'.$i.'">
                   <option value="Active"'.($employees[i]["Status"]=="Active" ?'required':' ').'>Active</option>
                   <option value="Inactive"'.($employees[i]["Status"]=="Inactive" ?'required':' ').'>Inactive</option>
