@@ -34,6 +34,7 @@ $message=$_POST['message'];
 if(!is_null($message)){
   echo '<script>alert("'.$message.'");</script>';
 }
+
 }catch(Exception $e){
 
 }
@@ -68,7 +69,17 @@ if ($result->num_rows > 0) {
             $employeeTitle=$result->fetch_assoc()["Title"];
             $loggedIn=true;
             //echo 'test';
+          try{
+            $empID=$_POST["empID"];
+            $empStatus=$_POST["empStatus"];
+            if(!is_null($empID) && !is_null($empStatus)){
+              $sql='UPDATE Employees SET Status="'.$empStatus.'" WHERE EmployeeID='.$empID;
+              $result=$conn->query($sql);
+            }
+          }catch(Exception $e){
 
+          }
+            
         }else {
             //echo "Password not right";
         }
@@ -132,6 +143,7 @@ if(!$loggedIn){
     <form method="POST" id="editEmpForm"></form>
       <table>
         <tr>
+          <th>Employee ID</th>
           <th>Employee Name</th>
           <th>Employee Status</th>
           <th>Employee Title</th>
@@ -143,7 +155,9 @@ if(!$loggedIn){
       //console_log();
       for($i=0;$i<count($employees);$i++){
         echo '';
-        echo '<tr><th>'.$employees[$i]["FirstName"].' '.$employees[$i]["LastName"].'</th>';
+        echo '<tr>
+        <th>'.$employees[$i]["EmployeeID"].'</th>
+        <th>'.$employees[$i]["FirstName"].' '.$employees[$i]["LastName"].'</th>';
         echo '<th><select id="empStatus'.$i.'">
                   <option value="Active"'.($employees[$i]["Status"]=="Active" ?'selected':' ').'>Active</option>
                   <option value="Inactive"'.($employees[$i]["Status"]=="Inactive" ?'selected':' ').'>Inactive</option>
