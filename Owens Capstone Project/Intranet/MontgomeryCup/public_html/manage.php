@@ -141,6 +141,8 @@ if(!$loggedIn){
       $result=$conn->query($sql);
       $employees=$result->fetch_all(MYSQLI_ASSOC);
       console_log($employees);
+      console_log($employees[0]);
+      console_log($employees[0]["Status"]);
       //console_log();
       for($i=0;$i<count($employees);$i++){
         echo '';
