@@ -140,18 +140,15 @@ if(!$loggedIn){
       $sql='SELECT * FROM Employees';
       $result=$conn->query($sql);
       $employees=$result->fetch_all(MYSQLI_ASSOC);
-      console_log($employees);
-      console_log($employees[0]);
-      console_log($employees[0]["Status"]);
       //console_log();
       for($i=0;$i<count($employees);$i++){
         echo '';
-        echo '<tr><th>'.$employees[i]["Status"].'</th>';
+        echo '<tr><th>'.$employees[$i]["FirstName"].' '.$employees[$i]["LastName"].'</th>';
         echo '<th><select id="empStatus'.$i.'">
-                  <option value="Active"'.($employees[i]["Status"]=="Active" ?'selected':' ').'>Active</option>
-                  <option value="Inactive"'.($employees[i]["Status"]=="Inactive" ?'selected':' ').'>Inactive</option>
-                  <option value="Quit"'.($employees[i]["Status"]=="Quit" ?'selected':' ').'>Quit</option>
-                  <option value="Fired"'.($employees[i]["Status"]=="Fired" ?'selected':' ').'>Fired</option>
+                  <option value="Active"'.($employees[$i]["Status"]=="Active" ?'selected':' ').'>Active</option>
+                  <option value="Inactive"'.($employees[$i]["Status"]=="Inactive" ?'selected':' ').'>Inactive</option>
+                  <option value="Quit"'.($employees[$i]["Status"]=="Quit" ?'selected':' ').'>Quit</option>
+                  <option value="Fired"'.($employees[$i]["Status"]=="Fired" ?'selected':' ').'>Fired</option>
                   </select></th>';
         echo '<script>
         document.getElementById("empStatus'.$i.'").onchange=function(){
@@ -162,7 +159,7 @@ if(!$loggedIn){
           form.action = "#";   
           element1.value=document.getElementById("empStatus'.$i.'").value;
           element1.name="empStatus";
-          element2.value="'.$employees[i]['EmployeeID'].'";
+          element2.value="'.$employees[$i]['EmployeeID'].'";
           element2.name="empID";
           form.appendChild(element1);
           document.body.appendChild(form);
