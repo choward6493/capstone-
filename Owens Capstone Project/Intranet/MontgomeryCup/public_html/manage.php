@@ -140,6 +140,7 @@ if(!$loggedIn){
       $sql='SELECT * FROM Employees';
       $result=$conn->query($sql);
       $employees=$result->fetch_array(MYSQLI_ASSOC);
+      console_log($employees);
       for($i=0;$i<count(employees);$i++){
         echo '';
         echo '<tr><th>'.$employees[i]["FirstName"].' '.$employees[i]["LastName"].' - </th>';
