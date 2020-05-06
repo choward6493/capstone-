@@ -91,10 +91,19 @@ if(!$loggedIn){
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
-
+//CaffeMacchiato:2, Americano:2
 var costDict={
-  CaffeMacchiato:2, Americano:2
+  
+  <?php 
+  $sql='SELECT * FROM Products';
+  $result=$conn->query($sql);
+  $allProd=$result->fetch_all(MYSQLI_ASSOC);
+  for($i=0;i<count($allProd);$i++){
+    echo $allProd[i]["ProductName"].':'.$allProd[i]["Cost"].($i==(count($allProd)-1) ?' ':',');
+  }
+  ?>
 };
+
 //setcookie($userCookie,$userCookieVal, time() + (86400/24), "/");
 function submitCart(tcart){
   //MAKE THIS MAKE A COOKIE INSTEAD

@@ -73,7 +73,7 @@ if ($result2->num_rows > 0) {
 
 
 $conn->close();
-
+echo '<script>window.location.replace("/");</script>';
 ?>
 <html>
 <body>
@@ -90,6 +90,9 @@ hash('md5', $_POST["psw"];);
 
 </body>
 <?php 
+/*
+//NOT WORKING ENOUGH FOR INTENDING PURPSE
+
 if($loggedIn){
     echo '
     <script>window.location.replace("/");</script>';
@@ -108,5 +111,6 @@ if($loggedIn){
     }
         </script>';
 }
+*/
 ?>
 </html>
