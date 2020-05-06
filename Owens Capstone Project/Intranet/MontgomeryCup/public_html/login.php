@@ -79,12 +79,12 @@ if($loggedIn){
 }else {
     echo '<script>
           var form = document.createElement("form");
-          var element1 = document.createElement("input");
+          var element2 = document.createElement("input");
           form.method = "POST";
-          form.action = "/";   
-          element1.value="Login Details incorrect";
-          element1.name="message";
-          form.appendChild(element1);
+          form.action = "/";  
+          element2.value="Incorrect";
+          element2.name="message";
+          form.appendChild(element2);
           document.body.appendChild(form);
           form.submit();
         
