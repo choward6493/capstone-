@@ -256,7 +256,7 @@ void draw(){
             rect(610,60+(i*40),30,30);
 
             fill(10);
-            text(cart[i].itemName+" - "+cart[i].itemSize+" - $"+cart[i].cost+" - "+cart[i].clickableNum,650,60+(i*40),100,30);
+            text(cart[i].itemName+" - "+cart[i].itemSize+" - $"+cart[i].cost+" - ",650,60+(i*40),100,30);
         }
     }
     //if a button is pressed
