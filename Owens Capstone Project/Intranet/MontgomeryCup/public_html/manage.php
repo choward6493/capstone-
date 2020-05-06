@@ -174,15 +174,17 @@ if(!$loggedIn){
           form.action = "";   
           element1.value=document.getElementById("empStatus'.$i.'").value;
           element1.name="empStatus";
+          element1.type="hidden";
           element2.value="'.$employees[$i]['EmployeeID'].'";
           element2.name="empID";
+          element2.type="hidden";
           form.appendChild(element1);
           form.appendChild(element2);
           document.body.appendChild(form);
           form.submit();
         }
         </script>';
-        echo '<th>'.$employees[$i]["Title"].'</th></tr>';
+        echo '<th>'.$employees[$i]["Title"].'</th></tr></table>';
       }
       ?>
   </div>
