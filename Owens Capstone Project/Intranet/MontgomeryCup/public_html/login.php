@@ -33,6 +33,7 @@ $usernamePP = $_POST["uname"];
 $hashPass = hash("md5",$_POST["psw"]);
 $userID=0;
 $sql = 'SELECT EmployeeID FROM Employees WHERE Email="'.$usernamePP.'"';
+$loggedIn=false;
 //echo $sql;
 //$sql = 'SELECT CustomerID, Email FROM Customers WHERE Email="arenninger@student.cscc.edu"';
 $result = $conn->query($sql);
@@ -61,7 +62,7 @@ if ($result2->num_rows > 0) {
         setcookie($userCookie,$userCookieVal, time() + (86400/24), "/");
         setcookie($passCookie,$passCookieVal,time()+(86400/24),"/");
         //echo '<script>alert("dont remember");</script>';
-        
+        $loggedIn=true;
         
     }else {
         //echo "Password not right";
@@ -72,9 +73,24 @@ if ($result2->num_rows > 0) {
 
 
 $conn->close();
+if($loggedIn){
+    echo '
+    <script>window.location.replace("/");</script>';
+}else {
+    echo '<script>
+          var form = document.createElement("form");
+          var element1 = document.createElement("input");
+          form.method = "POST";
+          form.action = "";   
+          element1.value="Login Details incorrect";
+          element1.name="message";
+          document.body.appendChild(form);
+          form.submit();
+        
+        </script>';
+}
 ?>
 <html>
-<script>window.location.replace("/");</script>
 <body>
 
 <!-- 
