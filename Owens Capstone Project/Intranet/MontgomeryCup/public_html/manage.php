@@ -73,7 +73,7 @@ if ($result->num_rows > 0) {
             $empID=$_POST["empID"];
             $empStatus=$_POST["empStatus"];
             
-              $sql='UPDATE Employees SET Status="'.$empStatus.'" WHERE EmployeeID='.$empID';';
+              $sql='UPDATE Employees SET Status="'.$empStatus.'" WHERE EmployeeID='.$empID.';';
               console_log($sql);
               //$result=$conn->query($sql);
             
