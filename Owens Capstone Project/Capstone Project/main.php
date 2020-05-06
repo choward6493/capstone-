@@ -254,12 +254,16 @@
     } else {
         //echo "0 results";
     }
-  
+    
+
   ?></p>
 		    <form class="form-inline" action="#">
-                <label for="email">Join our mailing list:</label>
-                <input type="email" id="email" placeholder="Enter email" name="email">
-                <button class="email" type="submit">Submit</button>
+                <h2>Feedback:</h2>
+                <label for="sendEmail">Contact Email:</label>
+                <input type="email" id="email" placeholder="Enter email" name="sendEmail">
+                <label for="sendMessage">Contact Message</label>
+                <textarea name="sendMessage" placeholder="Message Here"></textarea>
+                <button type="submit">Submit</button>
             </form>
 		</div>
     </body>
