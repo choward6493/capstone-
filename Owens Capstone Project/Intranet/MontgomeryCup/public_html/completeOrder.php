@@ -30,13 +30,14 @@ $sqlUPDATE='UPDATE Orders SET OrderStatus=0 WHERE OrderID='.$orderID;
 $resultUpdate=$conn->query($sqlUPDATE);
 ?>
 <html>
+    <body></body>
 <script>var form = document.createElement("form");
     
     var element2 = document.createElement("input");  
 
     form.method = "POST";
     form.action = "index.php";   
-    element2.value=<?php echo $location;?>;
+    element2.value="<?php echo $location;?>";
     element2.name="location";
     form.appendChild(element2);
 
