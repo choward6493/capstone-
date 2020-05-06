@@ -141,7 +141,8 @@ if(!$loggedIn){
       $result=$conn->query($sql);
       $employees=$result->fetch_all(MYSQLI_ASSOC);
       console_log($employees);
-      for($i=0;$i<count(employees);$i++){
+      console_log();
+      for($i=0;$i<count($employees);$i++){
         echo '';
         echo '<tr><th>'.$employees[i]["FirstName"].' '.$employees[i]["LastName"].' - </th>';
         echo '<th><select id="empStatus'.$i.'">
@@ -152,7 +153,7 @@ if(!$loggedIn){
                   </select></th>';
         echo '<script>
         document.getElementById("empStatus'.$i.'").onchange=function(){
-          var form = document.createElement("form");=
+          var form = document.createElement("form");
           var element1 = document.createElement("input");
           var element2 = document.createElement("input");
           form.method = "POST";
