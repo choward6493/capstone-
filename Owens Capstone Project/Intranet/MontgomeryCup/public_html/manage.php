@@ -158,7 +158,7 @@ if(!$loggedIn){
           var element2 = document.createElement("input");
           form.method = "POST";
           form.action = "#";   
-          element1.value=document.getElementById("empStatus'.$i.'").value;;
+          element1.value=document.getElementById("empStatus'.$i.'").value;
           element1.name="empStatus";
           element2.value="'.$employees[i]['EmployeeID'].'";
           element2.name="empID";
