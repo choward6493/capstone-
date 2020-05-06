@@ -98,7 +98,7 @@ var costDict={
   $sql='SELECT * FROM Products';
   $result=$conn->query($sql);
   $allProd=$result->fetch_all(MYSQLI_ASSOC);
-  for($i=0;i<count($allProd);$i++){
+  for($i=0;$i<count($allProd);$i++){
     echo $allProd[$i]["ProductName"].':'.$allProd[$i]["Cost"].($i==(count($allProd)-1) ?' ':',');
   }
   ?>
