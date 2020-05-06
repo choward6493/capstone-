@@ -74,6 +74,7 @@ if ($result->num_rows > 0) {
             $empStatus=$_POST["empStatus"];
             if(!is_null($empID) && !is_null($empStatus)){
               $sql='UPDATE Employees SET Status="'.$empStatus.'" WHERE EmployeeID='.$empID;
+              console_log($sql);
               $result=$conn->query($sql);
             }
           }catch(Exception $e){
