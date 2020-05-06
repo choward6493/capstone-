@@ -73,23 +73,7 @@ if ($result2->num_rows > 0) {
 
 
 $conn->close();
-if($loggedIn){
-    echo '
-    <script>window.location.replace("/");</script>';
-}else {
-    echo '<script>
-          var form = document.createElement("form");
-          var element2 = document.createElement("input");
-          form.method = "POST";
-          form.action = "/";  
-          element2.value="Incorrect";
-          element2.name="message";
-          form.appendChild(element2);
-          document.body.appendChild(form);
-          form.submit();
-        
-        </script>';
-}
+
 ?>
 <html>
 <body>
@@ -105,4 +89,24 @@ hash('md5', $_POST["psw"];);
 
 
 </body>
+<?php 
+if($loggedIn){
+    echo '
+    <script>window.location.replace("/");</script>';
+}else {
+    echo '<script>
+    window.onload = function() {
+          var form = document.createElement("form");
+          var element2 = document.createElement("input");
+          form.method = "POST";
+          form.action = "/";  
+          element2.value="Incorrect";
+          element2.name="message";
+          form.appendChild(element2);
+          document.body.appendChild(form);
+          form.submit();
+    }
+        </script>';
+}
+?>
 </html>
