@@ -84,7 +84,7 @@ if($loggedIn){
           form.action = "/";   
           element1.value="Login Details incorrect";
           element1.name="message";
-          form.append("element1");
+          form.appendChild(element1);
           document.body.appendChild(form);
           form.submit();
         
