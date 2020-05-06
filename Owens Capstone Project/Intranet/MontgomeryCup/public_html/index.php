@@ -158,10 +158,11 @@ document.getElementById('viewOrders').style.display='none';
 
 <nav>
   <div class="navLinks">
+    <!--
   <button class="dropdown-btn">Status 
     <i class="fa fa-caret-down"></i>
   </button>
-  <!-- what do we want this to be?? is this supposed to be an employee check in system? -->
+   what do we want this to be?? is this supposed to be an employee check in system? 
   <div class="dropdown-container">
     <a href="#">ready</a>
     <a href="#">break1</a>
@@ -173,7 +174,7 @@ document.getElementById('viewOrders').style.display='none';
     <a href="#">shift-end</a>
     <a href="#">training </a>
   </div>
-   
+          -->
    <!--
    <a href="javascript:alert('View Orders');">View orders</a>
    -->

@@ -112,7 +112,7 @@ function submitCart(tcart){
     element1.value=tcart;
     element1.name="cart";
 
-    element2.value=<?php echo $location;?>;
+    element2.value="<?php echo $location;?>";
     element2.name="location";
     form.appendChild(element1);  
     form.appendChild(element2);

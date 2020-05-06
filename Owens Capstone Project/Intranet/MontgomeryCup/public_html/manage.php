@@ -115,7 +115,7 @@ if(!$loggedIn){
 <div class="toplink">
    <a href="index.php">Home</a>
    <a href="order.php">New order</a>
-   <a href="#">Employee Portal</a>
+   <a href="Employee_Portal.php">Employee Portal</a>
 </div>
   <script>
       var screenSwitch=function(screenNum){
