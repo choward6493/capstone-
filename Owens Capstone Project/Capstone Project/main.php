@@ -257,7 +257,7 @@
     
 
   ?></p><h2>Feedback:</h2>
-		    <form class="form-inline" action="#">
+		    <form class="form-inline" method="post" action="contact.php">
                 
                 <label for="sendEmail">Contact Email:</label>
                 <input type="email" id="email" placeholder="Enter email" name="sendEmail">
