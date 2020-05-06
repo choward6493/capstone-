@@ -75,7 +75,7 @@ if ($result->num_rows > 0) {
             
               $sql='UPDATE Employees SET Status="'.$empStatus.'" WHERE EmployeeID='.$empID';';
               console_log($sql);
-              $result=$conn->query($sql);
+              //$result=$conn->query($sql);
             
           }catch(Exception $e){
             console_log($e);
