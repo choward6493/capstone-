@@ -184,9 +184,10 @@ if(!$loggedIn){
           form.submit();
         }
         </script>';
-        echo '<th>'.$employees[$i]["Title"].'</th></tr></table>';
+        echo '<th>'.$employees[$i]["Title"].'</th></tr>';
       }
       ?>
+      </table>
   </div>
     <div class="portal" id="newEmployee" style="display:none">
        <div class="row">
