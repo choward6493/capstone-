@@ -129,7 +129,7 @@ if(!$loggedIn){
       }
 </script>
   <a href="javascript:screenSwitch(1);">New Employee</a>
- <a  href="javascript:screenSwitch(0);">Edit Employees</a>
+  <a href="javascript:screenSwitch(0);">Edit Employees</a>
   <article>
     <div class="portal" id="editEmployee"style="display:none" >
     <script>

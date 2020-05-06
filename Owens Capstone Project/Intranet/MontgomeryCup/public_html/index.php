@@ -365,7 +365,7 @@ document.getElementById('viewOrders').style.display='none';
 
 <footer>
 Copyright &copy; 2016 Montgomery Cup Coffee <br>
-<a href="mailto:yourfirstname@yourlastname.com">contact.us@MontgomeryCup.com</a>
+<a href="mailto:contact.us@MontgomeryCup.com">contact.us@MontgomeryCup.com</a>
 </footer>
 </div>
 <script src="index.js"></script>
