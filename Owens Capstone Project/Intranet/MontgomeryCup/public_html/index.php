@@ -299,7 +299,7 @@ document.getElementById('viewOrders').style.display='none';
                 $sql4= 'SELECT ProductName FROM Products WHERE ProductID='.$itemSingle["ProductID"].'';
                 $result4= $conn->query($sql4);
                 $productName= $result4->fetch_assoc()["ProductName"];
-                $itemsString=$itemSingle["OrderSize"].' - '.$productName.' x '.strval($itemSingle["ItemQuantity"]);
+                $itemsString=$itemSingle["OrderSize"].' - '.$productName.' x '.strval($itemSingle["ItemQuantity"]).' - '.$itemSingle["AddOns"];
                 echo $itemsString.'<br/><br/>';
               }
               echo '</th>';
