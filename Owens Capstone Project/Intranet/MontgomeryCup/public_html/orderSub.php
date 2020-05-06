@@ -11,7 +11,7 @@ $servername = "capstone.cfwnz1g6jqbd.us-east-1.rds.amazonaws.com:3306";
 $username = "admin";
 $password = "SixGuys1CapstoneProject";
 $dbname="Capstone";
-
+date_default_timezone_set("America/New_York");
 
 //INSERT INTO Employees(FirstName,LastName,PhoneNumber,Email,Status,HireDate,Title,AccessCode)Values("Test","Dummy","614-999-9999","arenninger@student.cscc.edu","Hired","2020-01-01","Manager","123456")
 //INSERT INTO EmployeeLOG(EmployeeID,PasswordHash)values(1,"343b1c4a3ea721b2d640fc8700db0f36")

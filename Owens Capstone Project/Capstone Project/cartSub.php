@@ -11,7 +11,7 @@ $servername = "capstone.cfwnz1g6jqbd.us-east-1.rds.amazonaws.com:3306";
 $username = "admin";
 $password = "SixGuys1CapstoneProject";
 $dbname="Capstone";
-
+date_default_timezone_set("America/New_York");
 // Create connection
 $conn = new mysqli($servername, $username, $password,$dbname);
 if ($conn->connect_error) {
