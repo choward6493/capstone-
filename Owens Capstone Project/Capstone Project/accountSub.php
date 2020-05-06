@@ -107,7 +107,7 @@ if ($result->num_rows > 0) {
                     $result = $conn->query($sql);
                 }
 
-                if($npsw1!=""&&$npsw2!="")){
+                if($npsw1!=""&&$npsw2!=""){
                     if($npsw1==$npsw2){
                         $npswHash=hash("md5",$npsw1);
                         $sql='UPDATE CustomerLOG SET CustomerPasswordHash="'.$npswHash.'" WHERE CustomerID='.$userInfo["CustomerID"];
