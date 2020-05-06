@@ -30,7 +30,7 @@ echo $location;
 try{
 $location=$_POST['location'];
 setcookie("location",$location, time() + (86400/24), "/");
-$message=$_POST['message'];
+$message=$_POST["message2"];
 if(!is_null($message)){
   alertJS($message);
 }  

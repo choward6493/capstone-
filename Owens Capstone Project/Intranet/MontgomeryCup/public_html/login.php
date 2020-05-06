@@ -101,7 +101,7 @@ if($loggedIn){
           form.method = "POST";
           form.action = "/";  
           element2.value="Incorrect";
-          element2.name="message";
+          element2.name="message2";
           form.appendChild(element2);
           document.body.appendChild(form);
           form.submit();
