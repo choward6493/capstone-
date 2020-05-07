@@ -121,6 +121,14 @@ if(!$loggedIn){
   <div class="column">
     <div class="content">
     <a href="files/">
+      <img src="images/Profile.png" alt="trainning" style="width:100%">
+    </a>
+      <h3>Files</h3>
+    </div>
+  </div>
+  <div class="column">
+    <div class="content">
+    <a href="trainings/">
       <img src="images/trainning.png" alt="trainning" style="width:100%">
     </a>
       <h3>Trainings</h3>
