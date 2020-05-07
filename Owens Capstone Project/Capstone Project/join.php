@@ -16,7 +16,7 @@
                         <label for="uname"><b>Email</b></label>
                         <input type="email" placeholder="Enter Email" name="uname" required>
 
-                        <label for="psw"><b>Password</b></label>
+                        <label for="psw"><b>Password (Must be at least 6 characters and contain a number)</b></label>
                         <input type="password" placeholder="Enter Password" name="psw" pattern="^(?=.*\d).{6,20}$" required>
 
                         <label for="firstName"><b>First Name</b></label>
@@ -26,7 +26,7 @@
                         <input type="text" placeholder="Enter last name" name="lastName" required>
 
                         <label for="phoneNumber"><b>Phone Number</b></label>
-                        <input type="text" pattern="^([\+][0-9]{1,3}([ \.\-])?)?([\(]{1}[0-9]{3}[\)])?([0-9A-Z \.\-]{1,32})((x|ext|extension)?[0-9]{1,4}?)$" placeholder="Enter phone number" name="phoneNumber" required>
+                        <input type="text" pattern="^([\+][0-9]{1,3}([ \.\-])?)?([\(]{1}[0-9]{3}[\)])?([0-9A-Z \.\-]{1,32})((x|ext|extension)?[0-9]{1,4}?)$" placeholder="(123)456-7890" name="phoneNumber" required>
                         <!-- https://stackoverflow.com/questions/123559/how-to-validate-phone-numbers-using-regex thank you!!!!!!-->
                         <label for="address"><b>Address</b></label>
                         <input type="text" placeholder="Enter address" name="address" required>

@@ -329,7 +329,7 @@ window.onclick = function(event) {
             <label for="ccnum">Credit card number</label>
             <input type="text" pattern="\d{4}-?\d{4}-?\d{4}-?\d{4}" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" required>
             <label for="expmonth">Expiration Date</label>
-            <input type="month" pattern="^\d{1,2}\/\d{2,4}$"id="expmonth" name="expdate" placeholder="01/20" required>
+            <input type="month" pattern="^\d{1,2}\/\d{2,4}$"id="expmonth" name="expdate" placeholder="01/20" min="<?php date('Y-m');?>" required>
 
 
                 <label for="cvv">CVV</label>
@@ -339,7 +339,7 @@ window.onclick = function(event) {
 
         </div>
         <label for="picktime">Pickup Time</label>
-        <input type="datetime-local" id="picktime" name="picktime">
+        <input type="datetime-local" id="picktime" name="picktime" min="<?php date('m-d-Y h:i A'); ?>">
         <label for="location">Pickup Location</label>
             <select id='location' name="location" required>
                             <option value="GC">Grove City</option>
