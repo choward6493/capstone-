@@ -291,7 +291,7 @@ void draw(){
         }
     }
     fill(10);
-    text("Total: "+getTotalCart(),800,80);
+    text("Total Cost: $"+getTotalCart()+".00",800,80);
     
     
     for(var i=0;i<3;i++;){
@@ -304,7 +304,7 @@ void draw(){
         }
         rect(sizeBut[0+i*4],sizeBut[1+i*4],sizeBut[2+i*4],sizeBut[3+i*4]);
         fill(255,255,255);
-        text(sizeT,sizeBut[0+i*4]+5,sizeBut[1+i*4]+5);
+        text(sizeT,sizeBut[0+i*4]+5,sizeBut[1+i*4]+15);
     }
     //if a button is pressed
     if(bPressed){
