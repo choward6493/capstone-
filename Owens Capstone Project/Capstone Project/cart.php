@@ -341,7 +341,7 @@ window.onclick = function(event) {
 
         </div>
         <label for="picktime">Pickup Time</label>
-        <input type="datetime-local" id="picktime" name="picktime" min="<?php echo date('m-d-Y H:i'); ?>">
+        <input type="datetime-local" id="picktime" name="picktime" min="<?php echo date('m-d-Y\TH:i:sP'); ?>">
         <label for="location">Pickup Location</label>
             <select id='location' name="location" required>
                             <option value="GC">Grove City</option>
