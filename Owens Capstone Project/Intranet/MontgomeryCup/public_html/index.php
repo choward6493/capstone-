@@ -243,6 +243,7 @@ document.getElementById('viewOrders').style.display='none';
           <th>Order #</th>
           <th>Items</th>
           <th>Order Date</th>
+          <th>Pickup Date</th>
           <th>Order Status</th>
           <th>Complete</th>
         </tr>
@@ -302,7 +303,9 @@ document.getElementById('viewOrders').style.display='none';
                 echo $itemsString.'<br/><br/>';
               }
               echo '</th>';
+
               echo '<th>'.$singleOrder["OrderDate"].'</th>';
+              echo '<th>'.$singleOrder["PickDate"].'</th>';
               echo '<th>'.$orderStatusText.'</th>';
               //also put in items as hidden input for extra validation/checking
               echo '<th><form action="completeOrder.php" style="padding:0;margins:0;" method="post"><input type="hidden" id="locationVal" name="locationVal" value="'.$singleOrder["StoreName"].'"><input type="hidden" id="orderVal" name="orderID" value="'.$singleOrder["OrderID"].'"><button style="width:75%%;" type="submit">Completed</button></form></th>';
