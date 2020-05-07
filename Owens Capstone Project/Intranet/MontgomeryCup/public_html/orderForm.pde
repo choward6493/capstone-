@@ -142,6 +142,14 @@ void addCart(String itemName){
     
 }
 
+int getTotalCart(){
+    var total=0;
+    if(cart.length!=0){
+        for(var i=0;i<cart.length;i++)
+        total+=cart[i].cost;
+    }
+    return total;
+}
 
 
 void selectSize(var sizeName){
@@ -207,6 +215,7 @@ void setup(){
             }
         }
     }
+    //add submit button to clickable
     optionClick=(optionClick[])expand(optionClick,optionClick.length+1);
     optionClick[optionClick.length-1]=submitButtond;
                 
@@ -259,6 +268,8 @@ void draw(){
             text(cart[i].itemName+" - "+cart[i].itemSize+" - $"+cart[i].cost+" - ",650,60+(i*40),100,30);
         }
     }
+    fill(10);
+    text(getTotalCart(),800,20,100,30);
     //if a button is pressed
     if(bPressed){
         console.log("pressed");

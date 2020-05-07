@@ -39,25 +39,24 @@ if(!is_null($message)){
 
 }
 
+//if cookie is stored in login details
 if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
 $usernamePP=$_COOKIE['user'];
-//console_log($usernamePP);
 $hashPass=$_COOKIE['token'];
 $userID=0;
+//select employee with the username stored to check
 $sql = 'SELECT EmployeeID FROM Employees WHERE Email="'.$usernamePP.'"';
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output userID from email
     $userID=$result->fetch_assoc()["EmployeeID"];
-    //echo $result->fetch_assoc()["CustomerID"].'<br>';
+    //get password stored to check
     $sql2 = 'SELECT PasswordHash FROM EmployeeLOG WHERE EmployeeID='.$userID;
-    //echo $sql2;
     $result2 = $conn->query($sql2);
     if ($result2->num_rows > 0) {
         // output userID from email
         $hashedData=$result2->fetch_array();
-        //echo '<br>'.$hashedData.'<br>';
-        //echo '<br>'.$hashPass;
+        //check for similarity
         if($hashPass==$hashedData["PasswordHash"]){
           //get employee name
             $sql = 'SELECT * FROM Employees WHERE EmployeeID='.$userID;
@@ -67,7 +66,10 @@ if ($result->num_rows > 0) {
             $sql = 'SELECT * FROM Employees WHERE EmployeeID='.$userID;
             $result = $conn->query($sql);
             $employeeTitle=$result->fetch_assoc()["Title"];
-            $loggedIn=true;
+            if($employeeTitle=="Manager"||$employeeTitle=="Owner"){
+              $loggedIn=true;
+            }
+            
             //echo 'test';
           try{
             $empID=$_POST["empID"];
