@@ -166,6 +166,10 @@ void submitButton(x,y,width,height){
     submitButtond=new Clickable(x,width,y,height,0,submitCartd);
     fill(10);
 }
+
+int[] sizeBut=new int(12);
+
+
 void submitCartd(var randomThing){
     cartT=cart;
     if(cart.length!=null){
@@ -183,7 +187,6 @@ void submitCartd(var randomThing){
     }
 }
 Clickable optionClick={};
-
 void setup(){
     frameRate(60);
     size(screenC[0],screenC[1])
@@ -191,10 +194,9 @@ void setup(){
     noStroke();
     fill(100);
     submitButton(800,100,100,100);
-    //size of drink buttons
-    for(var i=0;i<3;i++;){
 
-    }
+  
+
     //populate array of image information
     for(var i=0;i<imageNames.length;i++;){
         var controlW=false;
@@ -215,10 +217,30 @@ void setup(){
             }
         }
     }
+
+    
+
     //add submit button to clickable
     optionClick=(optionClick[])expand(optionClick,optionClick.length+1);
     optionClick[optionClick.length-1]=submitButtond;
                 
+    //add size buttons to clickable
+
+    for(var i=0;i<3;i++;){
+        var sizeT="small";
+        if(i==1){
+            sizeT="medium";
+        }else if(i==2){
+            sizeT="large";
+        }
+        sizeBut[0+i*4]=800+(i*40);
+        sizeBut[1+i*4]=20;
+        sizeBut[2+i*4]=30;
+        sizeBut[3+i*4]=30;
+        optionClick=(optionClick[])expand(optionClick,optionClick.length+1);
+        optionClick[optionClick.length-1]=new Clickable(sizeBut[0+i*4],sizeBut[2+i*4],sizeBut[1+i*4],sizeBut[3+i*4],sizeT,selectSize);
+    }
+    
 
 }
 
@@ -269,7 +291,21 @@ void draw(){
         }
     }
     fill(10);
-    text(getTotalCart(),800,20,100,30);
+    text("Total: "+getTotalCart(),800,80);
+    
+    
+    for(var i=0;i<3;i++;){
+        fill(20,20,180);
+        var sizeT="S";
+        if(i==1){
+            sizeT="M";
+        }else if(i==2){
+            sizeT="L";
+        }
+        rect(sizeBut[0+i*4],sizeBut[1+i*4],sizeBut[2+i*4],sizeBut[3+i*4]);
+        fill(255,255,255);
+        text(sizeT,sizeBut[0+i*4]+5,sizeBut[1+i*4]+5);
+    }
     //if a button is pressed
     if(bPressed){
         console.log("pressed");
