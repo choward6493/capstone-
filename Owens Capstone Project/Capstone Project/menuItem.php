@@ -69,6 +69,9 @@ $result=$conn->query($sql);
 
 $VALIDITEMS=$result->fetch_all();
 console_log($VALIDITEMS);
+for($i=0;$i<count($VALIDITEMS);$i++){
+  $VALIDITEMS[$i]=$VALIDITEMS[$i][0];
+}
 if(in_array($item,$VALIDITEMS)){
     //nothing
     console_log($item);
