@@ -68,12 +68,13 @@ $sql='SELECT ProductName FROM Products';
 $result=$conn->query($sql);
 
 $VALIDITEMS=$result->fetch_all();
+console_log($VALIDITEMS);
 if(in_array($item,$VALIDITEMS)){
     //nothing
     console_log($item);
 }else{
     //because it is get request, super quick questioning
-    echo '<script>window.location.replace("main.php");</script>';
+    //echo '<script>window.location.replace("main.php");</script>';
 }
 $sql4='SELECT DescriptionInfo FROM Products WHERE ProductName ="'.$item.'"';
   console_log($sql4);
