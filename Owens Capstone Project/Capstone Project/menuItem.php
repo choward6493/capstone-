@@ -63,7 +63,11 @@ if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
 }
 
 $item=$_POST["item"];
-$VALIDITEMS=array("Cappuccino", "IcedLatte", "Espresso", "CaramelMacchiato","Americano","CaffeMocha","caffeMacchiato","CaramelLatte","CaffeMacciato2","DarkChocolateMocha","HavanaCappuccino","HoneyLavenderLatte","IcedCaffeMocha","IcedVanillaLatte","WhiteChocolateMocha");
+//make this grab from website
+$sql='SELECT ProductName FROM Products';
+$result=$conn->query($sql);
+
+$VALIDITEMS=$result->fetch_all();
 if(in_array($item,$VALIDITEMS)){
     //nothing
     console_log($item);
