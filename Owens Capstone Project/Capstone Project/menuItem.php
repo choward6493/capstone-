@@ -26,7 +26,7 @@ if ($conn->connect_error) {
 
 if(isset($_COOKIE['token'])&&isset($_COOKIE['user'])){
   $usernamePP=$_COOKIE['user'];
-  console_log($usernamePP);
+  //console_log($usernamePP);
   $hashPass=$_COOKIE['token'];
   $userID=0;
   $sql = 'SELECT CustomerID FROM Customers WHERE Email="'.$usernamePP.'"';
@@ -72,18 +72,18 @@ for($i=0;$i<count($VALIDITEMS);$i++){
   $VALIDITEMS[$i]=$VALIDITEMS[$i][0];
 }
 
-console_log($VALIDITEMS);
+//console_log($VALIDITEMS);
 if(in_array($item,$VALIDITEMS)){
     //nothing
     console_log($item);
 }else{
     //because it is get request, super quick questioning
-    //echo '<script>window.location.replace("main.php");</script>';
+    echo '<script>window.location.replace("main.php");</script>';
 }
 $sql4='SELECT DescriptionInfo FROM Products WHERE ProductName ="'.$item.'"';
-  console_log($sql4);
+  //console_log($sql4);
   $result4 = $conn->query($sql4);
-  console_log($result4);
+  //console_log($result4);
   if ($result4->num_rows > 0) {
       console_log("stuff");
       $descInfo=$result4->fetch_assoc()["DescriptionInfo"];
