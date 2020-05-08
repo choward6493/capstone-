@@ -90,6 +90,17 @@ $sql4='SELECT DescriptionInfo FROM Products WHERE ProductName ="'.$item.'"';
   } else {
       //echo "0 results";
   }
+
+  $sql4='SELECT Cost FROM Products WHERE ProductName ="'.$item.'"';
+  //console_log($sql4);
+  $result4 = $conn->query($sql4);
+  //console_log($result4);
+  if ($result4->num_rows > 0) {
+      console_log("stuff");
+      $prodCost=$result4->fetch_assoc()["Cost"];
+  } else {
+      //echo "0 results";
+  }
 /*
 
 // Check connection
@@ -239,6 +250,7 @@ window.onclick = function(event) {
 <br>
   </div>
   <div class="description" style="margin-left:300px; padding-top:100px;font-size:20px;">
+  <h2>$ <?php echo $prodCost;?></h2>
   <h2><?php 
   
   echo $descInfo;
