@@ -16,6 +16,8 @@
     $sendEmail=$_POST["sendEmail"];
     $sendMessage=$_POST["sendMessage"];
     $sql='INSERT INTO WebInfo(contactEmail,contactMessage)Values("'.$sendEmail.'","'.$sendMessage.'")';
+    console_log($sql);
     $result=$conn->query($sql);
-    echo '<script>window.location.replace("/");</script>';
+    console_log($result);
+    //echo '<script>window.location.replace("/");</script>';
 ?>
