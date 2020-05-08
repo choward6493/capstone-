@@ -15,9 +15,10 @@
 
     $sendEmail=$_POST["sendEmail"];
     $sendMessage=$_POST["sendMessage"];
-    $sql='INSERT INTO WebInfo(contactEmail,contactMessage)Values("'.$sendEmail.'","'.$sendMessage.'")';
-    console_log($sql);
+    $numS=rand(7,1000);
+    $sql='INSERT INTO WebInfo(HitID,contactEmail,contactMessage)Values('.$numS.',"'.$sendEmail.'","'.$sendMessage.'")';
+    //console_log($sql);
     $result=$conn->query($sql);
-    console_log($result);
-    //echo '<script>window.location.replace("/");</script>';
+    //console_log($result);
+    echo '<script>window.location.replace("/");</script>';
 ?>
